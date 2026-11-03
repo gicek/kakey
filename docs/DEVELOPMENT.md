@@ -13,7 +13,7 @@ An Apple silicon Mac is the recommended development machine. The Apple apps need
 | cargo-deny | 0.20.2 (`cargo install cargo-deny --locked --version 0.20.2`) | The license check in `make test-core` (skipped locally when missing, always run in CI) and `make core-audit` |
 | XcodeGen | 2.45.4 (`brew install xcodegen`) | Only for `make project` after editing `Apple/project.yml` |
 | JDK | 21 (`brew install openjdk@21`) | Android. The Makefile uses `JDK_HOME`, then `JAVA_HOME`, then Homebrew's `openjdk@21` |
-| Android SDK / NDK | Platform 37, build-tools 36; the NDK is the highest version in the SDK or `ANDROID_NDK_HOME` (CI uses 29.0.14206865) | Android. The SDK location comes from `ANDROID_HOME`, default `~/Library/Android/sdk` |
+| Android SDK / NDK | Platform 37 (package `platforms;android-37.0`), build-tools 36; the NDK is the highest version in the SDK or `ANDROID_NDK_HOME` (CI uses 29.0.14206865) | Android. The SDK location comes from `ANDROID_HOME`, default `~/Library/Android/sdk` |
 | cargo-ndk | 4.1.2 (`cargo install cargo-ndk --locked --version 4.1.2`) | Building the core `.so` for Android |
 | Python 3 | Ships with macOS | Build, test, and localization scripts use only the standard library |
 | `.venv` (optional) | `requirements-dev.txt` pins Pillow, dmgbuild, and their dependencies | Only for `make icons` and Mac DMG packaging: `python3 -m venv .venv && .venv/bin/pip install -r requirements-dev.txt` |
