@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Cloud storage backup allows cleartext HTTP to a self-hosted WebDAV / Nextcloud server the user has confirmed (the host is
+    user-entered, so it cannot be declared per domain). The real constraints live in the core cloudset crate: OAuth providers
+    are HTTPS only, requests go only to the configured origin, and HTTPS -> HTTP downgrades are refused (see docs/SECURITY.md).
+    Only system certificates are trusted, not user-installed CAs.
+-->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>

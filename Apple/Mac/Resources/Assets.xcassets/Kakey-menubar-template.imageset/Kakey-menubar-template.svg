@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <title>Kakey menu bar template</title>
+  <!--
+    Menu bar template master: the 1024 canvas maps to an 18x18 pt menu bar icon, with the mark at 16/18 of the height (about 910).
+    Scaled straight to 18 / 36 px for 1x / 2x. Pure black with alpha; the system tints it for the appearance.
+    Geometry follows the design coordinates of kakey-logo-1024-transparent.svg, simplified for small sizes: a solid shield,
+    a cut-out keyhole, a thicker shackle, and an enlarged check badge separated from the shield by a gap, with the check cut out of the badge.
+  -->
+  <defs>
+    <mask id="cut" maskUnits="userSpaceOnUse" x="0" y="0" width="1024" height="1024">
+      <rect width="1024" height="1024" fill="#ffffff"/>
+      <!-- Keyhole (1.2x the original and moved up slightly so it stays legible at 1x and leaves solid fill before the badge gap) -->
+      <path transform="translate(512 540) scale(1.2) translate(-512 -552)" d="M528 560Q526 548.7 534 543.8A42 42 0 1 0 490 543.8Q498 548.7 496 560L484 626Q482 638 494 638H530Q542 638 540 626Z" fill="#000000"/>
+      <!-- Gap around the badge -->
+      <circle cx="680" cy="690" r="120" fill="#000000"/>
+    </mask>
+    <mask id="check-cut" maskUnits="userSpaceOnUse" x="0" y="0" width="1024" height="1024">
+      <rect width="1024" height="1024" fill="#ffffff"/>
+      <path transform="translate(680 690) scale(1.25) translate(-638 -652)" d="M607 653L628 674L669 631" fill="none" stroke="#000000" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+    </mask>
+  </defs>
+
+  <g transform="translate(512 512) scale(1.548) translate(-542.5 -501.5)" fill="#000000">
+    <g mask="url(#cut)">
+      <!-- Shackle -->
+      <path d="M404 440V346A108 108 0 0 1 620 346V440" fill="none" stroke="#000000" stroke-width="60"/>
+      <!-- Shield -->
+      <path d="M506 343Q512 339 518 343C556 367 620 395 700 404Q714 406 715 420C718 590 644 718 518 793Q512 797 506 793C380 718 306 590 309 420Q310 406 324 404C404 395 468 367 506 343Z"/>
+    </g>
+    <!-- Check badge -->
+    <circle cx="680" cy="690" r="96" mask="url(#check-cut)"/>
+  </g>
+</svg>

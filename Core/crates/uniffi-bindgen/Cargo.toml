@@ -1,0 +1,11 @@
+[package]
+name = "uniffi-bindgen"
+description = "CLI that generates the Swift / Kotlin bindings (library mode; runs on the build machine only, never ships in the app)"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+uniffi = { version = "0.32.2", features = ["cli"] }

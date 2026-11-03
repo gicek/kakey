@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <title>Kakey</title>
+  <defs>
+    <!-- Full-bleed background: neutral gray darkening from top to bottom -->
+    <linearGradient id="bg-fill" x1="0" y1="0" x2="0" y2="1024" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#323232"/>
+      <stop offset="1" stop-color="#131313"/>
+    </linearGradient>
+    <!-- Mark geometry (design coordinates; scaled and centered below, no drop shadow. Fills the 824x824 content area of the Apple icon grid: full height, 100 margin top and bottom) -->
+    <path id="shield" d="M506 343Q512 339 518 343C556 367 620 395 700 404Q714 406 715 420C718 590 644 718 518 793Q512 797 506 793C380 718 306 590 309 420Q310 406 324 404C404 395 468 367 506 343Z"/>
+    <path id="shield-face" d="M507 375Q512 372 517 375C553 396 612 419 678 428Q688 430 688 441C690 586 625 700 512 764C399 700 334 586 336 441Q336 430 346 428C412 419 471 396 507 375Z"/>
+    <!-- Keyhole: a tangent-continuous rounded transition between the round hole and the trapezoid slot -->
+    <path id="keyhole" d="M528 560Q526 548.7 534 543.8A42 42 0 1 0 490 543.8Q498 548.7 496 560L484 626Q482 638 494 638H530Q542 638 540 626Z"/>
+    <path id="shackle" d="M404 440V340A108 108 0 0 1 620 340V440"/>
+    <path id="check" d="M607 653L628 674L669 631"/>
+
+    <!-- Shackle: light glass tube -->
+    <linearGradient id="shackle-fill" x1="381" y1="0" x2="643" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#a9adb5"/>
+      <stop offset="0.18" stop-color="#e4e6ea"/>
+      <stop offset="0.45" stop-color="#a3a8b1"/>
+      <stop offset="0.82" stop-color="#80868f"/>
+      <stop offset="1" stop-color="#5f646c"/>
+    </linearGradient>
+    <linearGradient id="shackle-shine" x1="381" y1="0" x2="643" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.6"/>
+      <stop offset="0.5" stop-color="#ffffff" stop-opacity="0.3"/>
+      <stop offset="0.8" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Shield: bright blue body with a slightly darker inner face -->
+    <linearGradient id="shield-fill" x1="380" y1="340" x2="600" y2="797" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5a7fbf"/>
+      <stop offset="0.5" stop-color="#36599a"/>
+      <stop offset="1" stop-color="#213a6e"/>
+    </linearGradient>
+    <linearGradient id="face-fill" x1="0" y1="372" x2="0" y2="764" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3a5d9e"/>
+      <stop offset="1" stop-color="#22396a"/>
+    </linearGradient>
+    <!-- Glass edge highlight: strong at the top left, weak at the bottom right -->
+    <linearGradient id="rim-light" x1="320" y1="340" x2="700" y2="790" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.55"/>
+      <stop offset="0.35" stop-color="#ffffff" stop-opacity="0.12"/>
+      <stop offset="0.65" stop-color="#ffffff" stop-opacity="0.05"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.25"/>
+    </linearGradient>
+    <linearGradient id="face-sheen" x1="0" y1="372" x2="0" y2="620" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.1"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="keyhole-fill" x1="0" y1="466" x2="0" y2="638" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0b1426"/>
+      <stop offset="1" stop-color="#16254a"/>
+    </linearGradient>
+
+    <!-- Check badge: cyan glass disc -->
+    <linearGradient id="badge-fill" x1="0" y1="578" x2="0" y2="722" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3fb6d6"/>
+      <stop offset="1" stop-color="#1a7aa6"/>
+    </linearGradient>
+    <linearGradient id="badge-rim" x1="590" y1="585" x2="690" y2="720" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.5"/>
+      <stop offset="0.45" stop-color="#ffffff" stop-opacity="0.06"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.25"/>
+    </linearGradient>
+
+    <clipPath id="shield-clip"><use href="#shield"/></clipPath>
+    <clipPath id="face-clip"><use href="#shield-face"/></clipPath>
+    <clipPath id="keyhole-clip"><use href="#keyhole"/></clipPath>
+    <clipPath id="badge-clip"><circle cx="638" cy="650" r="70"/></clipPath>
+    <!-- Gap between the badge and the shield -->
+    <mask id="badge-gap" maskUnits="userSpaceOnUse" x="0" y="0" width="1024" height="1024">
+      <rect width="1024" height="1024" fill="#ffffff"/>
+      <circle cx="638" cy="650" r="82" fill="#000000"/>
+    </mask>
+
+    <filter id="check-drop" filterUnits="userSpaceOnUse" x="0" y="0" width="1024" height="1024">
+      <feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="#04517a" flood-opacity="0.45"/>
+    </filter>
+    <filter id="blur6" filterUnits="userSpaceOnUse" x="0" y="0" width="1024" height="1024">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+  </defs>
+
+  <!-- No rounded corners; the system masks them. The mark shrinks to about 720 high (70% of the canvas) so it keeps enough room after the corner mask -->
+  <rect width="1024" height="1024" fill="url(#bg-fill)"/>
+
+  <g transform="translate(512 512) scale(1.23) translate(-512 -502)">
+    <!-- Shackle (lower ends hidden behind the shield) -->
+    <use href="#shackle" fill="none" stroke="url(#shackle-fill)" stroke-width="46"/>
+    <path d="M393 440V340A119 119 0 0 1 631 340" fill="none" stroke="url(#shackle-shine)" stroke-width="5" stroke-linecap="round" stroke-opacity="0.9"/>
+
+    <!-- Shield -->
+    <g mask="url(#badge-gap)">
+      <use href="#shield" fill="url(#shield-fill)"/>
+      <g clip-path="url(#shield-clip)">
+        <use href="#shield" fill="none" stroke="url(#rim-light)" stroke-width="7"/>
+      </g>
+      <use href="#shield-face" fill="url(#face-fill)"/>
+      <g clip-path="url(#face-clip)">
+        <!-- Inner face recess: inner shadow on the top edge, reflection on the bottom edge -->
+        <use href="#shield-face" fill="none" stroke="#0d2a80" stroke-opacity="0.55" stroke-width="12" filter="url(#blur6)" transform="translate(0 5)"/>
+        <use href="#shield-face" fill="url(#face-sheen)"/>
+      </g>
+      <use href="#shield-face" fill="none" stroke="#ffffff" stroke-opacity="0.18" stroke-width="2"/>
+
+      <!-- Keyhole -->
+      <use href="#keyhole" fill="#b8c8e6" fill-opacity="0.3" transform="translate(0 2.5)"/>
+      <use href="#keyhole" fill="url(#keyhole-fill)"/>
+      <g clip-path="url(#keyhole-clip)">
+        <use href="#keyhole" fill="none" stroke="#000000" stroke-opacity="0.5" stroke-width="10" filter="url(#blur6)" transform="translate(0 6)"/>
+      </g>
+    </g>
+
+    <!-- Check badge -->
+    <circle cx="638" cy="650" r="70" fill="url(#badge-fill)"/>
+    <g clip-path="url(#badge-clip)">
+      <ellipse cx="638" cy="604" rx="58" ry="34" fill="#ffffff" fill-opacity="0.06"/>
+    </g>
+    <circle cx="638" cy="650" r="68" fill="none" stroke="url(#badge-rim)" stroke-width="4"/>
+    <use href="#check" fill="none" stroke="#ffffff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" filter="url(#check-drop)"/>
+  </g>
+</svg>

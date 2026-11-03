@@ -1,0 +1,120 @@
+{
+  "imports" : [
+    {
+      "expected" : {
+        "accounts" : [
+          {
+            "addedBy" : "import",
+            "algorithm" : "SHA256",
+            "digits" : 8,
+            "issuer" : "GitHub Inc",
+            "period" : 60,
+            "pinned" : true,
+            "secret" : "MZXW6YTBOI",
+            "username" : "alex@example.com"
+          },
+          {
+            "addedBy" : "import",
+            "algorithm" : "SHA1",
+            "digits" : 6,
+            "issuer" : "Hex",
+            "period" : 30,
+            "pinned" : false,
+            "secret" : "MZXW6YTBOI",
+            "username" : "hex@example.com"
+          },
+          {
+            "addedBy" : "import",
+            "algorithm" : "SHA256",
+            "digits" : 8,
+            "issuer" : "Unknown service",
+            "period" : 1,
+            "pinned" : false,
+            "secret" : "JBSWY3DPEHPK3PXP",
+            "username" : "No account"
+          }
+        ]
+      },
+      "file" : "{\"aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa\":{\"account\":\" alex%40example.com%0A \",\"algorithm\":\"SHA256\",\"dataType\":\"OTPStorage\",\"digits\":8,\"encrypted\":false,\"hash\":\"aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa\",\"index\":0,\"issuer\":\" GitHub%20Inc%0A \",\"period\":60,\"pinned\":true,\"secret\":\"mzxw 6ytb-oi%0A\",\"type\":\"totp\"},\"bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb\":{\"account\":\"hex@example.com\",\"encrypted\":false,\"index\":1,\"issuer\":\"Hex\",\"secret\":\"666f6f626172\",\"type\":\"hex\"},\"cccccccc-cccc-4ccc-8ccc-cccccccccccc\":{\"account\":\"hotp@example.com\",\"encrypted\":false,\"index\":2,\"issuer\":\"HOTP\",\"secret\":\"MZXW6YTBOI\",\"type\":\"hotp\"},\"dddddddd-dddd-4ddd-8ddd-dddddddddddd\":{\"account\":\"\",\"algorithm\":2,\"digits\":\"8\",\"issuer\":\"\",\"period\":0,\"secret\":\"JBSWY3DPEHPK3PXP\",\"type\":1},\"eeeeeeee-eeee-4eee-8eee-eeeeeeeeeeee\":{\"account\":\"numbers\",\"algorithm\":\"MD5\",\"issuer\":\"Num\",\"secret\":\"MZXW6YTBOI\",\"type\":\"totp\"}}",
+      "name" : "plaintext",
+      "password" : ""
+    },
+    {
+      "expected" : {
+        "accounts" : [
+          {
+            "addedBy" : "import",
+            "algorithm" : "SHA1",
+            "digits" : 6,
+            "issuer" : "Second",
+            "period" : 30,
+            "pinned" : false,
+            "secret" : "JBSWY3DPEHPK3PXP",
+            "username" : "second"
+          },
+          {
+            "addedBy" : "import",
+            "algorithm" : "SHA512",
+            "digits" : 8,
+            "issuer" : "Example",
+            "period" : 45,
+            "pinned" : false,
+            "secret" : "MZXW6YTBOI",
+            "username" : "user@example.com"
+          }
+        ]
+      },
+      "file" : "{\"99999999-9999-4999-8999-999999999999\":{\"data\":\"U2FsdGVkX19hYmNkZWZnaNOws\\/pJibfDx513VGlLJJKwRkafG89Jv2gvrhHoQgZvs1Z81fHyGE2cA7LY4NAAKWoGOFQ74mAlnXqpSCZ53wdSBnY9Ib2KfB90qPdD6xlM1yTu9v2+3iWqBWZ+4AEnfg==\",\"dataType\":\"EncOTPStorage\",\"keyId\":\"key-1\"},\"ffffffff-ffff-4fff-8fff-ffffffffffff\":{\"data\":\"U2FsdGVkX18xMjM0NTY3OOnTovp0Jwz4SSnFzWr\\/UxQgusN+Xva8RkgelZUq4vFSBuh+PlhelEK7ijQ\\/IXOCH3yyyQVsF+cLMtDlT1e6+PQ\\/MRPeJk2CpdNvEGN6j1tKmGfs1J3ALdPjoxVNPGpEOhOMVDbIp7yei0xEDVaH3sacuYiLo4gCUMUdIZpGD6eVAyXAc77BklAb8fIuLXr\\/iRGj1CWzdsslNyUAmrgQLMUBQRiAiybOF7zoBhk4HgvKnRupJwGWmxM4I9\\/Ksd80mg==\",\"dataType\":\"EncOTPStorage\",\"keyId\":\"key-1\"},\"key-1\":{\"dataType\":\"Key\",\"hash\":\"$argon2id$v=19$m=19456,t=2,p=1$dmVyaWZ5LXNhbHQtMTIzNA$QQLklq1qvVgD6Rq9uHhypXibHfZOXvP+Gp37uqMNG\\/s\",\"id\":\"key-1\",\"salt\":\"password-salt-1234\"}}",
+      "name" : "encrypted",
+      "password" : "authenticator-password"
+    },
+    {
+      "expected" : {
+        "error" : "err.import.password_required"
+      },
+      "file" : "{\"99999999-9999-4999-8999-999999999999\":{\"data\":\"U2FsdGVkX19hYmNkZWZnaNOws\\/pJibfDx513VGlLJJKwRkafG89Jv2gvrhHoQgZvs1Z81fHyGE2cA7LY4NAAKWoGOFQ74mAlnXqpSCZ53wdSBnY9Ib2KfB90qPdD6xlM1yTu9v2+3iWqBWZ+4AEnfg==\",\"dataType\":\"EncOTPStorage\",\"keyId\":\"key-1\"},\"ffffffff-ffff-4fff-8fff-ffffffffffff\":{\"data\":\"U2FsdGVkX18xMjM0NTY3OOnTovp0Jwz4SSnFzWr\\/UxQgusN+Xva8RkgelZUq4vFSBuh+PlhelEK7ijQ\\/IXOCH3yyyQVsF+cLMtDlT1e6+PQ\\/MRPeJk2CpdNvEGN6j1tKmGfs1J3ALdPjoxVNPGpEOhOMVDbIp7yei0xEDVaH3sacuYiLo4gCUMUdIZpGD6eVAyXAc77BklAb8fIuLXr\\/iRGj1CWzdsslNyUAmrgQLMUBQRiAiybOF7zoBhk4HgvKnRupJwGWmxM4I9\\/Ksd80mg==\",\"dataType\":\"EncOTPStorage\",\"keyId\":\"key-1\"},\"key-1\":{\"dataType\":\"Key\",\"hash\":\"$argon2id$v=19$m=19456,t=2,p=1$dmVyaWZ5LXNhbHQtMTIzNA$QQLklq1qvVgD6Rq9uHhypXibHfZOXvP+Gp37uqMNG\\/s\",\"id\":\"key-1\",\"salt\":\"password-salt-1234\"}}",
+      "name" : "encrypted-no-password",
+      "password" : ""
+    },
+    {
+      "expected" : {
+        "error" : "err.import.wrong_password"
+      },
+      "file" : "{\"99999999-9999-4999-8999-999999999999\":{\"data\":\"U2FsdGVkX19hYmNkZWZnaNOws\\/pJibfDx513VGlLJJKwRkafG89Jv2gvrhHoQgZvs1Z81fHyGE2cA7LY4NAAKWoGOFQ74mAlnXqpSCZ53wdSBnY9Ib2KfB90qPdD6xlM1yTu9v2+3iWqBWZ+4AEnfg==\",\"dataType\":\"EncOTPStorage\",\"keyId\":\"key-1\"},\"ffffffff-ffff-4fff-8fff-ffffffffffff\":{\"data\":\"U2FsdGVkX18xMjM0NTY3OOnTovp0Jwz4SSnFzWr\\/UxQgusN+Xva8RkgelZUq4vFSBuh+PlhelEK7ijQ\\/IXOCH3yyyQVsF+cLMtDlT1e6+PQ\\/MRPeJk2CpdNvEGN6j1tKmGfs1J3ALdPjoxVNPGpEOhOMVDbIp7yei0xEDVaH3sacuYiLo4gCUMUdIZpGD6eVAyXAc77BklAb8fIuLXr\\/iRGj1CWzdsslNyUAmrgQLMUBQRiAiybOF7zoBhk4HgvKnRupJwGWmxM4I9\\/Ksd80mg==\",\"dataType\":\"EncOTPStorage\",\"keyId\":\"key-1\"},\"key-1\":{\"dataType\":\"Key\",\"hash\":\"$argon2id$v=19$m=19456,t=2,p=1$dmVyaWZ5LXNhbHQtMTIzNA$QQLklq1qvVgD6Rq9uHhypXibHfZOXvP+Gp37uqMNG\\/s\",\"id\":\"key-1\",\"salt\":\"password-salt-1234\"}}",
+      "name" : "encrypted-wrong-password",
+      "password" : "wrong"
+    },
+    {
+      "expected" : {
+        "error" : "err.import.invalid_file"
+      },
+      "file" : "[]",
+      "name" : "not-an-object",
+      "password" : ""
+    },
+    {
+      "expected" : {
+        "error" : "err.import.invalid_file"
+      },
+      "file" : "{\"x\":{}}",
+      "name" : "no-entries",
+      "password" : ""
+    },
+    {
+      "expected" : {
+        "error" : "err.import.no_supported"
+      },
+      "file" : "{\"h\":{\"secret\":\"MZXW6YTBOI\",\"type\":\"hotp\"}}",
+      "name" : "only-unsupported",
+      "password" : ""
+    },
+    {
+      "expected" : {
+        "error" : "err.import.invalid_file"
+      },
+      "file" : "garbage",
+      "name" : "not-json",
+      "password" : ""
+    }
+  ]
+}

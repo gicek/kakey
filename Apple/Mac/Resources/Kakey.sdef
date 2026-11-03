@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dictionary SYSTEM "file://localhost/System/Library/DTDs/sdef.dtd">
+<dictionary title="Kakey Terminology">
+    <suite name="Kakey Automation Suite" code="KaKy"
+        description="Local automation commands for Kakey (e.g. an Alfred workflow). `copy code` requires the user to freshly verify with Touch ID or their system login password on every call, regardless of whether Kakey happens to already be unlocked — this never reveals a code without the user actively present. `find accounts` only returns non-secret metadata (no code, no secret) and does not require verification.">
+
+        <command name="copy code" code="KaKyccid"
+            description="Prompt the user to verify (Touch ID / system password), then recompute and copy the current TOTP code for one account id to the clipboard. Never succeeds without a fresh, successful verification.">
+            <cocoa class="CopyCodeCommand"/>
+            <direct-parameter type="text"
+                description="Account id (UUID string), typically read from `find accounts`."/>
+            <result type="text"
+                description="The current TOTP code (already on the clipboard by the time this returns), or an empty string if verification failed/was cancelled or the id was not found."/>
+        </command>
+
+        <command name="find accounts" code="KaKyfacc"
+            description="Fuzzy-match accounts by service name and account name, matched server-side against full (unmasked) values so a masked display never has to sacrifice search quality. Returns the local, non-secret matches (id, service name, masked account name) as JSON. Never includes a secret or TOTP code, and never requires Touch ID / password verification — only `copy code` does. Returns disabled unless the user has turned on Settings → Advanced → Enable Third-Party Plugin Interface (off by default).">
+            <cocoa class="FindAccountsCommand"/>
+            <direct-parameter type="text"
+                description="Search text, matched the same way as the main window's search (case-, diacritic- and width-insensitive; substring or in-order fuzzy match against the service name or account name). Empty string returns everything."/>
+            <result type="text"
+                description="JSON object: {&quot;enabled&quot;: bool, &quot;ready&quot;: bool, &quot;accounts&quot;: [{&quot;id&quot;:..., &quot;issuer&quot;:..., &quot;username&quot;:...}]}. `enabled` is false if the user hasn't turned on the third-party plugin interface in Settings. `ready` is false if the vault has never been unlocked since Kakey last launched."/>
+        </command>
+
+    </suite>
+</dictionary>

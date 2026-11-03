@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Requested only when the user taps "Scan QR code" -->
+    <uses-feature android:name="android.hardware.camera.any" android:required="false" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <!--
+        Network access exists only for cloud storage backup (see docs/SECURITY.md): declare INTERNET alone and strip every
+        other network permission merged in from libraries (CameraX pulls in ACCESS_NETWORK_STATE via camera-video -> media3).
+        The check*ManifestPermissions build task re-checks the merged manifest and fails on any network permission
+        other than INTERNET.
+    -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- Dropbox app authorization: Android 11+ package visibility requires this to find the official app and verify its signature -->
+    <queries>
+        <package android:name="com.dropbox.android" />
+    </queries>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" tools:node="remove" />
+    <!-- Predictive back: on by default from targetSdk 36, declared explicitly here. Systems with progress events (Android 14+,
+         when enabled) get a previewing back gesture; Android 13 only fires onBack and uses the plain slide-back.
+         See ui/main/NavTransitions.kt -->
+    <application
+        android:name=".KakeyApplication"
+        android:allowBackup="false"
+        android:enableOnBackInvokedCallback="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Kakey"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Kakey">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize"
+            android:theme="@style/Theme.Kakey.Starting">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!--
+            OAuth redirect for Dropbox, OneDrive and Google Drive. The schemes are generated from cloud-keys.toml (oauthSchemes in
+            build.gradle.kts). Only redirects belonging to the pending sign-in are handed back to the app
+            (platform/OAuthBrowser.kt); this activity shows no UI of its own.
+        -->
+        <activity
+            android:name=".platform.OAuthRedirectActivity"
+            android:exported="true"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="${dropboxScheme}" />
+                <data android:scheme="${dropboxFullScheme}" />
+                <data android:scheme="${microsoftScheme}" />
+                <data android:scheme="${googleScheme}" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

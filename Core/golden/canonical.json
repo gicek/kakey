@@ -1,0 +1,2266 @@
+{
+  "cleanText" : [
+    {
+      "input" : " GitHub%20Inc%0A ",
+      "output" : "GitHub Inc"
+    },
+    {
+      "input" : "a%2520b",
+      "output" : "a b"
+    },
+    {
+      "input" : "a%252520b",
+      "output" : "a%20b"
+    },
+    {
+      "input" : "100%",
+      "output" : "100%"
+    },
+    {
+      "input" : "%E4%BD%A0%E5%A5%BD",
+      "output" : "你好"
+    },
+    {
+      "input" : "%FF",
+      "output" : "%FF"
+    },
+    {
+      "input" : "\tx\ry\n",
+      "output" : "xy"
+    },
+    {
+      "input" : "  spaced  ",
+      "output" : "spaced"
+    },
+    {
+      "input" : "alex%40example.com",
+      "output" : "alex@example.com"
+    },
+    {
+      "input" : "%3A",
+      "output" : ":"
+    },
+    {
+      "input" : "a+b",
+      "output" : "a+b"
+    },
+    {
+      "input" : " nbsp ",
+      "output" : "nbsp"
+    },
+    {
+      "input" : "",
+      "output" : ""
+    },
+    {
+      "input" : "%",
+      "output" : "%"
+    },
+    {
+      "input" : "%2",
+      "output" : "%2"
+    },
+    {
+      "input" : "%zz",
+      "output" : "%zz"
+    },
+    {
+      "input" : "%C3%A9t%C3%A9",
+      "output" : "été"
+    },
+    {
+      "input" : "line1\nline2",
+      "output" : "line1line2"
+    },
+    {
+      "input" : "%0D%0Ax%09",
+      "output" : "x"
+    }
+  ],
+  "dedupKey" : [
+    {
+      "algorithm" : "SHA1",
+      "digits" : 6,
+      "issuer" : "GitHub",
+      "output" : "github|alex|MZXW6YTBOI|SHA1|6|30",
+      "period" : 30,
+      "secret" : "mzxw 6ytb-oi",
+      "username" : "Alex"
+    },
+    {
+      "algorithm" : "SHA1",
+      "digits" : 6,
+      "issuer" : " github ",
+      "output" : "github|alex|MZXW6YTBOI|SHA1|6|30",
+      "period" : 30,
+      "secret" : "MZXW6YTBOI",
+      "username" : "alex"
+    },
+    {
+      "algorithm" : "SHA1",
+      "digits" : 6,
+      "issuer" : "",
+      "output" : "unknown service|no account|X!|SHA1|6|30",
+      "period" : 30,
+      "secret" : "x!",
+      "username" : ""
+    },
+    {
+      "algorithm" : "SHA512",
+      "digits" : 8,
+      "issuer" : "Café",
+      "output" : "café|äbc|MZXW6YTBOI|SHA512|8|60",
+      "period" : 60,
+      "secret" : "MZXW6YTBOI",
+      "username" : "ÄBC"
+    }
+  ],
+  "fields" : [
+    {
+      "algorithm" : "SHA1",
+      "digits" : 6,
+      "issuer" : "GitHub",
+      "output" : {
+        "algorithm" : "SHA1",
+        "digits" : 6,
+        "issuer" : "GitHub",
+        "period" : 30,
+        "secret" : "MZXW6YTBOI",
+        "username" : "alex"
+      },
+      "period" : 30,
+      "secret" : "mzxw 6ytb-oi",
+      "username" : "GitHub:alex"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : " ",
+      "output" : {
+        "algorithm" : "SHA256",
+        "digits" : 8,
+        "issuer" : "Unknown service",
+        "period" : 1,
+        "secret" : "MZXW6YTBOI",
+        "username" : "No account"
+      },
+      "period" : 0,
+      "secret" : "MZXW6YTBOI",
+      "username" : ""
+    },
+    {
+      "algorithm" : "SHA1",
+      "digits" : 7,
+      "issuer" : "a",
+      "output" : null,
+      "period" : 30,
+      "secret" : "MZXW6YTBOI",
+      "username" : "b"
+    },
+    {
+      "algorithm" : "SHA1",
+      "digits" : 6,
+      "issuer" : "a",
+      "output" : null,
+      "period" : 30,
+      "secret" : "A",
+      "username" : "b"
+    },
+    {
+      "algorithm" : "SHA512",
+      "digits" : 8,
+      "issuer" : "a%20b",
+      "output" : {
+        "algorithm" : "SHA512",
+        "digits" : 8,
+        "issuer" : "a b",
+        "period" : 1,
+        "secret" : "MZXW6YTBOI",
+        "username" : "c"
+      },
+      "period" : -5,
+      "secret" : "MZXW6YTBOI",
+      "username" : "c%0A"
+    }
+  ],
+  "otpauthURL" : [
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "GitHub",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/GitHub:alex%40example.com?secret=MZXW6YTBOI&issuer=GitHub&algorithm=SHA256&digits=8&period=45",
+      "username" : "alex@example.com"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "GitHub",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/GitHub:alex%40example.com?secret=BAD!&issuer=GitHub&algorithm=SHA256&digits=8&period=45",
+      "username" : "alex@example.com"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "GitHub",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/GitHub:x%3Ay?secret=MZXW6YTBOI&issuer=GitHub&algorithm=SHA256&digits=8&period=45",
+      "username" : "x:y"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "GitHub",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/GitHub:x%3Ay?secret=BAD!&issuer=GitHub&algorithm=SHA256&digits=8&period=45",
+      "username" : "x:y"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "GitHub",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/GitHub:No%20account?secret=MZXW6YTBOI&issuer=GitHub&algorithm=SHA256&digits=8&period=45",
+      "username" : ""
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "GitHub",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/GitHub:No%20account?secret=BAD!&issuer=GitHub&algorithm=SHA256&digits=8&period=45",
+      "username" : ""
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "GitHub",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/GitHub:a%20b?secret=MZXW6YTBOI&issuer=GitHub&algorithm=SHA256&digits=8&period=45",
+      "username" : "a b"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "GitHub",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/GitHub:a%20b?secret=BAD!&issuer=GitHub&algorithm=SHA256&digits=8&period=45",
+      "username" : "a b"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "GitHub",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/GitHub:a%26b%3Dc?secret=MZXW6YTBOI&issuer=GitHub&algorithm=SHA256&digits=8&period=45",
+      "username" : "a&b=c"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "GitHub",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/GitHub:a%26b%3Dc?secret=BAD!&issuer=GitHub&algorithm=SHA256&digits=8&period=45",
+      "username" : "a&b=c"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A&B",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/A%26B:alex%40example.com?secret=MZXW6YTBOI&issuer=A%26B&algorithm=SHA256&digits=8&period=45",
+      "username" : "alex@example.com"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A&B",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/A%26B:alex%40example.com?secret=BAD!&issuer=A%26B&algorithm=SHA256&digits=8&period=45",
+      "username" : "alex@example.com"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A&B",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/A%26B:x%3Ay?secret=MZXW6YTBOI&issuer=A%26B&algorithm=SHA256&digits=8&period=45",
+      "username" : "x:y"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A&B",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/A%26B:x%3Ay?secret=BAD!&issuer=A%26B&algorithm=SHA256&digits=8&period=45",
+      "username" : "x:y"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A&B",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/A%26B:No%20account?secret=MZXW6YTBOI&issuer=A%26B&algorithm=SHA256&digits=8&period=45",
+      "username" : ""
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A&B",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/A%26B:No%20account?secret=BAD!&issuer=A%26B&algorithm=SHA256&digits=8&period=45",
+      "username" : ""
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A&B",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/A%26B:a%20b?secret=MZXW6YTBOI&issuer=A%26B&algorithm=SHA256&digits=8&period=45",
+      "username" : "a b"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A&B",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/A%26B:a%20b?secret=BAD!&issuer=A%26B&algorithm=SHA256&digits=8&period=45",
+      "username" : "a b"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A&B",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/A%26B:a%26b%3Dc?secret=MZXW6YTBOI&issuer=A%26B&algorithm=SHA256&digits=8&period=45",
+      "username" : "a&b=c"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A&B",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/A%26B:a%26b%3Dc?secret=BAD!&issuer=A%26B&algorithm=SHA256&digits=8&period=45",
+      "username" : "a&b=c"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A=B",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/A%3DB:alex%40example.com?secret=MZXW6YTBOI&issuer=A%3DB&algorithm=SHA256&digits=8&period=45",
+      "username" : "alex@example.com"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A=B",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/A%3DB:alex%40example.com?secret=BAD!&issuer=A%3DB&algorithm=SHA256&digits=8&period=45",
+      "username" : "alex@example.com"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A=B",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/A%3DB:x%3Ay?secret=MZXW6YTBOI&issuer=A%3DB&algorithm=SHA256&digits=8&period=45",
+      "username" : "x:y"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A=B",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/A%3DB:x%3Ay?secret=BAD!&issuer=A%3DB&algorithm=SHA256&digits=8&period=45",
+      "username" : "x:y"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A=B",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/A%3DB:No%20account?secret=MZXW6YTBOI&issuer=A%3DB&algorithm=SHA256&digits=8&period=45",
+      "username" : ""
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A=B",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/A%3DB:No%20account?secret=BAD!&issuer=A%3DB&algorithm=SHA256&digits=8&period=45",
+      "username" : ""
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A=B",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/A%3DB:a%20b?secret=MZXW6YTBOI&issuer=A%3DB&algorithm=SHA256&digits=8&period=45",
+      "username" : "a b"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A=B",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/A%3DB:a%20b?secret=BAD!&issuer=A%3DB&algorithm=SHA256&digits=8&period=45",
+      "username" : "a b"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A=B",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/A%3DB:a%26b%3Dc?secret=MZXW6YTBOI&issuer=A%3DB&algorithm=SHA256&digits=8&period=45",
+      "username" : "a&b=c"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A=B",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/A%3DB:a%26b%3Dc?secret=BAD!&issuer=A%3DB&algorithm=SHA256&digits=8&period=45",
+      "username" : "a&b=c"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A+B",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/A%2BB:alex%40example.com?secret=MZXW6YTBOI&issuer=A+B&algorithm=SHA256&digits=8&period=45",
+      "username" : "alex@example.com"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A+B",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/A%2BB:alex%40example.com?secret=BAD!&issuer=A+B&algorithm=SHA256&digits=8&period=45",
+      "username" : "alex@example.com"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A+B",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/A%2BB:x%3Ay?secret=MZXW6YTBOI&issuer=A+B&algorithm=SHA256&digits=8&period=45",
+      "username" : "x:y"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A+B",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/A%2BB:x%3Ay?secret=BAD!&issuer=A+B&algorithm=SHA256&digits=8&period=45",
+      "username" : "x:y"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A+B",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/A%2BB:No%20account?secret=MZXW6YTBOI&issuer=A+B&algorithm=SHA256&digits=8&period=45",
+      "username" : ""
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A+B",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/A%2BB:No%20account?secret=BAD!&issuer=A+B&algorithm=SHA256&digits=8&period=45",
+      "username" : ""
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A+B",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/A%2BB:a%20b?secret=MZXW6YTBOI&issuer=A+B&algorithm=SHA256&digits=8&period=45",
+      "username" : "a b"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A+B",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/A%2BB:a%20b?secret=BAD!&issuer=A+B&algorithm=SHA256&digits=8&period=45",
+      "username" : "a b"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A+B",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/A%2BB:a%26b%3Dc?secret=MZXW6YTBOI&issuer=A+B&algorithm=SHA256&digits=8&period=45",
+      "username" : "a&b=c"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A+B",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/A%2BB:a%26b%3Dc?secret=BAD!&issuer=A+B&algorithm=SHA256&digits=8&period=45",
+      "username" : "a&b=c"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A B",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/A%20B:alex%40example.com?secret=MZXW6YTBOI&issuer=A%20B&algorithm=SHA256&digits=8&period=45",
+      "username" : "alex@example.com"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A B",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/A%20B:alex%40example.com?secret=BAD!&issuer=A%20B&algorithm=SHA256&digits=8&period=45",
+      "username" : "alex@example.com"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A B",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/A%20B:x%3Ay?secret=MZXW6YTBOI&issuer=A%20B&algorithm=SHA256&digits=8&period=45",
+      "username" : "x:y"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A B",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/A%20B:x%3Ay?secret=BAD!&issuer=A%20B&algorithm=SHA256&digits=8&period=45",
+      "username" : "x:y"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A B",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/A%20B:No%20account?secret=MZXW6YTBOI&issuer=A%20B&algorithm=SHA256&digits=8&period=45",
+      "username" : ""
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A B",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/A%20B:No%20account?secret=BAD!&issuer=A%20B&algorithm=SHA256&digits=8&period=45",
+      "username" : ""
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A B",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/A%20B:a%20b?secret=MZXW6YTBOI&issuer=A%20B&algorithm=SHA256&digits=8&period=45",
+      "username" : "a b"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A B",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/A%20B:a%20b?secret=BAD!&issuer=A%20B&algorithm=SHA256&digits=8&period=45",
+      "username" : "a b"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A B",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/A%20B:a%26b%3Dc?secret=MZXW6YTBOI&issuer=A%20B&algorithm=SHA256&digits=8&period=45",
+      "username" : "a&b=c"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A B",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/A%20B:a%26b%3Dc?secret=BAD!&issuer=A%20B&algorithm=SHA256&digits=8&period=45",
+      "username" : "a&b=c"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A/B",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/A%2FB:alex%40example.com?secret=MZXW6YTBOI&issuer=A/B&algorithm=SHA256&digits=8&period=45",
+      "username" : "alex@example.com"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A/B",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/A%2FB:alex%40example.com?secret=BAD!&issuer=A/B&algorithm=SHA256&digits=8&period=45",
+      "username" : "alex@example.com"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A/B",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/A%2FB:x%3Ay?secret=MZXW6YTBOI&issuer=A/B&algorithm=SHA256&digits=8&period=45",
+      "username" : "x:y"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A/B",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/A%2FB:x%3Ay?secret=BAD!&issuer=A/B&algorithm=SHA256&digits=8&period=45",
+      "username" : "x:y"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A/B",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/A%2FB:No%20account?secret=MZXW6YTBOI&issuer=A/B&algorithm=SHA256&digits=8&period=45",
+      "username" : ""
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A/B",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/A%2FB:No%20account?secret=BAD!&issuer=A/B&algorithm=SHA256&digits=8&period=45",
+      "username" : ""
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A/B",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/A%2FB:a%20b?secret=MZXW6YTBOI&issuer=A/B&algorithm=SHA256&digits=8&period=45",
+      "username" : "a b"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A/B",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/A%2FB:a%20b?secret=BAD!&issuer=A/B&algorithm=SHA256&digits=8&period=45",
+      "username" : "a b"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A/B",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/A%2FB:a%26b%3Dc?secret=MZXW6YTBOI&issuer=A/B&algorithm=SHA256&digits=8&period=45",
+      "username" : "a&b=c"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A/B",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/A%2FB:a%26b%3Dc?secret=BAD!&issuer=A/B&algorithm=SHA256&digits=8&period=45",
+      "username" : "a&b=c"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A?B",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/A%3FB:alex%40example.com?secret=MZXW6YTBOI&issuer=A?B&algorithm=SHA256&digits=8&period=45",
+      "username" : "alex@example.com"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A?B",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/A%3FB:alex%40example.com?secret=BAD!&issuer=A?B&algorithm=SHA256&digits=8&period=45",
+      "username" : "alex@example.com"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A?B",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/A%3FB:x%3Ay?secret=MZXW6YTBOI&issuer=A?B&algorithm=SHA256&digits=8&period=45",
+      "username" : "x:y"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A?B",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/A%3FB:x%3Ay?secret=BAD!&issuer=A?B&algorithm=SHA256&digits=8&period=45",
+      "username" : "x:y"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A?B",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/A%3FB:No%20account?secret=MZXW6YTBOI&issuer=A?B&algorithm=SHA256&digits=8&period=45",
+      "username" : ""
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A?B",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/A%3FB:No%20account?secret=BAD!&issuer=A?B&algorithm=SHA256&digits=8&period=45",
+      "username" : ""
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A?B",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/A%3FB:a%20b?secret=MZXW6YTBOI&issuer=A?B&algorithm=SHA256&digits=8&period=45",
+      "username" : "a b"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A?B",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/A%3FB:a%20b?secret=BAD!&issuer=A?B&algorithm=SHA256&digits=8&period=45",
+      "username" : "a b"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A?B",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/A%3FB:a%26b%3Dc?secret=MZXW6YTBOI&issuer=A?B&algorithm=SHA256&digits=8&period=45",
+      "username" : "a&b=c"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A?B",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/A%3FB:a%26b%3Dc?secret=BAD!&issuer=A?B&algorithm=SHA256&digits=8&period=45",
+      "username" : "a&b=c"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A#B",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/A%23B:alex%40example.com?secret=MZXW6YTBOI&issuer=A%23B&algorithm=SHA256&digits=8&period=45",
+      "username" : "alex@example.com"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A#B",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/A%23B:alex%40example.com?secret=BAD!&issuer=A%23B&algorithm=SHA256&digits=8&period=45",
+      "username" : "alex@example.com"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A#B",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/A%23B:x%3Ay?secret=MZXW6YTBOI&issuer=A%23B&algorithm=SHA256&digits=8&period=45",
+      "username" : "x:y"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A#B",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/A%23B:x%3Ay?secret=BAD!&issuer=A%23B&algorithm=SHA256&digits=8&period=45",
+      "username" : "x:y"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A#B",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/A%23B:No%20account?secret=MZXW6YTBOI&issuer=A%23B&algorithm=SHA256&digits=8&period=45",
+      "username" : ""
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A#B",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/A%23B:No%20account?secret=BAD!&issuer=A%23B&algorithm=SHA256&digits=8&period=45",
+      "username" : ""
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A#B",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/A%23B:a%20b?secret=MZXW6YTBOI&issuer=A%23B&algorithm=SHA256&digits=8&period=45",
+      "username" : "a b"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A#B",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/A%23B:a%20b?secret=BAD!&issuer=A%23B&algorithm=SHA256&digits=8&period=45",
+      "username" : "a b"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A#B",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/A%23B:a%26b%3Dc?secret=MZXW6YTBOI&issuer=A%23B&algorithm=SHA256&digits=8&period=45",
+      "username" : "a&b=c"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A#B",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/A%23B:a%26b%3Dc?secret=BAD!&issuer=A%23B&algorithm=SHA256&digits=8&period=45",
+      "username" : "a&b=c"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A:B",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/A%3AB:alex%40example.com?secret=MZXW6YTBOI&issuer=A:B&algorithm=SHA256&digits=8&period=45",
+      "username" : "alex@example.com"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A:B",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/A%3AB:alex%40example.com?secret=BAD!&issuer=A:B&algorithm=SHA256&digits=8&period=45",
+      "username" : "alex@example.com"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A:B",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/A%3AB:x%3Ay?secret=MZXW6YTBOI&issuer=A:B&algorithm=SHA256&digits=8&period=45",
+      "username" : "x:y"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A:B",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/A%3AB:x%3Ay?secret=BAD!&issuer=A:B&algorithm=SHA256&digits=8&period=45",
+      "username" : "x:y"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A:B",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/A%3AB:No%20account?secret=MZXW6YTBOI&issuer=A:B&algorithm=SHA256&digits=8&period=45",
+      "username" : ""
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A:B",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/A%3AB:No%20account?secret=BAD!&issuer=A:B&algorithm=SHA256&digits=8&period=45",
+      "username" : ""
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A:B",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/A%3AB:a%20b?secret=MZXW6YTBOI&issuer=A:B&algorithm=SHA256&digits=8&period=45",
+      "username" : "a b"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A:B",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/A%3AB:a%20b?secret=BAD!&issuer=A:B&algorithm=SHA256&digits=8&period=45",
+      "username" : "a b"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A:B",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/A%3AB:a%26b%3Dc?secret=MZXW6YTBOI&issuer=A:B&algorithm=SHA256&digits=8&period=45",
+      "username" : "a&b=c"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A:B",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/A%3AB:a%26b%3Dc?secret=BAD!&issuer=A:B&algorithm=SHA256&digits=8&period=45",
+      "username" : "a&b=c"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A@B",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/A%40B:alex%40example.com?secret=MZXW6YTBOI&issuer=A@B&algorithm=SHA256&digits=8&period=45",
+      "username" : "alex@example.com"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A@B",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/A%40B:alex%40example.com?secret=BAD!&issuer=A@B&algorithm=SHA256&digits=8&period=45",
+      "username" : "alex@example.com"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A@B",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/A%40B:x%3Ay?secret=MZXW6YTBOI&issuer=A@B&algorithm=SHA256&digits=8&period=45",
+      "username" : "x:y"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A@B",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/A%40B:x%3Ay?secret=BAD!&issuer=A@B&algorithm=SHA256&digits=8&period=45",
+      "username" : "x:y"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A@B",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/A%40B:No%20account?secret=MZXW6YTBOI&issuer=A@B&algorithm=SHA256&digits=8&period=45",
+      "username" : ""
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A@B",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/A%40B:No%20account?secret=BAD!&issuer=A@B&algorithm=SHA256&digits=8&period=45",
+      "username" : ""
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A@B",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/A%40B:a%20b?secret=MZXW6YTBOI&issuer=A@B&algorithm=SHA256&digits=8&period=45",
+      "username" : "a b"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A@B",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/A%40B:a%20b?secret=BAD!&issuer=A@B&algorithm=SHA256&digits=8&period=45",
+      "username" : "a b"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A@B",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/A%40B:a%26b%3Dc?secret=MZXW6YTBOI&issuer=A@B&algorithm=SHA256&digits=8&period=45",
+      "username" : "a&b=c"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "A@B",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/A%40B:a%26b%3Dc?secret=BAD!&issuer=A@B&algorithm=SHA256&digits=8&period=45",
+      "username" : "a&b=c"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "日本",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/%E6%97%A5%E6%9C%AC:alex%40example.com?secret=MZXW6YTBOI&issuer=%E6%97%A5%E6%9C%AC&algorithm=SHA256&digits=8&period=45",
+      "username" : "alex@example.com"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "日本",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/%E6%97%A5%E6%9C%AC:alex%40example.com?secret=BAD!&issuer=%E6%97%A5%E6%9C%AC&algorithm=SHA256&digits=8&period=45",
+      "username" : "alex@example.com"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "日本",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/%E6%97%A5%E6%9C%AC:x%3Ay?secret=MZXW6YTBOI&issuer=%E6%97%A5%E6%9C%AC&algorithm=SHA256&digits=8&period=45",
+      "username" : "x:y"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "日本",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/%E6%97%A5%E6%9C%AC:x%3Ay?secret=BAD!&issuer=%E6%97%A5%E6%9C%AC&algorithm=SHA256&digits=8&period=45",
+      "username" : "x:y"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "日本",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/%E6%97%A5%E6%9C%AC:No%20account?secret=MZXW6YTBOI&issuer=%E6%97%A5%E6%9C%AC&algorithm=SHA256&digits=8&period=45",
+      "username" : ""
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "日本",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/%E6%97%A5%E6%9C%AC:No%20account?secret=BAD!&issuer=%E6%97%A5%E6%9C%AC&algorithm=SHA256&digits=8&period=45",
+      "username" : ""
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "日本",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/%E6%97%A5%E6%9C%AC:a%20b?secret=MZXW6YTBOI&issuer=%E6%97%A5%E6%9C%AC&algorithm=SHA256&digits=8&period=45",
+      "username" : "a b"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "日本",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/%E6%97%A5%E6%9C%AC:a%20b?secret=BAD!&issuer=%E6%97%A5%E6%9C%AC&algorithm=SHA256&digits=8&period=45",
+      "username" : "a b"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "日本",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/%E6%97%A5%E6%9C%AC:a%26b%3Dc?secret=MZXW6YTBOI&issuer=%E6%97%A5%E6%9C%AC&algorithm=SHA256&digits=8&period=45",
+      "username" : "a&b=c"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "日本",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/%E6%97%A5%E6%9C%AC:a%26b%3Dc?secret=BAD!&issuer=%E6%97%A5%E6%9C%AC&algorithm=SHA256&digits=8&period=45",
+      "username" : "a&b=c"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a%20b",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/a%20b:alex%40example.com?secret=MZXW6YTBOI&issuer=a%20b&algorithm=SHA256&digits=8&period=45",
+      "username" : "alex@example.com"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a%20b",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/a%20b:alex%40example.com?secret=BAD!&issuer=a%20b&algorithm=SHA256&digits=8&period=45",
+      "username" : "alex@example.com"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a%20b",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/a%20b:x%3Ay?secret=MZXW6YTBOI&issuer=a%20b&algorithm=SHA256&digits=8&period=45",
+      "username" : "x:y"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a%20b",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/a%20b:x%3Ay?secret=BAD!&issuer=a%20b&algorithm=SHA256&digits=8&period=45",
+      "username" : "x:y"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a%20b",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/a%20b:No%20account?secret=MZXW6YTBOI&issuer=a%20b&algorithm=SHA256&digits=8&period=45",
+      "username" : ""
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a%20b",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/a%20b:No%20account?secret=BAD!&issuer=a%20b&algorithm=SHA256&digits=8&period=45",
+      "username" : ""
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a%20b",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/a%20b:a%20b?secret=MZXW6YTBOI&issuer=a%20b&algorithm=SHA256&digits=8&period=45",
+      "username" : "a b"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a%20b",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/a%20b:a%20b?secret=BAD!&issuer=a%20b&algorithm=SHA256&digits=8&period=45",
+      "username" : "a b"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a%20b",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/a%20b:a%26b%3Dc?secret=MZXW6YTBOI&issuer=a%20b&algorithm=SHA256&digits=8&period=45",
+      "username" : "a&b=c"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a%20b",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/a%20b:a%26b%3Dc?secret=BAD!&issuer=a%20b&algorithm=SHA256&digits=8&period=45",
+      "username" : "a&b=c"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/Unknown%20service:alex%40example.com?secret=MZXW6YTBOI&issuer=Unknown%20service&algorithm=SHA256&digits=8&period=45",
+      "username" : "alex@example.com"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/Unknown%20service:alex%40example.com?secret=BAD!&issuer=Unknown%20service&algorithm=SHA256&digits=8&period=45",
+      "username" : "alex@example.com"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/Unknown%20service:x%3Ay?secret=MZXW6YTBOI&issuer=Unknown%20service&algorithm=SHA256&digits=8&period=45",
+      "username" : "x:y"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/Unknown%20service:x%3Ay?secret=BAD!&issuer=Unknown%20service&algorithm=SHA256&digits=8&period=45",
+      "username" : "x:y"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/Unknown%20service:No%20account?secret=MZXW6YTBOI&issuer=Unknown%20service&algorithm=SHA256&digits=8&period=45",
+      "username" : ""
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/Unknown%20service:No%20account?secret=BAD!&issuer=Unknown%20service&algorithm=SHA256&digits=8&period=45",
+      "username" : ""
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/Unknown%20service:a%20b?secret=MZXW6YTBOI&issuer=Unknown%20service&algorithm=SHA256&digits=8&period=45",
+      "username" : "a b"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/Unknown%20service:a%20b?secret=BAD!&issuer=Unknown%20service&algorithm=SHA256&digits=8&period=45",
+      "username" : "a b"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/Unknown%20service:a%26b%3Dc?secret=MZXW6YTBOI&issuer=Unknown%20service&algorithm=SHA256&digits=8&period=45",
+      "username" : "a&b=c"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/Unknown%20service:a%26b%3Dc?secret=BAD!&issuer=Unknown%20service&algorithm=SHA256&digits=8&period=45",
+      "username" : "a&b=c"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "O'Reilly",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/O%27Reilly:alex%40example.com?secret=MZXW6YTBOI&issuer=O'Reilly&algorithm=SHA256&digits=8&period=45",
+      "username" : "alex@example.com"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "O'Reilly",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/O%27Reilly:alex%40example.com?secret=BAD!&issuer=O'Reilly&algorithm=SHA256&digits=8&period=45",
+      "username" : "alex@example.com"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "O'Reilly",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/O%27Reilly:x%3Ay?secret=MZXW6YTBOI&issuer=O'Reilly&algorithm=SHA256&digits=8&period=45",
+      "username" : "x:y"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "O'Reilly",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/O%27Reilly:x%3Ay?secret=BAD!&issuer=O'Reilly&algorithm=SHA256&digits=8&period=45",
+      "username" : "x:y"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "O'Reilly",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/O%27Reilly:No%20account?secret=MZXW6YTBOI&issuer=O'Reilly&algorithm=SHA256&digits=8&period=45",
+      "username" : ""
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "O'Reilly",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/O%27Reilly:No%20account?secret=BAD!&issuer=O'Reilly&algorithm=SHA256&digits=8&period=45",
+      "username" : ""
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "O'Reilly",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/O%27Reilly:a%20b?secret=MZXW6YTBOI&issuer=O'Reilly&algorithm=SHA256&digits=8&period=45",
+      "username" : "a b"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "O'Reilly",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/O%27Reilly:a%20b?secret=BAD!&issuer=O'Reilly&algorithm=SHA256&digits=8&period=45",
+      "username" : "a b"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "O'Reilly",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/O%27Reilly:a%26b%3Dc?secret=MZXW6YTBOI&issuer=O'Reilly&algorithm=SHA256&digits=8&period=45",
+      "username" : "a&b=c"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "O'Reilly",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/O%27Reilly:a%26b%3Dc?secret=BAD!&issuer=O'Reilly&algorithm=SHA256&digits=8&period=45",
+      "username" : "a&b=c"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "(x)",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/%28x%29:alex%40example.com?secret=MZXW6YTBOI&issuer=(x)&algorithm=SHA256&digits=8&period=45",
+      "username" : "alex@example.com"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "(x)",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/%28x%29:alex%40example.com?secret=BAD!&issuer=(x)&algorithm=SHA256&digits=8&period=45",
+      "username" : "alex@example.com"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "(x)",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/%28x%29:x%3Ay?secret=MZXW6YTBOI&issuer=(x)&algorithm=SHA256&digits=8&period=45",
+      "username" : "x:y"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "(x)",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/%28x%29:x%3Ay?secret=BAD!&issuer=(x)&algorithm=SHA256&digits=8&period=45",
+      "username" : "x:y"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "(x)",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/%28x%29:No%20account?secret=MZXW6YTBOI&issuer=(x)&algorithm=SHA256&digits=8&period=45",
+      "username" : ""
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "(x)",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/%28x%29:No%20account?secret=BAD!&issuer=(x)&algorithm=SHA256&digits=8&period=45",
+      "username" : ""
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "(x)",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/%28x%29:a%20b?secret=MZXW6YTBOI&issuer=(x)&algorithm=SHA256&digits=8&period=45",
+      "username" : "a b"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "(x)",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/%28x%29:a%20b?secret=BAD!&issuer=(x)&algorithm=SHA256&digits=8&period=45",
+      "username" : "a b"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "(x)",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/%28x%29:a%26b%3Dc?secret=MZXW6YTBOI&issuer=(x)&algorithm=SHA256&digits=8&period=45",
+      "username" : "a&b=c"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "(x)",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/%28x%29:a%26b%3Dc?secret=BAD!&issuer=(x)&algorithm=SHA256&digits=8&period=45",
+      "username" : "a&b=c"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a;b,c",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/a%3Bb%2Cc:alex%40example.com?secret=MZXW6YTBOI&issuer=a;b,c&algorithm=SHA256&digits=8&period=45",
+      "username" : "alex@example.com"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a;b,c",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/a%3Bb%2Cc:alex%40example.com?secret=BAD!&issuer=a;b,c&algorithm=SHA256&digits=8&period=45",
+      "username" : "alex@example.com"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a;b,c",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/a%3Bb%2Cc:x%3Ay?secret=MZXW6YTBOI&issuer=a;b,c&algorithm=SHA256&digits=8&period=45",
+      "username" : "x:y"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a;b,c",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/a%3Bb%2Cc:x%3Ay?secret=BAD!&issuer=a;b,c&algorithm=SHA256&digits=8&period=45",
+      "username" : "x:y"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a;b,c",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/a%3Bb%2Cc:No%20account?secret=MZXW6YTBOI&issuer=a;b,c&algorithm=SHA256&digits=8&period=45",
+      "username" : ""
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a;b,c",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/a%3Bb%2Cc:No%20account?secret=BAD!&issuer=a;b,c&algorithm=SHA256&digits=8&period=45",
+      "username" : ""
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a;b,c",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/a%3Bb%2Cc:a%20b?secret=MZXW6YTBOI&issuer=a;b,c&algorithm=SHA256&digits=8&period=45",
+      "username" : "a b"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a;b,c",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/a%3Bb%2Cc:a%20b?secret=BAD!&issuer=a;b,c&algorithm=SHA256&digits=8&period=45",
+      "username" : "a b"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a;b,c",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/a%3Bb%2Cc:a%26b%3Dc?secret=MZXW6YTBOI&issuer=a;b,c&algorithm=SHA256&digits=8&period=45",
+      "username" : "a&b=c"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a;b,c",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/a%3Bb%2Cc:a%26b%3Dc?secret=BAD!&issuer=a;b,c&algorithm=SHA256&digits=8&period=45",
+      "username" : "a&b=c"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "~_.-",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/~_.-:alex%40example.com?secret=MZXW6YTBOI&issuer=~_.-&algorithm=SHA256&digits=8&period=45",
+      "username" : "alex@example.com"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "~_.-",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/~_.-:alex%40example.com?secret=BAD!&issuer=~_.-&algorithm=SHA256&digits=8&period=45",
+      "username" : "alex@example.com"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "~_.-",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/~_.-:x%3Ay?secret=MZXW6YTBOI&issuer=~_.-&algorithm=SHA256&digits=8&period=45",
+      "username" : "x:y"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "~_.-",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/~_.-:x%3Ay?secret=BAD!&issuer=~_.-&algorithm=SHA256&digits=8&period=45",
+      "username" : "x:y"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "~_.-",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/~_.-:No%20account?secret=MZXW6YTBOI&issuer=~_.-&algorithm=SHA256&digits=8&period=45",
+      "username" : ""
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "~_.-",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/~_.-:No%20account?secret=BAD!&issuer=~_.-&algorithm=SHA256&digits=8&period=45",
+      "username" : ""
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "~_.-",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/~_.-:a%20b?secret=MZXW6YTBOI&issuer=~_.-&algorithm=SHA256&digits=8&period=45",
+      "username" : "a b"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "~_.-",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/~_.-:a%20b?secret=BAD!&issuer=~_.-&algorithm=SHA256&digits=8&period=45",
+      "username" : "a b"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "~_.-",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/~_.-:a%26b%3Dc?secret=MZXW6YTBOI&issuer=~_.-&algorithm=SHA256&digits=8&period=45",
+      "username" : "a&b=c"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "~_.-",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/~_.-:a%26b%3Dc?secret=BAD!&issuer=~_.-&algorithm=SHA256&digits=8&period=45",
+      "username" : "a&b=c"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a!b$c*d",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/a%21b%24c%2Ad:alex%40example.com?secret=MZXW6YTBOI&issuer=a!b$c*d&algorithm=SHA256&digits=8&period=45",
+      "username" : "alex@example.com"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a!b$c*d",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/a%21b%24c%2Ad:alex%40example.com?secret=BAD!&issuer=a!b$c*d&algorithm=SHA256&digits=8&period=45",
+      "username" : "alex@example.com"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a!b$c*d",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/a%21b%24c%2Ad:x%3Ay?secret=MZXW6YTBOI&issuer=a!b$c*d&algorithm=SHA256&digits=8&period=45",
+      "username" : "x:y"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a!b$c*d",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/a%21b%24c%2Ad:x%3Ay?secret=BAD!&issuer=a!b$c*d&algorithm=SHA256&digits=8&period=45",
+      "username" : "x:y"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a!b$c*d",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/a%21b%24c%2Ad:No%20account?secret=MZXW6YTBOI&issuer=a!b$c*d&algorithm=SHA256&digits=8&period=45",
+      "username" : ""
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a!b$c*d",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/a%21b%24c%2Ad:No%20account?secret=BAD!&issuer=a!b$c*d&algorithm=SHA256&digits=8&period=45",
+      "username" : ""
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a!b$c*d",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/a%21b%24c%2Ad:a%20b?secret=MZXW6YTBOI&issuer=a!b$c*d&algorithm=SHA256&digits=8&period=45",
+      "username" : "a b"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a!b$c*d",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/a%21b%24c%2Ad:a%20b?secret=BAD!&issuer=a!b$c*d&algorithm=SHA256&digits=8&period=45",
+      "username" : "a b"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a!b$c*d",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/a%21b%24c%2Ad:a%26b%3Dc?secret=MZXW6YTBOI&issuer=a!b$c*d&algorithm=SHA256&digits=8&period=45",
+      "username" : "a&b=c"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a!b$c*d",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/a%21b%24c%2Ad:a%26b%3Dc?secret=BAD!&issuer=a!b$c*d&algorithm=SHA256&digits=8&period=45",
+      "username" : "a&b=c"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "[x]",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/%5Bx%5D:alex%40example.com?secret=MZXW6YTBOI&issuer=%5Bx%5D&algorithm=SHA256&digits=8&period=45",
+      "username" : "alex@example.com"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "[x]",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/%5Bx%5D:alex%40example.com?secret=BAD!&issuer=%5Bx%5D&algorithm=SHA256&digits=8&period=45",
+      "username" : "alex@example.com"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "[x]",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/%5Bx%5D:x%3Ay?secret=MZXW6YTBOI&issuer=%5Bx%5D&algorithm=SHA256&digits=8&period=45",
+      "username" : "x:y"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "[x]",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/%5Bx%5D:x%3Ay?secret=BAD!&issuer=%5Bx%5D&algorithm=SHA256&digits=8&period=45",
+      "username" : "x:y"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "[x]",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/%5Bx%5D:No%20account?secret=MZXW6YTBOI&issuer=%5Bx%5D&algorithm=SHA256&digits=8&period=45",
+      "username" : ""
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "[x]",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/%5Bx%5D:No%20account?secret=BAD!&issuer=%5Bx%5D&algorithm=SHA256&digits=8&period=45",
+      "username" : ""
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "[x]",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/%5Bx%5D:a%20b?secret=MZXW6YTBOI&issuer=%5Bx%5D&algorithm=SHA256&digits=8&period=45",
+      "username" : "a b"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "[x]",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/%5Bx%5D:a%20b?secret=BAD!&issuer=%5Bx%5D&algorithm=SHA256&digits=8&period=45",
+      "username" : "a b"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "[x]",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/%5Bx%5D:a%26b%3Dc?secret=MZXW6YTBOI&issuer=%5Bx%5D&algorithm=SHA256&digits=8&period=45",
+      "username" : "a&b=c"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "[x]",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/%5Bx%5D:a%26b%3Dc?secret=BAD!&issuer=%5Bx%5D&algorithm=SHA256&digits=8&period=45",
+      "username" : "a&b=c"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a%b",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/a%25b:alex%40example.com?secret=MZXW6YTBOI&issuer=a%25b&algorithm=SHA256&digits=8&period=45",
+      "username" : "alex@example.com"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a%b",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/a%25b:alex%40example.com?secret=BAD!&issuer=a%25b&algorithm=SHA256&digits=8&period=45",
+      "username" : "alex@example.com"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a%b",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/a%25b:x%3Ay?secret=MZXW6YTBOI&issuer=a%25b&algorithm=SHA256&digits=8&period=45",
+      "username" : "x:y"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a%b",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/a%25b:x%3Ay?secret=BAD!&issuer=a%25b&algorithm=SHA256&digits=8&period=45",
+      "username" : "x:y"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a%b",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/a%25b:No%20account?secret=MZXW6YTBOI&issuer=a%25b&algorithm=SHA256&digits=8&period=45",
+      "username" : ""
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a%b",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/a%25b:No%20account?secret=BAD!&issuer=a%25b&algorithm=SHA256&digits=8&period=45",
+      "username" : ""
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a%b",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/a%25b:a%20b?secret=MZXW6YTBOI&issuer=a%25b&algorithm=SHA256&digits=8&period=45",
+      "username" : "a b"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a%b",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/a%25b:a%20b?secret=BAD!&issuer=a%25b&algorithm=SHA256&digits=8&period=45",
+      "username" : "a b"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a%b",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/a%25b:a%26b%3Dc?secret=MZXW6YTBOI&issuer=a%25b&algorithm=SHA256&digits=8&period=45",
+      "username" : "a&b=c"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a%b",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/a%25b:a%26b%3Dc?secret=BAD!&issuer=a%25b&algorithm=SHA256&digits=8&period=45",
+      "username" : "a&b=c"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a\"b",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/a%22b:alex%40example.com?secret=MZXW6YTBOI&issuer=a%22b&algorithm=SHA256&digits=8&period=45",
+      "username" : "alex@example.com"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a\"b",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/a%22b:alex%40example.com?secret=BAD!&issuer=a%22b&algorithm=SHA256&digits=8&period=45",
+      "username" : "alex@example.com"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a\"b",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/a%22b:x%3Ay?secret=MZXW6YTBOI&issuer=a%22b&algorithm=SHA256&digits=8&period=45",
+      "username" : "x:y"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a\"b",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/a%22b:x%3Ay?secret=BAD!&issuer=a%22b&algorithm=SHA256&digits=8&period=45",
+      "username" : "x:y"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a\"b",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/a%22b:No%20account?secret=MZXW6YTBOI&issuer=a%22b&algorithm=SHA256&digits=8&period=45",
+      "username" : ""
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a\"b",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/a%22b:No%20account?secret=BAD!&issuer=a%22b&algorithm=SHA256&digits=8&period=45",
+      "username" : ""
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a\"b",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/a%22b:a%20b?secret=MZXW6YTBOI&issuer=a%22b&algorithm=SHA256&digits=8&period=45",
+      "username" : "a b"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a\"b",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/a%22b:a%20b?secret=BAD!&issuer=a%22b&algorithm=SHA256&digits=8&period=45",
+      "username" : "a b"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a\"b",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/a%22b:a%26b%3Dc?secret=MZXW6YTBOI&issuer=a%22b&algorithm=SHA256&digits=8&period=45",
+      "username" : "a&b=c"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a\"b",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/a%22b:a%26b%3Dc?secret=BAD!&issuer=a%22b&algorithm=SHA256&digits=8&period=45",
+      "username" : "a&b=c"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a<b>",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/a%3Cb%3E:alex%40example.com?secret=MZXW6YTBOI&issuer=a%3Cb%3E&algorithm=SHA256&digits=8&period=45",
+      "username" : "alex@example.com"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a<b>",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/a%3Cb%3E:alex%40example.com?secret=BAD!&issuer=a%3Cb%3E&algorithm=SHA256&digits=8&period=45",
+      "username" : "alex@example.com"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a<b>",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/a%3Cb%3E:x%3Ay?secret=MZXW6YTBOI&issuer=a%3Cb%3E&algorithm=SHA256&digits=8&period=45",
+      "username" : "x:y"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a<b>",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/a%3Cb%3E:x%3Ay?secret=BAD!&issuer=a%3Cb%3E&algorithm=SHA256&digits=8&period=45",
+      "username" : "x:y"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a<b>",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/a%3Cb%3E:No%20account?secret=MZXW6YTBOI&issuer=a%3Cb%3E&algorithm=SHA256&digits=8&period=45",
+      "username" : ""
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a<b>",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/a%3Cb%3E:No%20account?secret=BAD!&issuer=a%3Cb%3E&algorithm=SHA256&digits=8&period=45",
+      "username" : ""
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a<b>",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/a%3Cb%3E:a%20b?secret=MZXW6YTBOI&issuer=a%3Cb%3E&algorithm=SHA256&digits=8&period=45",
+      "username" : "a b"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a<b>",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/a%3Cb%3E:a%20b?secret=BAD!&issuer=a%3Cb%3E&algorithm=SHA256&digits=8&period=45",
+      "username" : "a b"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a<b>",
+      "period" : 45,
+      "secret" : "MZXW6YTBOI",
+      "url" : "otpauth://totp/a%3Cb%3E:a%26b%3Dc?secret=MZXW6YTBOI&issuer=a%3Cb%3E&algorithm=SHA256&digits=8&period=45",
+      "username" : "a&b=c"
+    },
+    {
+      "algorithm" : "SHA256",
+      "digits" : 8,
+      "issuer" : "a<b>",
+      "period" : 45,
+      "secret" : "bad!",
+      "url" : "otpauth://totp/a%3Cb%3E:a%26b%3Dc?secret=BAD!&issuer=a%3Cb%3E&algorithm=SHA256&digits=8&period=45",
+      "username" : "a&b=c"
+    }
+  ],
+  "placeholders" : {
+    "emptyUsername" : "No account",
+    "unknownIssuer" : "Unknown service"
+  },
+  "standardizedSecret" : [
+    {
+      "input" : "MZXW6YTBOI",
+      "output" : "MZXW6YTBOI"
+    },
+    {
+      "input" : "mzxw 6ytb-oi",
+      "output" : "MZXW6YTBOI"
+    },
+    {
+      "input" : "mzxw%206ytb",
+      "output" : "MZXW6YTB"
+    },
+    {
+      "input" : "%20",
+      "output" : null
+    },
+    {
+      "input" : "A",
+      "output" : null
+    },
+    {
+      "input" : "AB",
+      "output" : "AA"
+    },
+    {
+      "input" : "bad!",
+      "output" : null
+    },
+    {
+      "input" : "",
+      "output" : null
+    },
+    {
+      "input" : "MZXW6YTBOI%0A",
+      "output" : "MZXW6YTBOI"
+    },
+    {
+      "input" : "jbsw y3dp ehpk 3pxp",
+      "output" : "JBSWY3DPEHPK3PXP"
+    }
+  ],
+  "stripIssuerPrefix" : [
+    {
+      "issuer" : "github",
+      "output" : "alex@example.com",
+      "username" : "GitHub:alex@example.com"
+    },
+    {
+      "issuer" : "GitHub",
+      "output" : "alex",
+      "username" : "GitHub%3Aalex"
+    },
+    {
+      "issuer" : "GitHub",
+      "output" : "GitHub:",
+      "username" : "GitHub:"
+    },
+    {
+      "issuer" : "",
+      "output" : "alex",
+      "username" : "alex"
+    },
+    {
+      "issuer" : "GitHub",
+      "output" : "alex",
+      "username" : "github: alex"
+    },
+    {
+      "issuer" : "GitHub",
+      "output" : "Other:alex",
+      "username" : "Other:alex"
+    },
+    {
+      "issuer" : "GitHub",
+      "output" : "GitHub:x",
+      "username" : "GitHub:GitHub:x"
+    },
+    {
+      "issuer" : "GitHub ",
+      "output" : "x",
+      "username" : " GitHub:x "
+    },
+    {
+      "issuer" : "ärger",
+      "output" : "x",
+      "username" : "Ärger:x"
+    },
+    {
+      "issuer" : "a",
+      "output" : "b",
+      "username" : "a%3A%20b"
+    }
+  ]
+}

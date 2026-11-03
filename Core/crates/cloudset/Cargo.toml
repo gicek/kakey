@@ -1,0 +1,33 @@
+[package]
+name = "cloudset"
+description = "Sans-IO cloud storage client: builds HTTP requests and parses responses; the caller performs the transport"
+version = "0.1.0"
+# Concrete values instead of `workspace = true`, so the directory can be copied out as its own repository unchanged
+# (RELEASING.md); keep them in step with Core/Cargo.toml.
+edition = "2024"
+license = "MIT"
+publish = false
+rust-version = "1.97"
+readme = "README.md"
+keywords = ["webdav", "dropbox", "onedrive", "google-drive", "sans-io"]
+categories = ["network-programming", "api-bindings"]
+
+[features]
+# In-memory WebDAV server for callers' tests (`cloudset::testing`); never part of release builds.
+testing = []
+
+# Standalone component: must not depend on host application crates or FFI frameworks (host CI checks with cargo tree; see README).
+[dependencies]
+base64 = "0.23.1"
+httpdate = "1.0.3"
+percent-encoding = "2.3.2"
+quick-xml = "0.42.0"
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.151"
+sha2 = "0.11.0"
+thiserror = "2.0.21"
+url = "2.5.8"
+zeroize = "1.9.0"
+
+[dev-dependencies]
+cloudset = { path = ".", features = ["testing"] }

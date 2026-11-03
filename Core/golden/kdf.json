@@ -1,0 +1,80 @@
+{
+  "argon2id" : [
+    {
+      "hashHex" : "f9fca433536616d2774f4f7867184a9132a247f83352f8d29a9395ffcba7e27c",
+      "memoryKiB" : 65536,
+      "parallelism" : 1,
+      "password" : "correct horse",
+      "saltHex" : "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+      "timeCost" : 2
+    },
+    {
+      "hashHex" : "b254da64ab65c3a32ed10c5210d3fe1d8e0eea29b2081730052ef922d6d05f62",
+      "memoryKiB" : 65536,
+      "parallelism" : 1,
+      "password" : "密码🔑",
+      "saltHex" : "73616c7473616c74",
+      "timeCost" : 2
+    },
+    {
+      "hashHex" : "255a7cceda370d67e190fe62dce5ad067fb8569c2b60c965290b8414f7ae7ed8",
+      "memoryKiB" : 1024,
+      "parallelism" : 1,
+      "password" : "pw",
+      "saltHex" : "73616c7473616c74",
+      "timeCost" : 1
+    },
+    {
+      "hashHex" : "94d0f7df66fed8724dd1a9e6855dfbc53c33126329428db10f6531c301c256fd",
+      "memoryKiB" : 4096,
+      "parallelism" : 2,
+      "password" : "pw",
+      "saltHex" : "73616c7473616c74",
+      "timeCost" : 3
+    },
+    {
+      "hashHex" : "4584d26aae70475bf28853a900570f67b185d6f6fcdce679e6d1d6dab710f0b0",
+      "memoryKiB" : 19456,
+      "parallelism" : 1,
+      "password" : "pw",
+      "saltHex" : "73616c7473616c74",
+      "timeCost" : 2
+    }
+  ],
+  "authenticatorPossibleHash" : [
+    {
+      "hash" : "aCkjR5vpY5osulmfXMeKrNGHHm8TbvmxWZP4m2Vh1c0",
+      "password" : "authenticator-password",
+      "salt" : "password-salt-1234"
+    },
+    {
+      "hash" : "hGnGVn0pW5tmO7Q6hvIE58svCb0ll+2nYSH+Nl74Ez0",
+      "password" : "密码",
+      "salt" : "saltsalt"
+    }
+  ],
+  "cryptojs" : [
+    {
+      "ciphertext" : "U2FsdGVkX18xMjM0NTY3OM1ubdxSsv8RQhmJzjlFZOTKsc+Pi/3jD4mAUIayabYl",
+      "passphrase" : "passphrase",
+      "plaintext" : "{\"secret\":\"MZXW6YTBOI\"}"
+    },
+    {
+      "ciphertext" : "U2FsdGVkX19hYmNkZWZnaKSovxua2fpBT1VYbJ/T5Pw=",
+      "passphrase" : "pässphrase",
+      "plaintext" : "日本語"
+    }
+  ],
+  "phcVerify" : [
+    {
+      "encoded" : "$argon2id$v=19$m=19456,t=2,p=1$dmVyaWZ5LXNhbHQtMTIzNA$dTWcdH8+De4X+w1OkNOmeAAPa6T1cz+4xabr55YyrD0",
+      "expected" : true,
+      "value" : "possible-hash"
+    },
+    {
+      "encoded" : "$argon2id$v=19$m=19456,t=2,p=1$dmVyaWZ5LXNhbHQtMTIzNA$dTWcdH8+De4X+w1OkNOmeAAPa6T1cz+4xabr55YyrD0",
+      "expected" : false,
+      "value" : "other"
+    }
+  ]
+}

@@ -1,0 +1,1367 @@
+{
+  "lines" : [
+    {
+      "accounts" : [
+        {
+          "account" : "a",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "A",
+          "period" : 30,
+          "reason" : null,
+          "secret" : "MZXW6YTBOI",
+          "valid" : true
+        },
+        {
+          "account" : "b",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "B",
+          "period" : 30,
+          "reason" : null,
+          "secret" : "MZXW6YTBOI",
+          "valid" : true
+        }
+      ],
+      "input" : "otpauth://totp/A:a?secret=MZXW6YTBOI\n\r\notpauth://totp/B:b?secret=MZXW6YTBOI\n"
+    },
+    {
+      "accounts" : [
+        {
+          "account" : "",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "",
+          "period" : 30,
+          "reason" : "otp.err.not_otpauth",
+          "secret" : "",
+          "valid" : false
+        },
+        {
+          "account" : "alex",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "GitHub",
+          "period" : 30,
+          "reason" : null,
+          "secret" : "MZXW6YTBOI",
+          "valid" : true
+        },
+        {
+          "account" : "",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "",
+          "period" : 30,
+          "reason" : "otp.err.not_totp",
+          "secret" : "",
+          "valid" : false
+        },
+        {
+          "account" : "",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "",
+          "period" : 30,
+          "reason" : "otp.err.unsupported_algorithm",
+          "secret" : "",
+          "valid" : false
+        },
+        {
+          "account" : "eight",
+          "algorithm" : "SHA512",
+          "digits" : 8,
+          "issuer" : "Z",
+          "period" : 30,
+          "reason" : null,
+          "secret" : "MZXW6YTBOI",
+          "valid" : true
+        }
+      ],
+      "input" : "garbage\notpauth-migration://offline?data=CiMKBmZvb2JhchILR2l0SHViOmFsZXgaBkdpdEh1YiABKAEwAgoXCgZmb29iYXISBGhvdHAaAVggASgBMAEKFgoGZm9vYmFyEgNtZDUaAVkgBCgBMAIKGAoGZm9vYmFyEgVlaWdodBoBWiADKAIwAhABGAIgASgH"
+    },
+    {
+      "accounts" : [
+        {
+          "account" : "c",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "C",
+          "period" : 30,
+          "reason" : null,
+          "secret" : "MZXW6YTBOI",
+          "valid" : true
+        }
+      ],
+      "input" : " otpauth://totp/C:c?secret=MZXW6YTBOI "
+    }
+  ],
+  "placeholders" : {
+    "emptyUsername" : "No account",
+    "unknownIssuer" : "Unknown service"
+  },
+  "scan" : [
+    {
+      "accounts" : [
+        {
+          "account" : "alex@example.com",
+          "algorithm" : "SHA256",
+          "digits" : 8,
+          "issuer" : "GitHub",
+          "period" : 60,
+          "reason" : null,
+          "secret" : "MZXW6YTBOI",
+          "valid" : true
+        }
+      ],
+      "batchKey" : null,
+      "input" : "otpauth://totp/GitHub%3Aalex%40example.com?secret=mzxw6ytboi&issuer=GitHub&algorithm=sha256&digits=8&period=60",
+      "isGoogleMigration" : false
+    },
+    {
+      "accounts" : [
+        {
+          "account" : "me",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "A+B",
+          "period" : 30,
+          "reason" : null,
+          "secret" : "MZXW6YTBOI",
+          "valid" : true
+        }
+      ],
+      "batchKey" : null,
+      "input" : "otpauth://totp/A+B:me?secret=MZXW6YTBOI&issuer=A+B",
+      "isGoogleMigration" : false
+    },
+    {
+      "accounts" : [
+        {
+          "account" : "alice@google.com",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "Example",
+          "period" : 30,
+          "reason" : null,
+          "secret" : "JBSWY3DPEHPK3PXP",
+          "valid" : true
+        }
+      ],
+      "batchKey" : null,
+      "input" : "otpauth://totp/Example:alice@google.com?secret=JBSWY3DPEHPK3PXP&issuer=Example",
+      "isGoogleMigration" : false
+    },
+    {
+      "accounts" : [
+        {
+          "account" : "alice@google.com",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "alice@google.com",
+          "period" : 30,
+          "reason" : null,
+          "secret" : "JBSWY3DPEHPK3PXP",
+          "valid" : true
+        }
+      ],
+      "batchKey" : null,
+      "input" : "otpauth://totp/alice@google.com?secret=JBSWY3DPEHPK3PXP",
+      "isGoogleMigration" : false
+    },
+    {
+      "accounts" : [
+        {
+          "account" : "john.doe@email.com",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "ACME Co",
+          "period" : 30,
+          "reason" : null,
+          "secret" : "HXDMVJECJJWSRB3HWIZR4IFUGFTMXBOZ",
+          "valid" : true
+        }
+      ],
+      "batchKey" : null,
+      "input" : "otpauth://totp/ACME%20Co:john.doe@email.com?secret=HXDMVJECJJWSRB3HWIZR4IFUGFTMXBOZ&issuer=ACME%20Co&algorithm=SHA1&digits=6&period=30",
+      "isGoogleMigration" : false
+    },
+    {
+      "accounts" : [
+        {
+          "account" : "y",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "Z",
+          "period" : 30,
+          "reason" : null,
+          "secret" : "MZXW6YTBOI",
+          "valid" : true
+        }
+      ],
+      "batchKey" : null,
+      "input" : "otpauth://TOTP/X:y?SECRET=MZXW6YTBOI&Issuer=Z",
+      "isGoogleMigration" : false
+    },
+    {
+      "accounts" : [
+        {
+          "account" : "y",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "X",
+          "period" : 30,
+          "reason" : null,
+          "secret" : "MZXW6YTBOI",
+          "valid" : true
+        }
+      ],
+      "batchKey" : null,
+      "input" : "otpauth://1/X:y?secret=MZXW6YTBOI",
+      "isGoogleMigration" : false
+    },
+    {
+      "accounts" : [
+        {
+          "account" : ":y",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "y",
+          "period" : 30,
+          "reason" : null,
+          "secret" : "MZXW6YTBOI",
+          "valid" : true
+        }
+      ],
+      "batchKey" : null,
+      "input" : "otpauth://totp/:y?secret=MZXW6YTBOI",
+      "isGoogleMigration" : false
+    },
+    {
+      "accounts" : [
+        {
+          "account" : ":y",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "X",
+          "period" : 30,
+          "reason" : null,
+          "secret" : "MZXW6YTBOI",
+          "valid" : true
+        }
+      ],
+      "batchKey" : null,
+      "input" : "otpauth://totp/X::y?secret=MZXW6YTBOI",
+      "isGoogleMigration" : false
+    },
+    {
+      "accounts" : [
+        {
+          "account" : "X:",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "X",
+          "period" : 30,
+          "reason" : null,
+          "secret" : "MZXW6YTBOI",
+          "valid" : true
+        }
+      ],
+      "batchKey" : null,
+      "input" : "otpauth://totp/X:?secret=MZXW6YTBOI",
+      "isGoogleMigration" : false
+    },
+    {
+      "accounts" : [
+        {
+          "account" : "No account",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "Unknown service",
+          "period" : 30,
+          "reason" : null,
+          "secret" : "MZXW6YTBOI",
+          "valid" : true
+        }
+      ],
+      "batchKey" : null,
+      "input" : "otpauth://totp/?secret=MZXW6YTBOI",
+      "isGoogleMigration" : false
+    },
+    {
+      "accounts" : [
+        {
+          "account" : "acct",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "Issuer",
+          "period" : 30,
+          "reason" : null,
+          "secret" : "MZXW6YTBOI",
+          "valid" : true
+        }
+      ],
+      "batchKey" : null,
+      "input" : "otpauth://totp/Issuer:Issuer:acct?secret=MZXW6YTBOI&issuer=Issuer",
+      "isGoogleMigration" : false
+    },
+    {
+      "accounts" : [
+        {
+          "account" : "x",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "x",
+          "period" : 30,
+          "reason" : null,
+          "secret" : "MZXW6YTBOI",
+          "valid" : true
+        }
+      ],
+      "batchKey" : null,
+      "input" : "otpauth://totp/x?secret=MZXW6YTBOI&algorithm=MD5",
+      "isGoogleMigration" : false
+    },
+    {
+      "accounts" : [
+        {
+          "account" : "x",
+          "algorithm" : "SHA512",
+          "digits" : 8,
+          "issuer" : "x",
+          "period" : 30,
+          "reason" : null,
+          "secret" : "MZXW6YTBOI",
+          "valid" : true
+        }
+      ],
+      "batchKey" : null,
+      "input" : "otpauth://totp/x?secret=MZXW6YTBOI&algorithm=sha512&digits=8",
+      "isGoogleMigration" : false
+    },
+    {
+      "accounts" : [
+        {
+          "account" : "x",
+          "algorithm" : "SHA1",
+          "digits" : 8,
+          "issuer" : "x",
+          "period" : 30,
+          "reason" : null,
+          "secret" : "MZXW6YTBOI",
+          "valid" : true
+        }
+      ],
+      "batchKey" : null,
+      "input" : "otpauth://totp/x?secret=MZXW6YTBOI&digits=+8",
+      "isGoogleMigration" : false
+    },
+    {
+      "accounts" : [
+        {
+          "account" : "x",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "x",
+          "period" : 30,
+          "reason" : null,
+          "secret" : "MZXW6YTBOI",
+          "valid" : true
+        }
+      ],
+      "batchKey" : null,
+      "input" : "otpauth://totp/x?secret=MZXW6YTBOI&digits=abc",
+      "isGoogleMigration" : false
+    },
+    {
+      "accounts" : [
+        {
+          "account" : "",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "",
+          "period" : 30,
+          "reason" : "otp.err.period",
+          "secret" : "",
+          "valid" : false
+        }
+      ],
+      "batchKey" : null,
+      "input" : "otpauth://totp/x?secret=MZXW6YTBOI&period=-1",
+      "isGoogleMigration" : false
+    },
+    {
+      "accounts" : [
+        {
+          "account" : "x",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "x",
+          "period" : 30,
+          "reason" : null,
+          "secret" : "MZXW6YTBOI",
+          "valid" : true
+        }
+      ],
+      "batchKey" : null,
+      "input" : "otpauth://totp/x?secret=MZXW6YTBOI&period=",
+      "isGoogleMigration" : false
+    },
+    {
+      "accounts" : [
+        {
+          "account" : "",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "",
+          "period" : 30,
+          "reason" : "otp.err.missing_secret",
+          "secret" : "",
+          "valid" : false
+        }
+      ],
+      "batchKey" : null,
+      "input" : "otpauth://totp/x?secret=%20",
+      "isGoogleMigration" : false
+    },
+    {
+      "accounts" : [
+        {
+          "account" : "",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "",
+          "period" : 30,
+          "reason" : "otp.err.missing_secret",
+          "secret" : "",
+          "valid" : false
+        }
+      ],
+      "batchKey" : null,
+      "input" : "otpauth://totp/x?secret",
+      "isGoogleMigration" : false
+    },
+    {
+      "accounts" : [
+        {
+          "account" : "太郎",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "日本",
+          "period" : 30,
+          "reason" : null,
+          "secret" : "MZXW6YTBOI",
+          "valid" : true
+        }
+      ],
+      "batchKey" : null,
+      "input" : "otpauth://totp/%E6%97%A5%E6%9C%AC:%E5%A4%AA%E9%83%8E?secret=MZXW6YTBOI",
+      "isGoogleMigration" : false
+    },
+    {
+      "accounts" : [
+        {
+          "account" : "a b",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "a b",
+          "period" : 30,
+          "reason" : null,
+          "secret" : "MZXW6YTBOI",
+          "valid" : true
+        }
+      ],
+      "batchKey" : null,
+      "input" : "otpauth://totp/a%252520b?secret=MZXW6YTBOI",
+      "isGoogleMigration" : false
+    },
+    {
+      "accounts" : [
+        {
+          "account" : "me",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "Trim",
+          "period" : 30,
+          "reason" : null,
+          "secret" : "MZXW6YTBOI",
+          "valid" : true
+        }
+      ],
+      "batchKey" : null,
+      "input" : "  otpauth://totp/Trim:me?secret=MZXW6YTBOI  ",
+      "isGoogleMigration" : false
+    },
+    {
+      "accounts" : [
+        {
+          "account" : "",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "",
+          "period" : 30,
+          "reason" : "otp.err.not_totp",
+          "secret" : "",
+          "valid" : false
+        }
+      ],
+      "batchKey" : null,
+      "input" : "otpauth://hotp/x?secret=MZXW6YTBOI&counter=1",
+      "isGoogleMigration" : false
+    },
+    {
+      "accounts" : [
+        {
+          "account" : "",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "",
+          "period" : 30,
+          "reason" : "otp.err.missing_secret",
+          "secret" : "",
+          "valid" : false
+        }
+      ],
+      "batchKey" : null,
+      "input" : "otpauth://totp/x",
+      "isGoogleMigration" : false
+    },
+    {
+      "accounts" : [
+        {
+          "account" : "",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "",
+          "period" : 30,
+          "reason" : "otp.err.bad_base32",
+          "secret" : "",
+          "valid" : false
+        }
+      ],
+      "batchKey" : null,
+      "input" : "otpauth://totp/x?secret=1111",
+      "isGoogleMigration" : false
+    },
+    {
+      "accounts" : [
+        {
+          "account" : "",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "",
+          "period" : 30,
+          "reason" : "otp.err.digits",
+          "secret" : "",
+          "valid" : false
+        }
+      ],
+      "batchKey" : null,
+      "input" : "otpauth://totp/x?secret=MZXW6YTBOI&digits=7",
+      "isGoogleMigration" : false
+    },
+    {
+      "accounts" : [
+        {
+          "account" : "",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "",
+          "period" : 30,
+          "reason" : "otp.err.period",
+          "secret" : "",
+          "valid" : false
+        }
+      ],
+      "batchKey" : null,
+      "input" : "otpauth://totp/x?secret=MZXW6YTBOI&period=0",
+      "isGoogleMigration" : false
+    },
+    {
+      "accounts" : [
+        {
+          "account" : "",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "",
+          "period" : 30,
+          "reason" : "otp.err.not_otpauth",
+          "secret" : "",
+          "valid" : false
+        }
+      ],
+      "batchKey" : null,
+      "input" : "https://example.com/?secret=MZXW6YTBOI",
+      "isGoogleMigration" : false
+    },
+    {
+      "accounts" : [
+        {
+          "account" : "",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "",
+          "period" : 30,
+          "reason" : "otp.err.not_otpauth",
+          "secret" : "",
+          "valid" : false
+        }
+      ],
+      "batchKey" : null,
+      "input" : "hello",
+      "isGoogleMigration" : false
+    },
+    {
+      "accounts" : [
+        {
+          "account" : "",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "",
+          "period" : 30,
+          "reason" : "otp.err.bad_url",
+          "secret" : "",
+          "valid" : false
+        }
+      ],
+      "batchKey" : null,
+      "input" : "",
+      "isGoogleMigration" : false
+    },
+    {
+      "accounts" : [
+        {
+          "account" : "",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "",
+          "period" : 30,
+          "reason" : "otp.err.bad_url",
+          "secret" : "",
+          "valid" : false
+        }
+      ],
+      "batchKey" : null,
+      "input" : "   ",
+      "isGoogleMigration" : false
+    },
+    {
+      "accounts" : [
+        {
+          "account" : "alex",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "GitHub",
+          "period" : 30,
+          "reason" : null,
+          "secret" : "MZXW6YTBOI",
+          "valid" : true
+        },
+        {
+          "account" : "",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "",
+          "period" : 30,
+          "reason" : "otp.err.not_totp",
+          "secret" : "",
+          "valid" : false
+        },
+        {
+          "account" : "",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "",
+          "period" : 30,
+          "reason" : "otp.err.unsupported_algorithm",
+          "secret" : "",
+          "valid" : false
+        },
+        {
+          "account" : "eight",
+          "algorithm" : "SHA512",
+          "digits" : 8,
+          "issuer" : "Z",
+          "period" : 30,
+          "reason" : null,
+          "secret" : "MZXW6YTBOI",
+          "valid" : true
+        }
+      ],
+      "batchKey" : "7-2-1",
+      "input" : "otpauth-migration://offline?data=CiMKBmZvb2JhchILR2l0SHViOmFsZXgaBkdpdEh1YiABKAEwAgoXCgZmb29iYXISBGhvdHAaAVggASgBMAEKFgoGZm9vYmFyEgNtZDUaAVkgBCgBMAIKGAoGZm9vYmFyEgVlaWdodBoBWiADKAIwAhABGAIgASgH",
+      "isGoogleMigration" : true
+    },
+    {
+      "accounts" : [
+        {
+          "account" : "defaults",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "D",
+          "period" : 30,
+          "reason" : null,
+          "secret" : "MZXW6YTBOI",
+          "valid" : true
+        },
+        {
+          "account" : "",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "",
+          "period" : 30,
+          "reason" : "otp.err.not_totp",
+          "secret" : "",
+          "valid" : false
+        },
+        {
+          "account" : "",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "",
+          "period" : 30,
+          "reason" : "otp.err.bad_base32",
+          "secret" : "",
+          "valid" : false
+        },
+        {
+          "account" : "No account",
+          "algorithm" : "SHA256",
+          "digits" : 6,
+          "issuer" : "Unknown service",
+          "period" : 30,
+          "reason" : null,
+          "secret" : "AEBAG",
+          "valid" : true
+        }
+      ],
+      "batchKey" : null,
+      "input" : "otpauth-migration://offline?data=ChUKBmZvb2JhchIIZGVmYXVsdHMaAUQKHgoGZm9vYmFyEgt1bnNwZWNpZmllZBoBVSAAKAAwAAoSCgASBWVtcHR5GgFFIAEoATACCg8KAwECAxIAGgAgAigBMAIQAQ",
+      "isGoogleMigration" : true
+    },
+    {
+      "accounts" : [
+        {
+          "account" : "",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "",
+          "period" : 30,
+          "reason" : "otp.err.bad_migration",
+          "secret" : "",
+          "valid" : false
+        }
+      ],
+      "batchKey" : "3-1-0",
+      "input" : "otpauth-migration://offline?data=EAEYASAAKAM%3D",
+      "isGoogleMigration" : true
+    },
+    {
+      "accounts" : [
+        {
+          "account" : "No account",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "B",
+          "period" : 30,
+          "reason" : null,
+          "secret" : "MZXW6YTBOI",
+          "valid" : true
+        }
+      ],
+      "batchKey" : null,
+      "input" : "otpauth-migration://offline?data=ChUKBmZvb2JhchIC%2F%2F4aAUIgASgBMAIQAQ%3D%3D",
+      "isGoogleMigration" : true
+    },
+    {
+      "accounts" : [
+        {
+          "account" : "",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "",
+          "period" : 30,
+          "reason" : "otp.err.bad_migration",
+          "secret" : "",
+          "valid" : false
+        }
+      ],
+      "batchKey" : null,
+      "input" : "otpauth-migration://offline?data=%%%",
+      "isGoogleMigration" : true
+    },
+    {
+      "accounts" : [
+        {
+          "account" : "",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "",
+          "period" : 30,
+          "reason" : "otp.err.bad_migration",
+          "secret" : "",
+          "valid" : false
+        }
+      ],
+      "batchKey" : null,
+      "input" : "otpauth-migration://online?data=CgA%3D",
+      "isGoogleMigration" : true
+    },
+    {
+      "accounts" : [
+        {
+          "account" : "",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "",
+          "period" : 30,
+          "reason" : "otp.err.bad_migration",
+          "secret" : "",
+          "valid" : false
+        }
+      ],
+      "batchKey" : null,
+      "input" : "otpauth-migration://offline",
+      "isGoogleMigration" : true
+    },
+    {
+      "accounts" : [
+        {
+          "account" : "",
+          "algorithm" : "SHA1",
+          "digits" : 6,
+          "issuer" : "",
+          "period" : 30,
+          "reason" : "otp.err.bad_migration",
+          "secret" : "",
+          "valid" : false
+        }
+      ],
+      "batchKey" : null,
+      "input" : "otpauth-migration://offline?data=",
+      "isGoogleMigration" : true
+    }
+  ],
+  "single" : [
+    {
+      "account" : {
+        "account" : "alex@example.com",
+        "algorithm" : "SHA256",
+        "digits" : 8,
+        "issuer" : "GitHub",
+        "period" : 60,
+        "reason" : null,
+        "secret" : "MZXW6YTBOI",
+        "valid" : true
+      },
+      "input" : "otpauth://totp/GitHub%3Aalex%40example.com?secret=mzxw6ytboi&issuer=GitHub&algorithm=sha256&digits=8&period=60"
+    },
+    {
+      "account" : {
+        "account" : "me",
+        "algorithm" : "SHA1",
+        "digits" : 6,
+        "issuer" : "A+B",
+        "period" : 30,
+        "reason" : null,
+        "secret" : "MZXW6YTBOI",
+        "valid" : true
+      },
+      "input" : "otpauth://totp/A+B:me?secret=MZXW6YTBOI&issuer=A+B"
+    },
+    {
+      "account" : {
+        "account" : "alice@google.com",
+        "algorithm" : "SHA1",
+        "digits" : 6,
+        "issuer" : "Example",
+        "period" : 30,
+        "reason" : null,
+        "secret" : "JBSWY3DPEHPK3PXP",
+        "valid" : true
+      },
+      "input" : "otpauth://totp/Example:alice@google.com?secret=JBSWY3DPEHPK3PXP&issuer=Example"
+    },
+    {
+      "account" : {
+        "account" : "alice@google.com",
+        "algorithm" : "SHA1",
+        "digits" : 6,
+        "issuer" : "alice@google.com",
+        "period" : 30,
+        "reason" : null,
+        "secret" : "JBSWY3DPEHPK3PXP",
+        "valid" : true
+      },
+      "input" : "otpauth://totp/alice@google.com?secret=JBSWY3DPEHPK3PXP"
+    },
+    {
+      "account" : {
+        "account" : "john.doe@email.com",
+        "algorithm" : "SHA1",
+        "digits" : 6,
+        "issuer" : "ACME Co",
+        "period" : 30,
+        "reason" : null,
+        "secret" : "HXDMVJECJJWSRB3HWIZR4IFUGFTMXBOZ",
+        "valid" : true
+      },
+      "input" : "otpauth://totp/ACME%20Co:john.doe@email.com?secret=HXDMVJECJJWSRB3HWIZR4IFUGFTMXBOZ&issuer=ACME%20Co&algorithm=SHA1&digits=6&period=30"
+    },
+    {
+      "account" : {
+        "account" : "y",
+        "algorithm" : "SHA1",
+        "digits" : 6,
+        "issuer" : "Z",
+        "period" : 30,
+        "reason" : null,
+        "secret" : "MZXW6YTBOI",
+        "valid" : true
+      },
+      "input" : "otpauth://TOTP/X:y?SECRET=MZXW6YTBOI&Issuer=Z"
+    },
+    {
+      "account" : {
+        "account" : "y",
+        "algorithm" : "SHA1",
+        "digits" : 6,
+        "issuer" : "X",
+        "period" : 30,
+        "reason" : null,
+        "secret" : "MZXW6YTBOI",
+        "valid" : true
+      },
+      "input" : "otpauth://1/X:y?secret=MZXW6YTBOI"
+    },
+    {
+      "account" : {
+        "account" : ":y",
+        "algorithm" : "SHA1",
+        "digits" : 6,
+        "issuer" : "y",
+        "period" : 30,
+        "reason" : null,
+        "secret" : "MZXW6YTBOI",
+        "valid" : true
+      },
+      "input" : "otpauth://totp/:y?secret=MZXW6YTBOI"
+    },
+    {
+      "account" : {
+        "account" : ":y",
+        "algorithm" : "SHA1",
+        "digits" : 6,
+        "issuer" : "X",
+        "period" : 30,
+        "reason" : null,
+        "secret" : "MZXW6YTBOI",
+        "valid" : true
+      },
+      "input" : "otpauth://totp/X::y?secret=MZXW6YTBOI"
+    },
+    {
+      "account" : {
+        "account" : "X:",
+        "algorithm" : "SHA1",
+        "digits" : 6,
+        "issuer" : "X",
+        "period" : 30,
+        "reason" : null,
+        "secret" : "MZXW6YTBOI",
+        "valid" : true
+      },
+      "input" : "otpauth://totp/X:?secret=MZXW6YTBOI"
+    },
+    {
+      "account" : {
+        "account" : "No account",
+        "algorithm" : "SHA1",
+        "digits" : 6,
+        "issuer" : "Unknown service",
+        "period" : 30,
+        "reason" : null,
+        "secret" : "MZXW6YTBOI",
+        "valid" : true
+      },
+      "input" : "otpauth://totp/?secret=MZXW6YTBOI"
+    },
+    {
+      "account" : {
+        "account" : "acct",
+        "algorithm" : "SHA1",
+        "digits" : 6,
+        "issuer" : "Issuer",
+        "period" : 30,
+        "reason" : null,
+        "secret" : "MZXW6YTBOI",
+        "valid" : true
+      },
+      "input" : "otpauth://totp/Issuer:Issuer:acct?secret=MZXW6YTBOI&issuer=Issuer"
+    },
+    {
+      "account" : {
+        "account" : "x",
+        "algorithm" : "SHA1",
+        "digits" : 6,
+        "issuer" : "x",
+        "period" : 30,
+        "reason" : null,
+        "secret" : "MZXW6YTBOI",
+        "valid" : true
+      },
+      "input" : "otpauth://totp/x?secret=MZXW6YTBOI&algorithm=MD5"
+    },
+    {
+      "account" : {
+        "account" : "x",
+        "algorithm" : "SHA512",
+        "digits" : 8,
+        "issuer" : "x",
+        "period" : 30,
+        "reason" : null,
+        "secret" : "MZXW6YTBOI",
+        "valid" : true
+      },
+      "input" : "otpauth://totp/x?secret=MZXW6YTBOI&algorithm=sha512&digits=8"
+    },
+    {
+      "account" : {
+        "account" : "x",
+        "algorithm" : "SHA1",
+        "digits" : 8,
+        "issuer" : "x",
+        "period" : 30,
+        "reason" : null,
+        "secret" : "MZXW6YTBOI",
+        "valid" : true
+      },
+      "input" : "otpauth://totp/x?secret=MZXW6YTBOI&digits=+8"
+    },
+    {
+      "account" : {
+        "account" : "x",
+        "algorithm" : "SHA1",
+        "digits" : 6,
+        "issuer" : "x",
+        "period" : 30,
+        "reason" : null,
+        "secret" : "MZXW6YTBOI",
+        "valid" : true
+      },
+      "input" : "otpauth://totp/x?secret=MZXW6YTBOI&digits=abc"
+    },
+    {
+      "account" : {
+        "account" : "",
+        "algorithm" : "SHA1",
+        "digits" : 6,
+        "issuer" : "",
+        "period" : 30,
+        "reason" : "otp.err.period",
+        "secret" : "",
+        "valid" : false
+      },
+      "input" : "otpauth://totp/x?secret=MZXW6YTBOI&period=-1"
+    },
+    {
+      "account" : {
+        "account" : "x",
+        "algorithm" : "SHA1",
+        "digits" : 6,
+        "issuer" : "x",
+        "period" : 30,
+        "reason" : null,
+        "secret" : "MZXW6YTBOI",
+        "valid" : true
+      },
+      "input" : "otpauth://totp/x?secret=MZXW6YTBOI&period="
+    },
+    {
+      "account" : {
+        "account" : "",
+        "algorithm" : "SHA1",
+        "digits" : 6,
+        "issuer" : "",
+        "period" : 30,
+        "reason" : "otp.err.missing_secret",
+        "secret" : "",
+        "valid" : false
+      },
+      "input" : "otpauth://totp/x?secret=%20"
+    },
+    {
+      "account" : {
+        "account" : "",
+        "algorithm" : "SHA1",
+        "digits" : 6,
+        "issuer" : "",
+        "period" : 30,
+        "reason" : "otp.err.missing_secret",
+        "secret" : "",
+        "valid" : false
+      },
+      "input" : "otpauth://totp/x?secret"
+    },
+    {
+      "account" : {
+        "account" : "太郎",
+        "algorithm" : "SHA1",
+        "digits" : 6,
+        "issuer" : "日本",
+        "period" : 30,
+        "reason" : null,
+        "secret" : "MZXW6YTBOI",
+        "valid" : true
+      },
+      "input" : "otpauth://totp/%E6%97%A5%E6%9C%AC:%E5%A4%AA%E9%83%8E?secret=MZXW6YTBOI"
+    },
+    {
+      "account" : {
+        "account" : "a b",
+        "algorithm" : "SHA1",
+        "digits" : 6,
+        "issuer" : "a b",
+        "period" : 30,
+        "reason" : null,
+        "secret" : "MZXW6YTBOI",
+        "valid" : true
+      },
+      "input" : "otpauth://totp/a%252520b?secret=MZXW6YTBOI"
+    },
+    {
+      "account" : {
+        "account" : "me",
+        "algorithm" : "SHA1",
+        "digits" : 6,
+        "issuer" : "Trim",
+        "period" : 30,
+        "reason" : null,
+        "secret" : "MZXW6YTBOI",
+        "valid" : true
+      },
+      "input" : "  otpauth://totp/Trim:me?secret=MZXW6YTBOI  "
+    },
+    {
+      "account" : {
+        "account" : "",
+        "algorithm" : "SHA1",
+        "digits" : 6,
+        "issuer" : "",
+        "period" : 30,
+        "reason" : "otp.err.not_totp",
+        "secret" : "",
+        "valid" : false
+      },
+      "input" : "otpauth://hotp/x?secret=MZXW6YTBOI&counter=1"
+    },
+    {
+      "account" : {
+        "account" : "",
+        "algorithm" : "SHA1",
+        "digits" : 6,
+        "issuer" : "",
+        "period" : 30,
+        "reason" : "otp.err.missing_secret",
+        "secret" : "",
+        "valid" : false
+      },
+      "input" : "otpauth://totp/x"
+    },
+    {
+      "account" : {
+        "account" : "",
+        "algorithm" : "SHA1",
+        "digits" : 6,
+        "issuer" : "",
+        "period" : 30,
+        "reason" : "otp.err.bad_base32",
+        "secret" : "",
+        "valid" : false
+      },
+      "input" : "otpauth://totp/x?secret=1111"
+    },
+    {
+      "account" : {
+        "account" : "",
+        "algorithm" : "SHA1",
+        "digits" : 6,
+        "issuer" : "",
+        "period" : 30,
+        "reason" : "otp.err.digits",
+        "secret" : "",
+        "valid" : false
+      },
+      "input" : "otpauth://totp/x?secret=MZXW6YTBOI&digits=7"
+    },
+    {
+      "account" : {
+        "account" : "",
+        "algorithm" : "SHA1",
+        "digits" : 6,
+        "issuer" : "",
+        "period" : 30,
+        "reason" : "otp.err.period",
+        "secret" : "",
+        "valid" : false
+      },
+      "input" : "otpauth://totp/x?secret=MZXW6YTBOI&period=0"
+    },
+    {
+      "account" : {
+        "account" : "",
+        "algorithm" : "SHA1",
+        "digits" : 6,
+        "issuer" : "",
+        "period" : 30,
+        "reason" : "otp.err.not_otpauth",
+        "secret" : "",
+        "valid" : false
+      },
+      "input" : "https://example.com/?secret=MZXW6YTBOI"
+    },
+    {
+      "account" : {
+        "account" : "",
+        "algorithm" : "SHA1",
+        "digits" : 6,
+        "issuer" : "",
+        "period" : 30,
+        "reason" : "otp.err.not_otpauth",
+        "secret" : "",
+        "valid" : false
+      },
+      "input" : "hello"
+    },
+    {
+      "account" : {
+        "account" : "",
+        "algorithm" : "SHA1",
+        "digits" : 6,
+        "issuer" : "",
+        "period" : 30,
+        "reason" : "otp.err.bad_url",
+        "secret" : "",
+        "valid" : false
+      },
+      "input" : ""
+    },
+    {
+      "account" : {
+        "account" : "",
+        "algorithm" : "SHA1",
+        "digits" : 6,
+        "issuer" : "",
+        "period" : 30,
+        "reason" : "otp.err.bad_url",
+        "secret" : "",
+        "valid" : false
+      },
+      "input" : "   "
+    },
+    {
+      "account" : {
+        "account" : "alex",
+        "algorithm" : "SHA1",
+        "digits" : 6,
+        "issuer" : "GitHub",
+        "period" : 30,
+        "reason" : null,
+        "secret" : "MZXW6YTBOI",
+        "valid" : true
+      },
+      "input" : "otpauth-migration://offline?data=CiMKBmZvb2JhchILR2l0SHViOmFsZXgaBkdpdEh1YiABKAEwAgoXCgZmb29iYXISBGhvdHAaAVggASgBMAEKFgoGZm9vYmFyEgNtZDUaAVkgBCgBMAIKGAoGZm9vYmFyEgVlaWdodBoBWiADKAIwAhABGAIgASgH"
+    },
+    {
+      "account" : {
+        "account" : "defaults",
+        "algorithm" : "SHA1",
+        "digits" : 6,
+        "issuer" : "D",
+        "period" : 30,
+        "reason" : null,
+        "secret" : "MZXW6YTBOI",
+        "valid" : true
+      },
+      "input" : "otpauth-migration://offline?data=ChUKBmZvb2JhchIIZGVmYXVsdHMaAUQKHgoGZm9vYmFyEgt1bnNwZWNpZmllZBoBVSAAKAAwAAoSCgASBWVtcHR5GgFFIAEoATACCg8KAwECAxIAGgAgAigBMAIQAQ"
+    },
+    {
+      "account" : {
+        "account" : "",
+        "algorithm" : "SHA1",
+        "digits" : 6,
+        "issuer" : "",
+        "period" : 30,
+        "reason" : "otp.err.bad_migration",
+        "secret" : "",
+        "valid" : false
+      },
+      "input" : "otpauth-migration://offline?data=EAEYASAAKAM%3D"
+    },
+    {
+      "account" : {
+        "account" : "No account",
+        "algorithm" : "SHA1",
+        "digits" : 6,
+        "issuer" : "B",
+        "period" : 30,
+        "reason" : null,
+        "secret" : "MZXW6YTBOI",
+        "valid" : true
+      },
+      "input" : "otpauth-migration://offline?data=ChUKBmZvb2JhchIC%2F%2F4aAUIgASgBMAIQAQ%3D%3D"
+    },
+    {
+      "account" : {
+        "account" : "",
+        "algorithm" : "SHA1",
+        "digits" : 6,
+        "issuer" : "",
+        "period" : 30,
+        "reason" : "otp.err.bad_migration",
+        "secret" : "",
+        "valid" : false
+      },
+      "input" : "otpauth-migration://offline?data=%%%"
+    },
+    {
+      "account" : {
+        "account" : "",
+        "algorithm" : "SHA1",
+        "digits" : 6,
+        "issuer" : "",
+        "period" : 30,
+        "reason" : "otp.err.bad_migration",
+        "secret" : "",
+        "valid" : false
+      },
+      "input" : "otpauth-migration://online?data=CgA%3D"
+    },
+    {
+      "account" : {
+        "account" : "",
+        "algorithm" : "SHA1",
+        "digits" : 6,
+        "issuer" : "",
+        "period" : 30,
+        "reason" : "otp.err.bad_migration",
+        "secret" : "",
+        "valid" : false
+      },
+      "input" : "otpauth-migration://offline"
+    },
+    {
+      "account" : {
+        "account" : "",
+        "algorithm" : "SHA1",
+        "digits" : 6,
+        "issuer" : "",
+        "period" : 30,
+        "reason" : "otp.err.bad_migration",
+        "secret" : "",
+        "valid" : false
+      },
+      "input" : "otpauth-migration://offline?data="
+    }
+  ]
+}

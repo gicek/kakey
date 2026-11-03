@@ -1,0 +1,18 @@
+# ktlint rules (part of the make test-android gate; auto-fix with make android-format).
+# The repository root .editorconfig handles indentation and line endings; only Kotlin / ktlint settings live here.
+root = false
+
+[*.{kt,kts}]
+# android_studio and intellij_idea differ only in the default line length. android_studio matches the existing code;
+# ktlint_official would force-wrap every signature with two or more parameters, rewriting nearly every Composable.
+ktlint_code_style = android_studio
+# Matches .swift-format (lineLength 140) and Core/rustfmt.toml (max_width 140) instead of android_studio's 100
+max_line_length = 140
+# The code uses trailing commas at declaration and call sites (android_studio omits them by default)
+ij_kotlin_allow_trailing_comma = true
+ij_kotlin_allow_trailing_comma_on_call_site = true
+# Composable functions start with an uppercase letter per Compose conventions; exempt them from function-naming
+ktlint_function_naming_ignore_when_annotated_with = Composable
+# No blank lines between when entries: when enabled, ktlint treats a trailing comment at the end of an entry as part of the
+# next entry and moves the i18n-guard allow marker off its literal's line, which breaks the guard
+ij_kotlin_line_break_after_multiline_when_entry = false

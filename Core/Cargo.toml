@@ -1,0 +1,15 @@
+[workspace]
+resolver = "3"
+members = ["crates/cloudset", "crates/kakey-core", "crates/kakey-ffi", "crates/uniffi-bindgen"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+publish = false
+rust-version = "1.97"
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+strip = "debuginfo"

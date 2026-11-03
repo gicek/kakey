@@ -1,0 +1,44 @@
+# cargo-deny: license allowlist and duplicate-dependency checks (`make test-core` runs `cargo deny check licenses bans`)
+# and known-vulnerability checks (`make core-audit` runs `cargo deny check advisories`).
+# Keep the allowlist in sync with THIRD_PARTY_NOTICES.md; GPL / AGPL / LGPL are never allowed.
+
+[graph]
+targets = [
+    "aarch64-apple-darwin",
+    "aarch64-apple-ios",
+    "aarch64-apple-ios-sim",
+    "aarch64-linux-android",
+]
+
+[advisories]
+# Run by `make core-audit` and CI. Every ignore needs a reason and a date; prefer upgrading whenever possible.
+ignore = [
+    # basic-toml is unmaintained and has no upgrade. It is only used at build time, by the askama proc macro behind
+    # uniffi-bindgen, to parse template config; it is not linked into the app and never sees user data (2026-10-23).
+    # Remove this entry once uniffi drops it.
+    { id = "RUSTSEC-2026-0374", reason = "build-time only via uniffi-bindgen/askama proc-macro; no upgrade available" },
+]
+
+[licenses]
+# UniFFI is MPL-2.0 (file-level weak copyleft); it is only used for binding generation and runtime glue, unmodified.
+allow = [
+    "MIT",
+    "Apache-2.0",
+    "Apache-2.0 WITH LLVM-exception",
+    "BSD-2-Clause",
+    "BSD-3-Clause",
+    "ISC",
+    "Unicode-3.0",
+    "Zlib",
+    "CC0-1.0",
+    "MPL-2.0",
+]
+confidence-threshold = 0.9
+
+[licenses.private]
+ignore = true
+
+[bans]
+multiple-versions = "warn"
+wildcards = "deny"
+allow-wildcard-paths = true

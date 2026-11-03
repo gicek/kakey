@@ -1,0 +1,92 @@
+{
+  "exports" : [
+    {
+      "accounts" : [
+        {
+          "addedBy" : "manual",
+          "algorithm" : "SHA256",
+          "createdAt" : 1700000000,
+          "digits" : 8,
+          "id" : "E621E1F8-C36C-495A-93FC-0C247A3E6E5F",
+          "issuer" : "GitHub",
+          "period" : 60,
+          "secret" : "MZXW6YTBOI",
+          "username" : "GitHub:alex@example.com"
+        },
+        {
+          "addedBy" : "import",
+          "algorithm" : "SHA1",
+          "createdAt" : 1759219200,
+          "digits" : 6,
+          "id" : "0B2A9C1D-3E4F-4A5B-8C6D-7E8F9A0B1C2D",
+          "issuer" : "日本語サービス",
+          "period" : 30,
+          "secret" : "JBSWY3DPEHPK3PXP",
+          "username" : "太郎"
+        },
+        {
+          "addedBy" : "手动添加",
+          "algorithm" : "SHA512",
+          "createdAt" : 0,
+          "digits" : 8,
+          "id" : "5F4E3D2C-1B0A-4987-B654-3210FEDCBA98",
+          "issuer" : "Quote \"&\" Slash /",
+          "period" : 15,
+          "secret" : "GEZDGNBVGY3TQOJQGEZDGNBVGY3TQOJQ",
+          "username" : ""
+        }
+      ],
+      "file" : "{\n  \"accountCount\" : 3,\n  \"app\" : \"kakey\",\n  \"cipher\" : \"AES-256-GCM\",\n  \"ciphertext\" : \"Wi+iaD5pqJTV30pffuCxIrYD\\/sCSVF7MXQXFBYQrLaQHUCmO42lhXGhUxVMolOidIOla\\/+yAssv8015uEavTGXveE91mD+wp9Mpb0T0+0oCfLGspHXRDtb3OU6UaGnSZEmHN6LTxHbHT\\/yG5svoJazcTInWBzREzydiHRyU5YXeotQj1008F0S3qqR60JcQwNZBsgUGA3P3K3phhYJw2tYx9QyMefruYWF62qDGyGBjwT9TZ8MkiVJ52X5uoMe1BFaFsGide4LxzYC5PVA+f1sJVP60QCbJznbvnaFp4wk+OQlaNwdUWZdHwOsPMEIfISNo14nNXlKSQ1EOgDXLhxfoMSqaIi9GElJMHqwFNJyoHid0ejuw\\/iTgM3YM8UjfbaCjDIQk7Q62NuxplI3yCwdjfb29CRtzFbBYJ1MqhSck0GsldZGKYwDcs94kRzrsWxuXpSU\\/bqrj4NYUDR82GGNGTWXcTvSgf26PSMlVGLtTzOPLN6Qj97hamGLZUXrbdE0lopwVErWWE2MLcp\\/Hbp0FH6ZzMMtkn5QgaopgKW5Bc7zjtWGFrtYMlbbJxG8RNiY2J9Tq8\\/JQngaKdOCc2QXxAfd60eSFKzwuD3kpT7tbs6t8i79+NRFefrySEHy08I2yBNRBO35+NN61BSSRfQtS9gI2AcEv+LsZs8a87ZLqxfDNChRvNwKoI7S6R0dIsfrwvCvHfoojY3XswS5TDXU4WKqmaQaWqOk2+yf7jZ\\/dDnpCLlAuOSQS8ADHwsy5E748wwHV08LqOipl2627tugB5gLLd\\/tpj9ixr76y+z6\\/IYZ5UCml+fUZrLUIU8nWyX2jn8jy2L1oKDmgSQCOo0v\\/D+uMZpkFyRIxhs\\/rTycsPGlAQn56C8oMijJfroOZQoV43OLdiH7DHAxyzd1ca4gRr1kSTCl09XYgvNfL+Bc2uRontqSGDuxH\\/neky6ZbXHMeCrgsppLqwcxbo4O\\/1zFod7+H5FzMfkn4rKy7KWExvjGZAxM4KQLERskl2kvql99cbLxd19siYEKqmy9zmDk23QkL6xO7MS4OIJ3rRziQLH\\/epZPTmJrGodoqnuBZxYJzPbXFc0vfALNlLFAI2YC37QE8ayTbsMEyppIIksVY3Hzu3MycQivXtK+WK74ST5b4IUOP+sv95K674nmsP9pxpfOB1HroSkT5a8If9\\/MbNY0Kmtb+jtM35ZDznxbJ4Y94uwiuvpzGA6VdGtyhbDxZ3l8EQIwKU7PhEfxqH6+I1n2wuNZsRD7UHdwiRFbJVyJcQZe0CqjxwpV2gnpCpWw8F5yoZc9azCaY2vj8L17e80IA8kY7D0KY\\/NzbihNdP0psdFmVyS8OsHGddRApR8GKllVqg7X5R3JsgxxggDBJ2k3HCSkHrmbv5IekhY8bm4PsPKnfJPz+AuFfm7Wq87j6f+CRaRQCtYT3Xc1Chb4bYVz8ZSNDhUV3WvsCY2PFsgU3S85nEmAqhXr1p0kovfZBO3SAgnosPjUQ=\",\n  \"exportedAt\" : \"2026-09-30T08:53:48Z\",\n  \"iterations\" : 2,\n  \"kdf\" : \"Argon2id\",\n  \"keyLength\" : 32,\n  \"kind\" : \"encrypted-account-export\",\n  \"memoryKiB\" : 65536,\n  \"nonce\" : \"Wi+iaD5pqJTV30pf\",\n  \"parallelism\" : 1,\n  \"salt\" : \"7siB85a\\/D\\/FvFMOD\\/V7j30IOVIU+UoYx\\/PWSS+weO4I=\",\n  \"version\" : 2\n}",
+      "name" : "export-v2",
+      "password" : "export-password"
+    }
+  ],
+  "vaults" : [
+    {
+      "accounts" : [
+        {
+          "addedBy" : "manual",
+          "algorithm" : "SHA256",
+          "createdAt" : 1700000000,
+          "digits" : 8,
+          "id" : "E621E1F8-C36C-495A-93FC-0C247A3E6E5F",
+          "issuer" : "GitHub",
+          "period" : 60,
+          "secret" : "MZXW6YTBOI",
+          "username" : "GitHub:alex@example.com"
+        },
+        {
+          "addedBy" : "import",
+          "algorithm" : "SHA1",
+          "createdAt" : 1759219200,
+          "digits" : 6,
+          "id" : "0B2A9C1D-3E4F-4A5B-8C6D-7E8F9A0B1C2D",
+          "issuer" : "日本語サービス",
+          "period" : 30,
+          "secret" : "JBSWY3DPEHPK3PXP",
+          "username" : "太郎"
+        },
+        {
+          "addedBy" : "手动添加",
+          "algorithm" : "SHA512",
+          "createdAt" : 0,
+          "digits" : 8,
+          "id" : "5F4E3D2C-1B0A-4987-B654-3210FEDCBA98",
+          "issuer" : "Quote \"&\" Slash /",
+          "period" : 15,
+          "secret" : "GEZDGNBVGY3TQOJQGEZDGNBVGY3TQOJQ",
+          "username" : ""
+        }
+      ],
+      "file" : "{\n  \"cipher\" : \"AES-256-GCM\",\n  \"ciphertext\" : \"9TUBsxcvCPBy9zCcc\\/aZgmavAmydysbbwNSZNbVjlxMARuTaTfRHwdJ8IMsOT4DllBo+ZVS4PKsc5PI4jC7SLZM\\/IQ5e5NXBJ6xRpZzprLVZUsngUYllID8guNG1Jk6WDpoA+w7TQCvwvJgih6KIFe7OVtjok8FiFY9CmdGp5cRdw4Ue4rJ+36fLjBeIxtNVWQTm8jzZJqIwYavZuM37\\/82WkYdQ2GtgC4KrUYH+lPyh7VmAvWTX9ekrZDhM9HfDYa+AtqWQl\\/6e725L3mm91e2lpYoJgRnhhnddkBm5dUSHMVpgF0sJo0jE\\/+SLrmj5ChyMWw6u4Wk3GPG7NGiLM\\/Hre96rRlcl++HUqWZRzpqiJy0bFneleRCWRZ9NmXVn2hJs06wO3Bv9CfUYpQWzn4HfBpMHBXtu4\\/cwn2byesbatY3HnzRIld6+IvzJraB+ahAebgR9uOHESNbsZS78az0VEjNQ\\/Bvnq4lLnUi7w+B9U1LcbMiZ10\\/oWCnfzDYVJ5lN14d8vxBjp\\/nfNRQaKHjLlDzPuTm7MXohZAPWb9IVwsEeCUil++zi85gcqioekNGTJUXYP4ghz8VdYLViUyniut5HckWLSO4+GUrx2jFYutSph7a3VH8ldY\\/Fcs65m3z5enh15mxaOMLN\\/Bww8c21HmjlE0omsT2Mtacf7hCi5Pf1QdHbXcAM8UX8NoHHBpUiPm0MByuOh8jUkurunmqFnbqauUJ4ndmQOGXdhZfhELLQKaRkITy2pGf2RxkDbKHTmsx2uRXSSreFQ0E0gXfuGAw6xbooTS3PM\\/lagvJ6BxLnvCNO2t4nT9jM7TmG6s3nEi\\/I23Rksn5eZI5mA1sei4A0QEyMWrhufF7JbkfdyXzJDnB2tZa4Q4T93jQmgvRe8HOXlVY1gXw3oO24I\\/Hmu4rJqGJW5rcUfUwdLMr10MqQVZehXz+9NH6oFEoVo1Utjeg4VZYQAWpGN8zZPOx2B2XHPHqdKQBTBvD6J\\/HblU1WJIe6F2rkqXE9s2CgQM7lzswqhFxcdJ\\/DvhhPi5qRFpUhiTWcC3gkSVsM+Z1wjOExydttrk8cLCxulA6jWkTmgCJse6zwnBvH22z7iADL4UGZhZt\\/nN4boTldKnMVvizf+brlvIPf8kvcZsZPiWY6RrY8dgPSIeTjT5OImniu71l+2SWqn18AHleAm22faRoZbBE6MsqqeMcBxDZYvVm1EBBvoNnhkTryPsE4S0lx4xxyAmqqgcYDJpD7ZgGUpVmVEp8D3fS0dpY+0VXizjyuTDT+XgORdElVKeh+8SJFj2FNgDAr8i2mX+EKqjsGw88QqrejJ4W01\\/LFM\\/AvKkIDASDtp9M06IUe9JVssEFU1abb2vNLnHiChYIAZsdo7gTcS26XcKjQchtHcxuHlyINH2EqASKiRZKAOMurvRh0G4bczimO66hurw+15jBAaSgY7fO3aO5G56SnSeuY7QnfpDZmHC1ljrqQIqAGp0CMB8l2AVGx1gQmA7fZhF0NeCVWDqoSoe\\/ceQIMK2AV8fHFZ01rEI7yYGtqgDArFQYDTLx57WmFCK9rNHY8kNrXBqvRXmr34bln19ZFJ28JOSubmZpb\\/A0q9eq+A9Lvh2w9C\\/AK16dmjteyRwx0fDcjxq+JLLw3jmeC6EJ4BHk=\",\n  \"createdAt\" : \"2026-09-30T08:53:47Z\",\n  \"iterations\" : 2,\n  \"kdf\" : \"Argon2id\",\n  \"keyLength\" : 32,\n  \"memoryKiB\" : 65536,\n  \"nonce\" : \"9TUBsxcvCPBy9zCc\",\n  \"parallelism\" : 1,\n  \"salt\" : \"k3NYzl8p8ZU4m+H4CW+GEoJOuQyyjJoypq3gVtI+jLc=\",\n  \"updatedAt\" : \"2026-09-30T08:53:47Z\",\n  \"version\" : 2\n}",
+      "name" : "v2",
+      "password" : "correct horse battery staple"
+    },
+    {
+      "accounts" : [],
+      "file" : "{\n  \"cipher\" : \"AES-256-GCM\",\n  \"ciphertext\" : \"5a3eF3snV2CEGhYG6GMh958wD11M6imfOLnHzIT6N5AgYnkVU\\/CeAm\\/18csjEJ99yUXLMTe+4LeKC0G\\/JB6HOZzycxDSQUiGXqJy+dFqd35Gen5uJ5QW62Gr1aiol0xuG989glMNBpJjROSubuR9uNTq97VtjdiQOikUtA==\",\n  \"createdAt\" : \"2026-09-30T08:53:48Z\",\n  \"iterations\" : 2,\n  \"kdf\" : \"Argon2id\",\n  \"keyLength\" : 32,\n  \"memoryKiB\" : 65536,\n  \"nonce\" : \"5a3eF3snV2CEGhYG\",\n  \"parallelism\" : 1,\n  \"salt\" : \"Om85KChCV\\/DGY0uME7lbIzHYyc9mcOw0hI3\\/SoNl9gk=\",\n  \"updatedAt\" : \"2026-09-30T08:53:48Z\",\n  \"version\" : 2\n}",
+      "name" : "v2-empty",
+      "password" : "密码 with spaces "
+    }
+  ]
+}

@@ -1,0 +1,844 @@
+{
+  "description": "Real response formats from Dropbox API v2, Microsoft Graph and Google Drive API v3 (fields taken from the official docs and live testing, including fields the component ignores) and the results the component should produce. responses are replayed in request order (Google Drive resolves paths one segment at a time, starting with the app folder); body is the raw response body. modifiedAt is in Unix seconds; error is the Debug form of CloudError.",
+  "cases": [
+    {
+      "name": "dropbox-get-metadata-file",
+      "provider": "dropbox",
+      "operation": "stat",
+      "path": "Backups/vault.bin",
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\".tag\":\"file\",\"name\":\"vault.bin\",\"id\":\"id:a4ayc_80_OEAAAAAAAAAXw\",\"client_modified\":\"2026-10-28T09:12:38Z\",\"server_modified\":\"2026-10-28T09:12:40Z\",\"rev\":\"0162f1c8b3e2a5f00000002b4c7e9d0\",\"size\":2741,\"path_lower\":\"/backups/vault.bin\",\"path_display\":\"/Backups/vault.bin\",\"sharing_info\":{\"read_only\":false,\"parent_shared_folder_id\":\"84528192421\",\"modified_by\":\"dbid:AAH4f99T0taONIb-OurWxbNQ6ywGRopQngc\"},\"is_downloadable\":true,\"has_explicit_shared_members\":false,\"content_hash\":\"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\"}"
+        }
+      ],
+      "expected": {
+        "entry": {
+          "path": "Backups/vault.bin",
+          "isDir": false,
+          "size": 2741,
+          "modifiedAt": 1793178760,
+          "revision": "0162f1c8b3e2a5f00000002b4c7e9d0"
+        }
+      }
+    },
+    {
+      "name": "dropbox-get-metadata-folder",
+      "provider": "dropbox",
+      "operation": "stat",
+      "path": "Backups/Archive",
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\".tag\":\"folder\",\"name\":\"Archive\",\"id\":\"id:a4ayc_80_OEAAAAAAAAAXz\",\"path_lower\":\"/backups/archive\",\"path_display\":\"/Backups/Archive\",\"sharing_info\":{\"read_only\":false,\"parent_shared_folder_id\":\"84528192421\",\"traverse_only\":false,\"no_access\":false}}"
+        }
+      ],
+      "expected": {
+        "entry": {
+          "path": "Backups/Archive",
+          "isDir": true,
+          "size": null,
+          "modifiedAt": null,
+          "revision": null
+        }
+      }
+    },
+    {
+      "name": "dropbox-get-metadata-not-found",
+      "provider": "dropbox",
+      "operation": "stat",
+      "path": "Backups/missing",
+      "responses": [
+        {
+          "status": 409,
+          "body": "{\"error_summary\":\"path/not_found/...\",\"error\":{\".tag\":\"path\",\"path\":{\".tag\":\"not_found\"}}}"
+        }
+      ],
+      "expected": {
+        "entry": null
+      }
+    },
+    {
+      "name": "dropbox-list-folder",
+      "provider": "dropbox",
+      "operation": "list",
+      "path": "Backups",
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"entries\":[{\".tag\":\"file\",\"name\":\"vault.metadata.json\",\"id\":\"id:a4ayc_80_OEAAAAAAAAAY0\",\"client_modified\":\"2026-10-28T09:12:41Z\",\"server_modified\":\"2026-10-28T09:12:41Z\",\"rev\":\"0162f1c8b3e2a6000000002b4c7e9d0\",\"size\":118,\"path_lower\":\"/backups/vault.metadata.json\",\"path_display\":\"/Backups/vault.metadata.json\",\"is_downloadable\":true,\"content_hash\":\"5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9\"},{\".tag\":\"folder\",\"name\":\"Archive\",\"id\":\"id:a4ayc_80_OEAAAAAAAAAXz\",\"path_lower\":\"/backups/archive\",\"path_display\":\"/Backups/Archive\",\"sharing_info\":{\"read_only\":false,\"parent_shared_folder_id\":\"84528192421\",\"traverse_only\":false,\"no_access\":false}},{\".tag\":\"file\",\"name\":\"vault.bin\",\"id\":\"id:a4ayc_80_OEAAAAAAAAAXw\",\"client_modified\":\"2026-10-28T09:12:38Z\",\"server_modified\":\"2026-10-28T09:12:40Z\",\"rev\":\"0162f1c8b3e2a5f00000002b4c7e9d0\",\"size\":2741,\"path_lower\":\"/backups/vault.bin\",\"path_display\":\"/Backups/vault.bin\",\"sharing_info\":{\"read_only\":false,\"parent_shared_folder_id\":\"84528192421\",\"modified_by\":\"dbid:AAH4f99T0taONIb-OurWxbNQ6ywGRopQngc\"},\"is_downloadable\":true,\"has_explicit_shared_members\":false,\"content_hash\":\"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\"},{\".tag\":\"file\",\"name\":\"a/b\",\"rev\":\"1\",\"size\":1}],\"cursor\":\"ZtkX9_EHj3x7PMkVuFIhwKYXEpwpLwyxp9vMKomUhllil9q7eWiAu\",\"has_more\":false}"
+        }
+      ],
+      "expected": {
+        "entries": [
+          {
+            "path": "Backups/Archive",
+            "isDir": true,
+            "size": null,
+            "modifiedAt": null,
+            "revision": null
+          },
+          {
+            "path": "Backups/vault.bin",
+            "isDir": false,
+            "size": 2741,
+            "modifiedAt": 1793178760,
+            "revision": "0162f1c8b3e2a5f00000002b4c7e9d0"
+          },
+          {
+            "path": "Backups/vault.metadata.json",
+            "isDir": false,
+            "size": 118,
+            "modifiedAt": 1793178761,
+            "revision": "0162f1c8b3e2a6000000002b4c7e9d0"
+          }
+        ]
+      }
+    },
+    {
+      "name": "dropbox-download",
+      "provider": "dropbox",
+      "operation": "read",
+      "path": "Backups/vault.bin",
+      "responses": [
+        {
+          "status": 200,
+          "headers": [
+            [
+              "Content-Type",
+              "application/octet-stream"
+            ],
+            [
+              "Dropbox-API-Result",
+              "{\"name\":\"vault.bin\",\"id\":\"id:a4ayc_80_OEAAAAAAAAAXw\",\"client_modified\":\"2026-10-28T09:12:38Z\",\"server_modified\":\"2026-10-28T09:12:40Z\",\"rev\":\"0162f1c8b3e2a5f00000002b4c7e9d0\",\"size\":2741,\"path_lower\":\"/backups/vault.bin\",\"path_display\":\"/Backups/vault.bin\",\"sharing_info\":{\"read_only\":false,\"parent_shared_folder_id\":\"84528192421\",\"modified_by\":\"dbid:AAH4f99T0taONIb-OurWxbNQ6ywGRopQngc\"},\"is_downloadable\":true,\"has_explicit_shared_members\":false,\"content_hash\":\"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\"}"
+            ]
+          ],
+          "body": "ciphertext"
+        }
+      ],
+      "expected": {
+        "file": {
+          "entry": {
+            "path": "Backups/vault.bin",
+            "isDir": false,
+            "size": 2741,
+            "modifiedAt": 1793178760,
+            "revision": "0162f1c8b3e2a5f00000002b4c7e9d0"
+          },
+          "data": "ciphertext"
+        }
+      }
+    },
+    {
+      "name": "dropbox-upload-ok",
+      "provider": "dropbox",
+      "operation": "write",
+      "path": "Backups/vault.bin",
+      "precondition": "absent",
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"name\":\"vault.bin\",\"id\":\"id:a4ayc_80_OEAAAAAAAAAXw\",\"client_modified\":\"2026-10-28T09:12:38Z\",\"server_modified\":\"2026-10-28T09:12:40Z\",\"rev\":\"0162f1c8b3e2a5f00000002b4c7e9d0\",\"size\":2741,\"path_lower\":\"/backups/vault.bin\",\"path_display\":\"/Backups/vault.bin\",\"sharing_info\":{\"read_only\":false,\"parent_shared_folder_id\":\"84528192421\",\"modified_by\":\"dbid:AAH4f99T0taONIb-OurWxbNQ6ywGRopQngc\"},\"is_downloadable\":true,\"has_explicit_shared_members\":false,\"content_hash\":\"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\"}"
+        }
+      ],
+      "expected": {
+        "entry": {
+          "path": "Backups/vault.bin",
+          "isDir": false,
+          "size": 2741,
+          "modifiedAt": 1793178760,
+          "revision": "0162f1c8b3e2a5f00000002b4c7e9d0"
+        }
+      }
+    },
+    {
+      "name": "dropbox-upload-conflict",
+      "provider": "dropbox",
+      "operation": "write",
+      "path": "Backups/vault.bin",
+      "precondition": "absent",
+      "responses": [
+        {
+          "status": 409,
+          "body": "{\"error_summary\":\"path/conflict/file/..\",\"error\":{\".tag\":\"path\",\"reason\":{\".tag\":\"conflict\",\"conflict\":{\".tag\":\"file\"}},\"upload_session_id\":\"pid_upload_session:ABIAAAAAAA\"}}"
+        }
+      ],
+      "expected": {
+        "error": "PreconditionFailed"
+      }
+    },
+    {
+      "name": "dropbox-upload-insufficient-space",
+      "provider": "dropbox",
+      "operation": "write",
+      "path": "Backups/vault.bin",
+      "precondition": "none",
+      "responses": [
+        {
+          "status": 409,
+          "body": "{\"error_summary\":\"path/insufficient_space/..\",\"error\":{\".tag\":\"path\",\"reason\":{\".tag\":\"insufficient_space\"},\"upload_session_id\":\"pid_upload_session:ABIAAAAAAA\"}}"
+        }
+      ],
+      "expected": {
+        "error": "QuotaExceeded"
+      }
+    },
+    {
+      "name": "dropbox-too-many-requests",
+      "provider": "dropbox",
+      "operation": "stat",
+      "path": "Backups/vault.bin",
+      "responses": [
+        {
+          "status": 429,
+          "headers": [
+            [
+              "Content-Type",
+              "application/json"
+            ],
+            [
+              "Retry-After",
+              "300"
+            ]
+          ],
+          "body": "{\"error_summary\":\"too_many_requests/..\",\"error\":{\"reason\":{\".tag\":\"too_many_requests\"},\"retry_after\":300}}"
+        }
+      ],
+      "expected": {
+        "error": "RateLimited { retry_after: Some(300s) }"
+      }
+    },
+    {
+      "name": "onedrive-item-file",
+      "provider": "onedrive",
+      "operation": "stat",
+      "path": "Backups/vault.bin",
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"@odata.context\":\"https://graph.microsoft.com/v1.0/$metadata#driveItems/$entity\",\"@microsoft.graph.downloadUrl\":\"https://public.bn.files.1drv.com/y4mVaultBin?download=1\",\"createdDateTime\":\"2026-10-28T09:12:38Z\",\"eTag\":\"\\\"{F2B9A0AE-0AB8-4F79-9A4B-8E2E4A2C7D11},4\\\"\",\"id\":\"01BYE5RZ6QN3ZWBTUFOFD3GSPGOHDJD36K\",\"lastModifiedDateTime\":\"2026-10-28T09:12:40.123Z\",\"name\":\"vault.bin\",\"size\":2741,\"file\":{\"mimeType\":\"application/octet-stream\",\"hashes\":{\"quickXorHash\":\"AAAAAAAAAAAAAAAAAAAAAAAAAAA=\"}}}"
+        }
+      ],
+      "expected": {
+        "entry": {
+          "path": "Backups/vault.bin",
+          "isDir": false,
+          "size": 2741,
+          "modifiedAt": 1793178760,
+          "revision": "\"{F2B9A0AE-0AB8-4F79-9A4B-8E2E4A2C7D11},4\""
+        }
+      }
+    },
+    {
+      "name": "onedrive-item-not-found",
+      "provider": "onedrive",
+      "operation": "stat",
+      "path": "Backups/missing",
+      "responses": [
+        {
+          "status": 404,
+          "body": "{\"error\":{\"code\":\"itemNotFound\",\"message\":\"The resource could not be found.\",\"innerError\":{\"date\":\"2026-10-28T09:12:41\",\"request-id\":\"3f0c5b1e-6a1d-4f4e-9a52-1b7d3c9e2a10\",\"client-request-id\":\"3f0c5b1e-6a1d-4f4e-9a52-1b7d3c9e2a10\"}}}"
+        }
+      ],
+      "expected": {
+        "entry": null
+      }
+    },
+    {
+      "name": "onedrive-children",
+      "provider": "onedrive",
+      "operation": "list",
+      "path": "Backups",
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"@odata.context\":\"https://graph.microsoft.com/v1.0/$metadata#driveItems('01BYE5RZ')/children\",\"value\":[{\"eTag\":\"\\\"{0D0E0F10-AAAA-BBBB-CCCC-DDDDEEEEFFFF},2\\\"\",\"id\":\"01BYE5RZ4ZQ\",\"lastModifiedDateTime\":\"2026-10-28T09:12:41Z\",\"name\":\"vault.metadata.json\",\"size\":118,\"file\":{\"mimeType\":\"application/json\"}},{\"createdDateTime\":\"2026-10-20T08:00:00Z\",\"eTag\":\"\\\"{8A1C2B3D-1111-2222-3333-444455556666},1\\\"\",\"id\":\"01BYE5RZ2Y4PFVN4KEFJHJTSNVHYSWOQ7K\",\"lastModifiedDateTime\":\"2026-10-28T09:12:40Z\",\"name\":\"Archive\",\"size\":0,\"folder\":{\"childCount\":0}},{\"@microsoft.graph.downloadUrl\":\"https://public.bn.files.1drv.com/y4mVaultBin?download=1\",\"createdDateTime\":\"2026-10-28T09:12:38Z\",\"eTag\":\"\\\"{F2B9A0AE-0AB8-4F79-9A4B-8E2E4A2C7D11},4\\\"\",\"id\":\"01BYE5RZ6QN3ZWBTUFOFD3GSPGOHDJD36K\",\"lastModifiedDateTime\":\"2026-10-28T09:12:40.123Z\",\"name\":\"vault.bin\",\"size\":2741,\"file\":{\"mimeType\":\"application/octet-stream\",\"hashes\":{\"quickXorHash\":\"AAAAAAAAAAAAAAAAAAAAAAAAAAA=\"}}}]}"
+        }
+      ],
+      "expected": {
+        "entries": [
+          {
+            "path": "Backups/Archive",
+            "isDir": true,
+            "size": 0,
+            "modifiedAt": 1793178760,
+            "revision": "\"{8A1C2B3D-1111-2222-3333-444455556666},1\""
+          },
+          {
+            "path": "Backups/vault.bin",
+            "isDir": false,
+            "size": 2741,
+            "modifiedAt": 1793178760,
+            "revision": "\"{F2B9A0AE-0AB8-4F79-9A4B-8E2E4A2C7D11},4\""
+          },
+          {
+            "path": "Backups/vault.metadata.json",
+            "isDir": false,
+            "size": 118,
+            "modifiedAt": 1793178761,
+            "revision": "\"{0D0E0F10-AAAA-BBBB-CCCC-DDDDEEEEFFFF},2\""
+          }
+        ]
+      }
+    },
+    {
+      "name": "onedrive-download",
+      "provider": "onedrive",
+      "operation": "read",
+      "path": "Backups/vault.bin",
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"@odata.context\":\"https://graph.microsoft.com/v1.0/$metadata#driveItems/$entity\",\"@microsoft.graph.downloadUrl\":\"https://public.bn.files.1drv.com/y4mVaultBin?download=1\",\"createdDateTime\":\"2026-10-28T09:12:38Z\",\"eTag\":\"\\\"{F2B9A0AE-0AB8-4F79-9A4B-8E2E4A2C7D11},4\\\"\",\"id\":\"01BYE5RZ6QN3ZWBTUFOFD3GSPGOHDJD36K\",\"lastModifiedDateTime\":\"2026-10-28T09:12:40.123Z\",\"name\":\"vault.bin\",\"size\":2741,\"file\":{\"mimeType\":\"application/octet-stream\",\"hashes\":{\"quickXorHash\":\"AAAAAAAAAAAAAAAAAAAAAAAAAAA=\"}}}"
+        },
+        {
+          "status": 200,
+          "headers": [
+            [
+              "Content-Type",
+              "application/octet-stream"
+            ]
+          ],
+          "body": "ciphertext"
+        },
+        {
+          "status": 200,
+          "body": "{\"@odata.context\":\"https://graph.microsoft.com/v1.0/$metadata#driveItems/$entity\",\"@microsoft.graph.downloadUrl\":\"https://public.bn.files.1drv.com/y4mVaultBin?download=1\",\"createdDateTime\":\"2026-10-28T09:12:38Z\",\"eTag\":\"\\\"{F2B9A0AE-0AB8-4F79-9A4B-8E2E4A2C7D11},4\\\"\",\"id\":\"01BYE5RZ6QN3ZWBTUFOFD3GSPGOHDJD36K\",\"lastModifiedDateTime\":\"2026-10-28T09:12:40.123Z\",\"name\":\"vault.bin\",\"size\":2741,\"file\":{\"mimeType\":\"application/octet-stream\",\"hashes\":{\"quickXorHash\":\"AAAAAAAAAAAAAAAAAAAAAAAAAAA=\"}}}"
+        }
+      ],
+      "expected": {
+        "file": {
+          "entry": {
+            "path": "Backups/vault.bin",
+            "isDir": false,
+            "size": 2741,
+            "modifiedAt": 1793178760,
+            "revision": "\"{F2B9A0AE-0AB8-4F79-9A4B-8E2E4A2C7D11},4\""
+          },
+          "data": "ciphertext"
+        }
+      }
+    },
+    {
+      "name": "onedrive-upload-created",
+      "provider": "onedrive",
+      "operation": "write",
+      "path": "Backups/vault.bin",
+      "precondition": "absent",
+      "responses": [
+        {
+          "status": 201,
+          "body": "{\"@odata.context\":\"https://graph.microsoft.com/v1.0/$metadata#driveItems/$entity\",\"@microsoft.graph.downloadUrl\":\"https://public.bn.files.1drv.com/y4mVaultBin?download=1\",\"createdDateTime\":\"2026-10-28T09:12:38Z\",\"eTag\":\"\\\"{F2B9A0AE-0AB8-4F79-9A4B-8E2E4A2C7D11},4\\\"\",\"id\":\"01BYE5RZ6QN3ZWBTUFOFD3GSPGOHDJD36K\",\"lastModifiedDateTime\":\"2026-10-28T09:12:40.123Z\",\"name\":\"vault.bin\",\"size\":2741,\"file\":{\"mimeType\":\"application/octet-stream\",\"hashes\":{\"quickXorHash\":\"AAAAAAAAAAAAAAAAAAAAAAAAAAA=\"}}}"
+        }
+      ],
+      "expected": {
+        "entry": {
+          "path": "Backups/vault.bin",
+          "isDir": false,
+          "size": 2741,
+          "modifiedAt": 1793178760,
+          "revision": "\"{F2B9A0AE-0AB8-4F79-9A4B-8E2E4A2C7D11},4\""
+        }
+      }
+    },
+    {
+      "name": "onedrive-upload-name-exists",
+      "provider": "onedrive",
+      "operation": "write",
+      "path": "Backups/vault.bin",
+      "precondition": "absent",
+      "responses": [
+        {
+          "status": 409,
+          "body": "{\"error\":{\"code\":\"nameAlreadyExists\",\"message\":\"The specified item name already exists.\",\"innerError\":{\"date\":\"2026-10-28T09:12:41\",\"request-id\":\"3f0c5b1e-6a1d-4f4e-9a52-1b7d3c9e2a10\",\"client-request-id\":\"3f0c5b1e-6a1d-4f4e-9a52-1b7d3c9e2a10\"}}}"
+        }
+      ],
+      "expected": {
+        "error": "PreconditionFailed"
+      }
+    },
+    {
+      "name": "onedrive-upload-etag-mismatch",
+      "provider": "onedrive",
+      "operation": "write",
+      "path": "Backups/vault.bin",
+      "precondition": {
+        "matches": "\"{F2B9A0AE-0AB8-4F79-9A4B-8E2E4A2C7D11},4\""
+      },
+      "responses": [
+        {
+          "status": 412,
+          "body": "{\"error\":{\"code\":\"resourceModified\",\"message\":\"ETag does not match current item's value\",\"innerError\":{\"date\":\"2026-10-28T09:12:41\",\"request-id\":\"3f0c5b1e-6a1d-4f4e-9a52-1b7d3c9e2a10\",\"client-request-id\":\"3f0c5b1e-6a1d-4f4e-9a52-1b7d3c9e2a10\"}}}"
+        }
+      ],
+      "expected": {
+        "error": "PreconditionFailed"
+      }
+    },
+    {
+      "name": "onedrive-upload-quota",
+      "provider": "onedrive",
+      "operation": "write",
+      "path": "Backups/vault.bin",
+      "precondition": "none",
+      "responses": [
+        {
+          "status": 403,
+          "body": "{\"error\":{\"code\":\"quotaLimitReached\",\"message\":\"Insufficient Space Available\",\"innerError\":{\"date\":\"2026-10-28T09:12:41\",\"request-id\":\"3f0c5b1e-6a1d-4f4e-9a52-1b7d3c9e2a10\",\"client-request-id\":\"3f0c5b1e-6a1d-4f4e-9a52-1b7d3c9e2a10\"}}}"
+        }
+      ],
+      "expected": {
+        "error": "QuotaExceeded"
+      }
+    },
+    {
+      "name": "onedrive-insufficient-storage",
+      "provider": "onedrive",
+      "operation": "write",
+      "path": "Backups/vault.bin",
+      "precondition": "none",
+      "responses": [
+        {
+          "status": 507,
+          "body": "{\"error\":{\"code\":\"insufficientStorage\",\"message\":\"Insufficient Storage\",\"innerError\":{\"date\":\"2026-10-28T09:12:41\",\"request-id\":\"3f0c5b1e-6a1d-4f4e-9a52-1b7d3c9e2a10\",\"client-request-id\":\"3f0c5b1e-6a1d-4f4e-9a52-1b7d3c9e2a10\"}}}"
+        }
+      ],
+      "expected": {
+        "error": "QuotaExceeded"
+      }
+    },
+    {
+      "name": "onedrive-throttled",
+      "provider": "onedrive",
+      "operation": "stat",
+      "path": "Backups/vault.bin",
+      "responses": [
+        {
+          "status": 429,
+          "headers": [
+            [
+              "Content-Type",
+              "application/json"
+            ],
+            [
+              "Retry-After",
+              "120"
+            ]
+          ],
+          "body": "{\"error\":{\"code\":\"activityLimitReached\",\"message\":\"The app or user has been throttled.\",\"innerError\":{\"date\":\"2026-10-28T09:12:41\",\"request-id\":\"3f0c5b1e-6a1d-4f4e-9a52-1b7d3c9e2a10\",\"client-request-id\":\"3f0c5b1e-6a1d-4f4e-9a52-1b7d3c9e2a10\"}}}"
+        }
+      ],
+      "expected": {
+        "error": "RateLimited { retry_after: Some(120s) }"
+      }
+    },
+    {
+      "name": "googledrive-stat-file",
+      "provider": "googledrive",
+      "operation": "stat",
+      "path": "Backups/vault.bin",
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"kind\":\"drive#fileList\",\"incompleteSearch\":false,\"files\":[{\"kind\":\"drive#file\",\"id\":\"1AppFolderXyZ\",\"name\":\"cloudset-test\",\"mimeType\":\"application/vnd.google-apps.folder\",\"createdTime\":\"2026-09-30T10:00:00.000Z\",\"modifiedTime\":\"2026-09-30T10:00:00.000Z\"}]}"
+        },
+        {
+          "status": 200,
+          "body": "{\"kind\":\"drive#fileList\",\"incompleteSearch\":false,\"files\":[{\"kind\":\"drive#file\",\"id\":\"1BackupsFolderAbC\",\"name\":\"Backups\",\"mimeType\":\"application/vnd.google-apps.folder\",\"createdTime\":\"2026-10-01T08:00:00.000Z\",\"modifiedTime\":\"2026-10-01T08:00:00.000Z\"}]}"
+        },
+        {
+          "status": 200,
+          "body": "{\"kind\":\"drive#fileList\",\"incompleteSearch\":false,\"files\":[{\"kind\":\"drive#file\",\"id\":\"1VaultBinFileDeF\",\"name\":\"vault.bin\",\"mimeType\":\"application/octet-stream\",\"size\":\"2741\",\"createdTime\":\"2026-10-27T21:03:11.415Z\",\"modifiedTime\":\"2026-10-28T09:12:40.123Z\",\"headRevisionId\":\"0B4vaultRevAAA\",\"iconLink\":\"https://drive-thirdparty.googleusercontent.com/16/type/application/octet-stream\",\"md5Checksum\":\"5d41402abc4b2a76b9719d911017c592\"}]}"
+        }
+      ],
+      "expected": {
+        "entry": {
+          "path": "Backups/vault.bin",
+          "isDir": false,
+          "size": 2741,
+          "modifiedAt": 1793178760,
+          "revision": "0B4vaultRevAAA"
+        }
+      }
+    },
+    {
+      "name": "googledrive-stat-duplicate-names-pick-the-oldest",
+      "provider": "googledrive",
+      "operation": "stat",
+      "path": "Backups/vault.bin",
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"kind\":\"drive#fileList\",\"incompleteSearch\":false,\"files\":[{\"kind\":\"drive#file\",\"id\":\"1AppFolderXyZ\",\"name\":\"cloudset-test\",\"mimeType\":\"application/vnd.google-apps.folder\",\"createdTime\":\"2026-09-30T10:00:00.000Z\",\"modifiedTime\":\"2026-09-30T10:00:00.000Z\"}]}"
+        },
+        {
+          "status": 200,
+          "body": "{\"kind\":\"drive#fileList\",\"incompleteSearch\":false,\"files\":[{\"kind\":\"drive#file\",\"id\":\"1BackupsFolderAbC\",\"name\":\"Backups\",\"mimeType\":\"application/vnd.google-apps.folder\",\"createdTime\":\"2026-10-01T08:00:00.000Z\",\"modifiedTime\":\"2026-10-01T08:00:00.000Z\"}]}"
+        },
+        {
+          "status": 200,
+          "body": "{\"kind\":\"drive#fileList\",\"incompleteSearch\":false,\"files\":[{\"kind\":\"drive#file\",\"id\":\"1NewerCopy\",\"name\":\"vault.bin\",\"mimeType\":\"application/octet-stream\",\"size\":\"2741\",\"createdTime\":\"2026-10-28T09:00:00.000Z\",\"modifiedTime\":\"2026-10-28T09:12:40.123Z\",\"headRevisionId\":\"0B4newerRev\"},{\"kind\":\"drive#file\",\"id\":\"1VaultBinFileDeF\",\"name\":\"vault.bin\",\"mimeType\":\"application/octet-stream\",\"size\":\"2741\",\"createdTime\":\"2026-10-27T21:03:11.415Z\",\"modifiedTime\":\"2026-10-28T09:12:40.123Z\",\"headRevisionId\":\"0B4vaultRevAAA\"}]}"
+        }
+      ],
+      "expected": {
+        "entry": {
+          "path": "Backups/vault.bin",
+          "isDir": false,
+          "size": 2741,
+          "modifiedAt": 1793178760,
+          "revision": "0B4vaultRevAAA"
+        }
+      }
+    },
+    {
+      "name": "googledrive-stat-not-found",
+      "provider": "googledrive",
+      "operation": "stat",
+      "path": "Backups/missing",
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"kind\":\"drive#fileList\",\"incompleteSearch\":false,\"files\":[{\"kind\":\"drive#file\",\"id\":\"1AppFolderXyZ\",\"name\":\"cloudset-test\",\"mimeType\":\"application/vnd.google-apps.folder\",\"createdTime\":\"2026-09-30T10:00:00.000Z\",\"modifiedTime\":\"2026-09-30T10:00:00.000Z\"}]}"
+        },
+        {
+          "status": 200,
+          "body": "{\"kind\":\"drive#fileList\",\"incompleteSearch\":false,\"files\":[{\"kind\":\"drive#file\",\"id\":\"1BackupsFolderAbC\",\"name\":\"Backups\",\"mimeType\":\"application/vnd.google-apps.folder\",\"createdTime\":\"2026-10-01T08:00:00.000Z\",\"modifiedTime\":\"2026-10-01T08:00:00.000Z\"}]}"
+        },
+        {
+          "status": 200,
+          "body": "{\"kind\":\"drive#fileList\",\"incompleteSearch\":false,\"files\":[]}"
+        }
+      ],
+      "expected": {
+        "entry": null
+      }
+    },
+    {
+      "name": "googledrive-stat-missing-parent",
+      "provider": "googledrive",
+      "operation": "stat",
+      "path": "Backups/vault.bin",
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"kind\":\"drive#fileList\",\"incompleteSearch\":false,\"files\":[{\"kind\":\"drive#file\",\"id\":\"1AppFolderXyZ\",\"name\":\"cloudset-test\",\"mimeType\":\"application/vnd.google-apps.folder\",\"createdTime\":\"2026-09-30T10:00:00.000Z\",\"modifiedTime\":\"2026-09-30T10:00:00.000Z\"}]}"
+        },
+        {
+          "status": 200,
+          "body": "{\"kind\":\"drive#fileList\",\"incompleteSearch\":false,\"files\":[]}"
+        }
+      ],
+      "expected": {
+        "entry": null
+      }
+    },
+    {
+      "name": "googledrive-list-folder",
+      "provider": "googledrive",
+      "operation": "list",
+      "path": "Backups",
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"kind\":\"drive#fileList\",\"incompleteSearch\":false,\"files\":[{\"kind\":\"drive#file\",\"id\":\"1AppFolderXyZ\",\"name\":\"cloudset-test\",\"mimeType\":\"application/vnd.google-apps.folder\",\"createdTime\":\"2026-09-30T10:00:00.000Z\",\"modifiedTime\":\"2026-09-30T10:00:00.000Z\"}]}"
+        },
+        {
+          "status": 200,
+          "body": "{\"kind\":\"drive#fileList\",\"incompleteSearch\":false,\"files\":[{\"kind\":\"drive#file\",\"id\":\"1BackupsFolderAbC\",\"name\":\"Backups\",\"mimeType\":\"application/vnd.google-apps.folder\",\"createdTime\":\"2026-10-01T08:00:00.000Z\",\"modifiedTime\":\"2026-10-01T08:00:00.000Z\"}]}"
+        },
+        {
+          "status": 200,
+          "body": "{\"kind\":\"drive#fileList\",\"incompleteSearch\":false,\"files\":[{\"kind\":\"drive#file\",\"id\":\"1MetaJson\",\"name\":\"vault.metadata.json\",\"mimeType\":\"application/octet-stream\",\"size\":\"312\",\"createdTime\":\"2026-10-27T21:03:11.415Z\",\"modifiedTime\":\"2026-10-28T09:12:40.123Z\",\"headRevisionId\":\"0B4metaRev\"},{\"kind\":\"drive#file\",\"id\":\"1ArchiveFolder\",\"name\":\"Archive\",\"mimeType\":\"application/vnd.google-apps.folder\",\"createdTime\":\"2026-10-02T08:00:00.000Z\",\"modifiedTime\":\"2026-10-02T08:00:00.000Z\"}],\"nextPageToken\":\"~!!~AI9FV7Q\"}"
+        },
+        {
+          "status": 200,
+          "body": "{\"kind\":\"drive#fileList\",\"incompleteSearch\":false,\"files\":[{\"kind\":\"drive#file\",\"id\":\"1VaultBinFileDeF\",\"name\":\"vault.bin\",\"mimeType\":\"application/octet-stream\",\"size\":\"2741\",\"createdTime\":\"2026-10-27T21:03:11.415Z\",\"modifiedTime\":\"2026-10-28T09:12:40.123Z\",\"headRevisionId\":\"0B4vaultRevAAA\"},{\"kind\":\"drive#file\",\"id\":\"1NotesDoc\",\"name\":\"Notes\",\"mimeType\":\"application/vnd.google-apps.document\",\"createdTime\":\"2026-10-03T08:00:00.000Z\",\"modifiedTime\":\"2026-10-28T09:12:40.000Z\"}]}"
+        }
+      ],
+      "expected": {
+        "entries": [
+          {
+            "path": "Backups/Archive",
+            "isDir": true,
+            "size": null,
+            "modifiedAt": 1790928000,
+            "revision": null
+          },
+          {
+            "path": "Backups/Notes",
+            "isDir": false,
+            "size": null,
+            "modifiedAt": 1793178760,
+            "revision": null
+          },
+          {
+            "path": "Backups/vault.bin",
+            "isDir": false,
+            "size": 2741,
+            "modifiedAt": 1793178760,
+            "revision": "0B4vaultRevAAA"
+          },
+          {
+            "path": "Backups/vault.metadata.json",
+            "isDir": false,
+            "size": 312,
+            "modifiedAt": 1793178760,
+            "revision": "0B4metaRev"
+          }
+        ]
+      }
+    },
+    {
+      "name": "googledrive-download",
+      "provider": "googledrive",
+      "operation": "read",
+      "path": "Backups/vault.bin",
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"kind\":\"drive#fileList\",\"incompleteSearch\":false,\"files\":[{\"kind\":\"drive#file\",\"id\":\"1AppFolderXyZ\",\"name\":\"cloudset-test\",\"mimeType\":\"application/vnd.google-apps.folder\",\"createdTime\":\"2026-09-30T10:00:00.000Z\",\"modifiedTime\":\"2026-09-30T10:00:00.000Z\"}]}"
+        },
+        {
+          "status": 200,
+          "body": "{\"kind\":\"drive#fileList\",\"incompleteSearch\":false,\"files\":[{\"kind\":\"drive#file\",\"id\":\"1BackupsFolderAbC\",\"name\":\"Backups\",\"mimeType\":\"application/vnd.google-apps.folder\",\"createdTime\":\"2026-10-01T08:00:00.000Z\",\"modifiedTime\":\"2026-10-01T08:00:00.000Z\"}]}"
+        },
+        {
+          "status": 200,
+          "body": "{\"kind\":\"drive#fileList\",\"incompleteSearch\":false,\"files\":[{\"kind\":\"drive#file\",\"id\":\"1VaultBinFileDeF\",\"name\":\"vault.bin\",\"mimeType\":\"application/octet-stream\",\"size\":\"2741\",\"createdTime\":\"2026-10-27T21:03:11.415Z\",\"modifiedTime\":\"2026-10-28T09:12:40.123Z\",\"headRevisionId\":\"0B4vaultRevAAA\"}]}"
+        },
+        {
+          "status": 200,
+          "headers": [
+            [
+              "Content-Type",
+              "application/octet-stream"
+            ],
+            [
+              "X-Goog-Hash",
+              "crc32c=AAAAAA=="
+            ]
+          ],
+          "body": "ciphertext"
+        },
+        {
+          "status": 200,
+          "body": "{\"kind\":\"drive#file\",\"id\":\"1VaultBinFileDeF\",\"name\":\"vault.bin\",\"mimeType\":\"application/octet-stream\",\"size\":\"2741\",\"createdTime\":\"2026-10-27T21:03:11.415Z\",\"modifiedTime\":\"2026-10-28T09:12:40.123Z\",\"headRevisionId\":\"0B4vaultRevAAA\"}"
+        }
+      ],
+      "expected": {
+        "file": {
+          "entry": {
+            "path": "Backups/vault.bin",
+            "isDir": false,
+            "size": 2741,
+            "modifiedAt": 1793178760,
+            "revision": "0B4vaultRevAAA"
+          },
+          "data": "ciphertext"
+        }
+      }
+    },
+    {
+      "name": "googledrive-create-file",
+      "provider": "googledrive",
+      "operation": "write",
+      "path": "Backups/vault.bin",
+      "precondition": "absent",
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"kind\":\"drive#fileList\",\"incompleteSearch\":false,\"files\":[{\"kind\":\"drive#file\",\"id\":\"1AppFolderXyZ\",\"name\":\"cloudset-test\",\"mimeType\":\"application/vnd.google-apps.folder\",\"createdTime\":\"2026-09-30T10:00:00.000Z\",\"modifiedTime\":\"2026-09-30T10:00:00.000Z\"}]}"
+        },
+        {
+          "status": 200,
+          "body": "{\"kind\":\"drive#fileList\",\"incompleteSearch\":false,\"files\":[{\"kind\":\"drive#file\",\"id\":\"1BackupsFolderAbC\",\"name\":\"Backups\",\"mimeType\":\"application/vnd.google-apps.folder\",\"createdTime\":\"2026-10-01T08:00:00.000Z\",\"modifiedTime\":\"2026-10-01T08:00:00.000Z\"}]}"
+        },
+        {
+          "status": 200,
+          "body": "{\"kind\":\"drive#fileList\",\"incompleteSearch\":false,\"files\":[]}"
+        },
+        {
+          "status": 200,
+          "body": "{\"kind\":\"drive#file\",\"id\":\"1VaultBinFileDeF\",\"name\":\"vault.bin\",\"mimeType\":\"application/octet-stream\",\"size\":\"2741\",\"createdTime\":\"2026-10-27T21:03:11.415Z\",\"modifiedTime\":\"2026-10-28T09:12:40.123Z\",\"headRevisionId\":\"0B4vaultRevAAA\"}"
+        },
+        {
+          "status": 200,
+          "body": "{\"kind\":\"drive#fileList\",\"incompleteSearch\":false,\"files\":[{\"kind\":\"drive#file\",\"id\":\"1VaultBinFileDeF\",\"name\":\"vault.bin\",\"mimeType\":\"application/octet-stream\",\"size\":\"2741\",\"createdTime\":\"2026-10-27T21:03:11.415Z\",\"modifiedTime\":\"2026-10-28T09:12:40.123Z\",\"headRevisionId\":\"0B4vaultRevAAA\"}]}"
+        }
+      ],
+      "expected": {
+        "entry": {
+          "path": "Backups/vault.bin",
+          "isDir": false,
+          "size": 2741,
+          "modifiedAt": 1793178760,
+          "revision": "0B4vaultRevAAA"
+        }
+      }
+    },
+    {
+      "name": "googledrive-create-file-exists",
+      "provider": "googledrive",
+      "operation": "write",
+      "path": "Backups/vault.bin",
+      "precondition": "absent",
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"kind\":\"drive#fileList\",\"incompleteSearch\":false,\"files\":[{\"kind\":\"drive#file\",\"id\":\"1AppFolderXyZ\",\"name\":\"cloudset-test\",\"mimeType\":\"application/vnd.google-apps.folder\",\"createdTime\":\"2026-09-30T10:00:00.000Z\",\"modifiedTime\":\"2026-09-30T10:00:00.000Z\"}]}"
+        },
+        {
+          "status": 200,
+          "body": "{\"kind\":\"drive#fileList\",\"incompleteSearch\":false,\"files\":[{\"kind\":\"drive#file\",\"id\":\"1BackupsFolderAbC\",\"name\":\"Backups\",\"mimeType\":\"application/vnd.google-apps.folder\",\"createdTime\":\"2026-10-01T08:00:00.000Z\",\"modifiedTime\":\"2026-10-01T08:00:00.000Z\"}]}"
+        },
+        {
+          "status": 200,
+          "body": "{\"kind\":\"drive#fileList\",\"incompleteSearch\":false,\"files\":[{\"kind\":\"drive#file\",\"id\":\"1VaultBinFileDeF\",\"name\":\"vault.bin\",\"mimeType\":\"application/octet-stream\",\"size\":\"2741\",\"createdTime\":\"2026-10-27T21:03:11.415Z\",\"modifiedTime\":\"2026-10-28T09:12:40.123Z\",\"headRevisionId\":\"0B4vaultRevAAA\"}]}"
+        }
+      ],
+      "expected": {
+        "error": "PreconditionFailed"
+      }
+    },
+    {
+      "name": "googledrive-update-matches",
+      "provider": "googledrive",
+      "operation": "write",
+      "path": "Backups/vault.bin",
+      "precondition": {
+        "matches": "0B4vaultRevAAA"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"kind\":\"drive#fileList\",\"incompleteSearch\":false,\"files\":[{\"kind\":\"drive#file\",\"id\":\"1AppFolderXyZ\",\"name\":\"cloudset-test\",\"mimeType\":\"application/vnd.google-apps.folder\",\"createdTime\":\"2026-09-30T10:00:00.000Z\",\"modifiedTime\":\"2026-09-30T10:00:00.000Z\"}]}"
+        },
+        {
+          "status": 200,
+          "body": "{\"kind\":\"drive#fileList\",\"incompleteSearch\":false,\"files\":[{\"kind\":\"drive#file\",\"id\":\"1BackupsFolderAbC\",\"name\":\"Backups\",\"mimeType\":\"application/vnd.google-apps.folder\",\"createdTime\":\"2026-10-01T08:00:00.000Z\",\"modifiedTime\":\"2026-10-01T08:00:00.000Z\"}]}"
+        },
+        {
+          "status": 200,
+          "body": "{\"kind\":\"drive#fileList\",\"incompleteSearch\":false,\"files\":[{\"kind\":\"drive#file\",\"id\":\"1VaultBinFileDeF\",\"name\":\"vault.bin\",\"mimeType\":\"application/octet-stream\",\"size\":\"2741\",\"createdTime\":\"2026-10-27T21:03:11.415Z\",\"modifiedTime\":\"2026-10-28T09:12:40.123Z\",\"headRevisionId\":\"0B4vaultRevAAA\"}]}"
+        },
+        {
+          "status": 200,
+          "body": "{\"kind\":\"drive#file\",\"id\":\"1VaultBinFileDeF\",\"name\":\"vault.bin\",\"mimeType\":\"application/octet-stream\",\"size\":\"2741\",\"createdTime\":\"2026-10-27T21:03:11.415Z\",\"modifiedTime\":\"2026-10-28T09:12:40.123Z\",\"headRevisionId\":\"0B4vaultRevBBB\"}"
+        },
+        {
+          "status": 200,
+          "body": "{\"revisions\":[{\"id\":\"0B4vaultRev000\"},{\"id\":\"0B4vaultRevAAA\"},{\"id\":\"0B4vaultRevBBB\"}]}"
+        }
+      ],
+      "expected": {
+        "entry": {
+          "path": "Backups/vault.bin",
+          "isDir": false,
+          "size": 2741,
+          "modifiedAt": 1793178760,
+          "revision": "0B4vaultRevBBB"
+        }
+      }
+    },
+    {
+      "name": "googledrive-update-revision-changed",
+      "provider": "googledrive",
+      "operation": "write",
+      "path": "Backups/vault.bin",
+      "precondition": {
+        "matches": "0B4vaultRev000"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"kind\":\"drive#fileList\",\"incompleteSearch\":false,\"files\":[{\"kind\":\"drive#file\",\"id\":\"1AppFolderXyZ\",\"name\":\"cloudset-test\",\"mimeType\":\"application/vnd.google-apps.folder\",\"createdTime\":\"2026-09-30T10:00:00.000Z\",\"modifiedTime\":\"2026-09-30T10:00:00.000Z\"}]}"
+        },
+        {
+          "status": 200,
+          "body": "{\"kind\":\"drive#fileList\",\"incompleteSearch\":false,\"files\":[{\"kind\":\"drive#file\",\"id\":\"1BackupsFolderAbC\",\"name\":\"Backups\",\"mimeType\":\"application/vnd.google-apps.folder\",\"createdTime\":\"2026-10-01T08:00:00.000Z\",\"modifiedTime\":\"2026-10-01T08:00:00.000Z\"}]}"
+        },
+        {
+          "status": 200,
+          "body": "{\"kind\":\"drive#fileList\",\"incompleteSearch\":false,\"files\":[{\"kind\":\"drive#file\",\"id\":\"1VaultBinFileDeF\",\"name\":\"vault.bin\",\"mimeType\":\"application/octet-stream\",\"size\":\"2741\",\"createdTime\":\"2026-10-27T21:03:11.415Z\",\"modifiedTime\":\"2026-10-28T09:12:40.123Z\",\"headRevisionId\":\"0B4vaultRevAAA\"}]}"
+        }
+      ],
+      "expected": {
+        "error": "PreconditionFailed"
+      }
+    },
+    {
+      "name": "googledrive-storage-quota-exceeded",
+      "provider": "googledrive",
+      "operation": "write",
+      "path": "Backups/vault.bin",
+      "precondition": "none",
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"kind\":\"drive#fileList\",\"incompleteSearch\":false,\"files\":[{\"kind\":\"drive#file\",\"id\":\"1AppFolderXyZ\",\"name\":\"cloudset-test\",\"mimeType\":\"application/vnd.google-apps.folder\",\"createdTime\":\"2026-09-30T10:00:00.000Z\",\"modifiedTime\":\"2026-09-30T10:00:00.000Z\"}]}"
+        },
+        {
+          "status": 200,
+          "body": "{\"kind\":\"drive#fileList\",\"incompleteSearch\":false,\"files\":[{\"kind\":\"drive#file\",\"id\":\"1BackupsFolderAbC\",\"name\":\"Backups\",\"mimeType\":\"application/vnd.google-apps.folder\",\"createdTime\":\"2026-10-01T08:00:00.000Z\",\"modifiedTime\":\"2026-10-01T08:00:00.000Z\"}]}"
+        },
+        {
+          "status": 200,
+          "body": "{\"kind\":\"drive#fileList\",\"incompleteSearch\":false,\"files\":[{\"kind\":\"drive#file\",\"id\":\"1VaultBinFileDeF\",\"name\":\"vault.bin\",\"mimeType\":\"application/octet-stream\",\"size\":\"2741\",\"createdTime\":\"2026-10-27T21:03:11.415Z\",\"modifiedTime\":\"2026-10-28T09:12:40.123Z\",\"headRevisionId\":\"0B4vaultRevAAA\"}]}"
+        },
+        {
+          "status": 403,
+          "body": "{\"error\":{\"code\":403,\"message\":\"The user's Drive storage quota has been exceeded.\",\"errors\":[{\"message\":\"The user's Drive storage quota has been exceeded.\",\"domain\":\"global\",\"reason\":\"storageQuotaExceeded\"}]}}"
+        }
+      ],
+      "expected": {
+        "error": "QuotaExceeded"
+      }
+    },
+    {
+      "name": "googledrive-user-rate-limit",
+      "provider": "googledrive",
+      "operation": "stat",
+      "path": "Backups/vault.bin",
+      "responses": [
+        {
+          "status": 403,
+          "body": "{\"error\":{\"code\":403,\"message\":\"User Rate Limit Exceeded\",\"errors\":[{\"message\":\"User Rate Limit Exceeded\",\"domain\":\"usageLimits\",\"reason\":\"userRateLimitExceeded\"}]}}",
+          "headers": [
+            [
+              "Content-Type",
+              "application/json; charset=UTF-8"
+            ]
+          ]
+        }
+      ],
+      "expected": {
+        "error": "RateLimited { retry_after: None }"
+      }
+    },
+    {
+      "name": "googledrive-too-many-requests",
+      "provider": "googledrive",
+      "operation": "stat",
+      "path": "Backups/vault.bin",
+      "responses": [
+        {
+          "status": 429,
+          "body": "{\"error\":{\"code\":429,\"message\":\"Rate Limit Exceeded\",\"errors\":[{\"message\":\"Rate Limit Exceeded\",\"domain\":\"global\",\"reason\":\"rateLimitExceeded\"}]}}",
+          "headers": [
+            [
+              "Content-Type",
+              "application/json; charset=UTF-8"
+            ],
+            [
+              "Retry-After",
+              "30"
+            ]
+          ]
+        }
+      ],
+      "expected": {
+        "error": "RateLimited { retry_after: Some(30s) }"
+      }
+    }
+  ]
+}

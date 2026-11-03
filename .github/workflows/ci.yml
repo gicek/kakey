@@ -1,0 +1,94 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# Tool versions match the local toolchain (see docs/DEVELOPMENT.md); update them here when upgrading locally.
+env:
+  CARGO_DENY_VERSION: 0.20.2
+  CARGO_NDK_VERSION: 4.1.2
+  XCODEGEN_VERSION: 2.45.4
+
+jobs:
+  project:
+    # project.pbxproj is committed and make mac does not regenerate it (see AGENTS.md). Regenerate it here with a pinned
+    # XcodeGen and fail on any difference, so a project.yml change cannot land without its generated project.
+    runs-on: macos-26
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install XcodeGen
+        run: |
+          curl -fsSL -o "$RUNNER_TEMP/xcodegen.zip" \
+            "https://github.com/yonaskolb/XcodeGen/releases/download/${XCODEGEN_VERSION}/xcodegen.zip"
+          unzip -q "$RUNNER_TEMP/xcodegen.zip" -d "$RUNNER_TEMP"
+          echo "$RUNNER_TEMP/xcodegen/bin" >> "$GITHUB_PATH"
+      - name: Regenerate Xcode project
+        run: |
+          xcodegen --version
+          make project
+      - name: Check generated project is committed
+        run: |
+          git diff --stat Apple/Kakey.xcodeproj
+          test -z "$(git status --porcelain Apple/Kakey.xcodeproj)" || { echo "Apple/Kakey.xcodeproj is out of sync with project.yml: run make project locally and commit the result"; exit 1; }
+
+  core:
+    runs-on: macos-26
+    steps:
+      - uses: actions/checkout@v4
+      # Core/rust-toolchain.toml pins the toolchain version and targets; rustup installs them on the first cargo call.
+      - name: Install cargo-deny
+        run: cargo install cargo-deny --locked --version "$CARGO_DENY_VERSION"
+      - name: Test core
+        run: make test-core
+      - name: Check RustSec advisories
+        run: make core-audit
+
+  build-and-test:
+    # Same Xcode version as the local toolchain (26.5 / 17F42); update this when upgrading Xcode locally.
+    runs-on: macos-26
+    steps:
+      - uses: actions/checkout@v4
+      - name: Select Xcode
+        run: sudo xcode-select -s /Applications/Xcode_26.5.app
+      - name: Build
+        run: make mac
+      # Core, iOS and Android have their own jobs; this one tests Mac only.
+      - name: Test
+        run: make test-mac
+      - name: Release build
+        run: make mac CONFIGURATION=Release
+
+  ios:
+    runs-on: macos-26
+    steps:
+      - uses: actions/checkout@v4
+      - name: Select Xcode
+        run: sudo xcode-select -s /Applications/Xcode_26.5.app
+      - name: Build
+        run: make ios-simulator
+      - name: Test
+        run: make test-ios
+
+  android:
+    # Apple silicon runner: JVM unit tests load the core compiled for the host arm64 (Build/Core/android/host).
+    runs-on: macos-26
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+      - name: Install Android SDK packages and cargo-ndk
+        run: |
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --install "platforms;android-37" "build-tools;36.0.0" "ndk;29.0.14206865" >/dev/null
+          cargo install cargo-ndk --locked --version "$CARGO_NDK_VERSION"
+      - name: Test
+        run: make test-android
+      - name: Build
+        run: make android
+      # Instrumented tests (make test-android-device) need a device and do not run in CI. This verifies that the R8-shrunk
+      # release build succeeds (signed with the debug keystore the runner generates).
+      - name: Release build
+        run: make android-release

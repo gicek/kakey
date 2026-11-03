@@ -1,0 +1,5 @@
+# UniFFI binding generation config (library mode reads this file per crate). Swift bindings use the defaults.
+[bindings.kotlin]
+# Package of the bindings in the Android project; the cdylib name matches libkakey_ffi.so in jniLibs.
+package_name = "com.gicek.kakey.core"
+cdylib_name = "kakey_ffi"

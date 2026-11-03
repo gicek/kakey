@@ -1,0 +1,130 @@
+{
+  "decode" : [
+    {
+      "hex" : "666f6f626172",
+      "input" : "MZXW6YTBOI"
+    },
+    {
+      "hex" : "666f6f626172",
+      "input" : "mzxw6ytboi"
+    },
+    {
+      "hex" : "666f6f626172",
+      "input" : "MZXW 6YTB-OI"
+    },
+    {
+      "hex" : "666f6f626172",
+      "input" : "MZXW6YTBOI======"
+    },
+    {
+      "hex" : "666f6f",
+      "input" : "MZ=XW6"
+    },
+    {
+      "hex" : "",
+      "input" : "A"
+    },
+    {
+      "hex" : "00",
+      "input" : "AB"
+    },
+    {
+      "hex" : "00",
+      "input" : "ABC"
+    },
+    {
+      "hex" : null,
+      "input" : ""
+    },
+    {
+      "hex" : null,
+      "input" : "  "
+    },
+    {
+      "hex" : null,
+      "input" : "-="
+    },
+    {
+      "hex" : null,
+      "input" : "MZXW1"
+    },
+    {
+      "hex" : null,
+      "input" : "MZXW8"
+    },
+    {
+      "hex" : null,
+      "input" : "Ä"
+    },
+    {
+      "hex" : "31323334353637383930",
+      "input" : "GEZDGNBVGY3TQOJQ"
+    },
+    {
+      "hex" : "48656c6c6f21deadbeef",
+      "input" : "JBSWY3DPEHPK3PXP"
+    },
+    {
+      "hex" : "48656c6c6f21deadbeef",
+      "input" : "jbsw y3dp ehpk 3pxp"
+    },
+    {
+      "hex" : "666f6f626172",
+      "input" : "MZXW6YTBOI\n"
+    },
+    {
+      "hex" : "666f6f626172",
+      "input" : "\tMZXW6YTBOI"
+    },
+    {
+      "hex" : "666f6f626172",
+      "input" : "mzxw6ytboi "
+    }
+  ],
+  "encode" : [
+    {
+      "base32" : "",
+      "hex" : ""
+    },
+    {
+      "base32" : "MY",
+      "hex" : "66"
+    },
+    {
+      "base32" : "MZXQ",
+      "hex" : "666f"
+    },
+    {
+      "base32" : "MZXW6",
+      "hex" : "666f6f"
+    },
+    {
+      "base32" : "MZXW6YQ",
+      "hex" : "666f6f62"
+    },
+    {
+      "base32" : "MZXW6YTB",
+      "hex" : "666f6f6261"
+    },
+    {
+      "base32" : "MZXW6YTBOI",
+      "hex" : "666f6f626172"
+    },
+    {
+      "base32" : "AA",
+      "hex" : "00"
+    },
+    {
+      "base32" : "74",
+      "hex" : "ff"
+    },
+    {
+      "base32" : "AAAQEAYEAUDAOCAJCA",
+      "hex" : "0001020304050607080910"
+    },
+    {
+      "base32" : "GEZDGNBVGY3TQOJQGEZDGNBVGY3TQOJQ",
+      "hex" : "3132333435363738393031323334353637383930"
+    }
+  ]
+}

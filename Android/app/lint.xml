@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Android Lint configuration (part of the make test-android gate): build.gradle.kts sets warningsAsErrors = true with no
+  baseline, so findings are fixed in code. Only checks that do not apply to this repository are disabled here, each with a reason.
+-->
+<lint>
+    <!-- Strings are generated from the String Catalog at build time (scripts/android_strings.py); some keys are used only on Apple -->
+    <issue id="UnusedResources" severity="ignore" />
+    <!-- Chinese has no plural forms, so the generated zh plurals only have the "other" quantity -->
+    <issue id="MissingQuantity" severity="ignore" />
+    <!-- Dependency, Gradle and AGP versions are pinned in libs.versions.toml and the wrapper; upgrades are manual and update
+         THIRD_PARTY_NOTICES.md. "Newer version" checks would fail the gate on every upstream release, and
+         NewerVersionAvailable also needs network access -->
+    <issue id="GradleDependency" severity="ignore" />
+    <issue id="AndroidGradlePluginVersion" severity="ignore" />
+    <issue id="NewerVersionAvailable" severity="ignore" />
+    <!-- targetSdk tracks the current stable release (app/build.gradle.kts); raising it requires verifying each behavior change
+         of the new version, so lint does not drive it -->
+    <issue id="OldTargetApi" severity="ignore" />
+    <!-- The core is only cross-compiled for aarch64-linux-android (Core/scripts/build-android.sh); shipping arm64-v8a only is
+         intentional, and ChromeOS x86_64 is not supported -->
+    <issue id="ChromeOsAbiSupport" severity="ignore" />
+    <!-- Deliberate relaxation (see docs/SECURITY.md): a self-hosted WebDAV / Nextcloud server the
+         user has confirmed may use plain HTTP, and user-entered hosts cannot be declared per domain. The real constraint is
+         the origin check in the core's cloudset crate. Disabled for this one file only -->
+    <issue id="InsecureBaseConfiguration">
+        <ignore path="src/main/res/xml/network_security_config.xml" />
+    </issue>
+</lint>

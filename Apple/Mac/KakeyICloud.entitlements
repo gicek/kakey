@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- Used when a development team is configured (MAC_SIGNING_FLAGS in the Makefile; see docs/SECURITY.md). Adds iCloud
+	     (CloudKit private database) and silent push on top of Kakey.entitlements. These are restricted entitlements that must be
+	     signed with a provisioning profile, so ad-hoc builds cannot carry them.
+	     The environment follows the build configuration: Debug uses Development, Release uses Production. -->
+	<key>com.apple.security.device.camera</key>
+	<true/>
+	<key>com.apple.developer.icloud-container-identifiers</key>
+	<array>
+		<string>$(KAKEY_ICLOUD_CONTAINER)</string>
+	</array>
+	<key>com.apple.developer.icloud-services</key>
+	<array>
+		<string>CloudKit</string>
+	</array>
+	<key>com.apple.developer.icloud-container-environment</key>
+	<string>$(KAKEY_ICLOUD_ENVIRONMENT)</string>
+	<key>com.apple.developer.aps-environment</key>
+	<string>$(KAKEY_APS_ENVIRONMENT)</string>
+</dict>
+</plist>

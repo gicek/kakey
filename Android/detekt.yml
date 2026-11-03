@@ -1,0 +1,51 @@
+# detekt rules: only deviations from the default configuration (default-detekt-config.yml of detekt 1.23.8,
+# buildUponDefaultConfig = true), each with a reason. Formatting is left to ktlint (Android/.editorconfig), so
+# detekt-formatting is not installed. Individual exceptions use @Suppress in the code with a reason.
+# Part of the make test-android gate.
+
+complexity:
+  LongMethod:
+    # A Composable is one screen or one sheet, and its length follows the number of UI elements; splitting at a hard
+    # 60 lines would only turn state into parameters passed back and forth
+    ignoreAnnotated: ['Composable']
+  CyclomaticComplexMethod:
+    # Same as above: branches in a Composable correspond to UI states
+    ignoreAnnotated: ['Composable']
+  LongParameterList:
+    # A Composable's parameters are its slots and callbacks; Compose itself requires hoisting state into parameters
+    ignoreAnnotated: ['Composable']
+  TooManyFunctions:
+    # Count only non-private functions: private helpers are exactly how the public surface is kept small
+    ignorePrivate: true
+
+exceptions:
+  TooGenericExceptionCaught:
+    # The exceptions thrown at platform boundaries (files, Keystore, SAF, camera, core FFI) cannot be enumerated. Every catch
+    # rethrows CancellationException first and then maps the failure to state or a user message (see Android/docs/TECHNICAL.md).
+    # Catching by specific type would turn any unlisted exception into a crash
+    active: false
+  SwallowedException:
+    # Same as above: catch blocks map failures to UiText / state and do not need the exception object; a user canceling
+    # biometrics (BiometricCancelled) is silent by design
+    active: false
+
+naming:
+  FunctionNaming:
+    # Composable functions start with an uppercase letter per Compose conventions
+    ignoreAnnotated: ['Composable']
+
+style:
+  MagicNumber:
+    # dp values, animation durations and ratios in Composables are the design values themselves; named properties (palette,
+    # duration constants) already explain their meaning. Numbers in the domain and data layers are all named
+    ignoreAnnotated: ['Composable']
+    ignorePropertyDeclaration: true
+    # An enum entry's constructor arguments are its definition (e.g. AutoLockMode's seconds)
+    ignoreEnums: true
+  MaxLineLength:
+    # Line length is checked by ktlint at 140 (Android/.editorconfig); not maintained in two places
+    active: false
+  ReturnCount:
+    # The code consistently uses early returns: guard clauses, success returns inside try, and returns from each catch.
+    # Forcing a single exit would only add nesting
+    active: false

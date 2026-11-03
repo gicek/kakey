@@ -1,0 +1,60 @@
+{
+  "description": "Vault and encrypted export with categories, as written by the Rust core; pins the current format.",
+  "export": {
+    "accountIDs": [
+      "0B9A6F2E-5D41-4C7B-8E3A-1F2D3C4B5A60",
+      "1C8B7E3F-6E52-4D8C-9F4B-2E3D4C5B6A71"
+    ],
+    "categories": [
+      {
+        "accountIDs": [
+          "1C8B7E3F-6E52-4D8C-9F4B-2E3D4C5B6A71",
+          "0B9A6F2E-5D41-4C7B-8E3A-1F2D3C4B5A60"
+        ],
+        "id": "A1B2C3D4-0000-4000-8000-000000000001",
+        "name": "工作"
+      },
+      {
+        "accountIDs": [
+          "0B9A6F2E-5D41-4C7B-8E3A-1F2D3C4B5A60"
+        ],
+        "id": "A1B2C3D4-0000-4000-8000-000000000002",
+        "name": "Crypto"
+      }
+    ],
+    "file": "{\n  \"accountCount\": 2,\n  \"app\": \"kakey\",\n  \"cipher\": \"AES-256-GCM\",\n  \"ciphertext\": \"uDwyhh8YLDKUCcD9YBI4v8dE15JArnxYntsU4PoIcoKHdAXIbb57hVdldg53tRbWjY8Wvb8adDfqpPWUdbGGtVFghqr4VCp3ppECLIfUeINpKJ1CdyN5fndL3+l1RALbuziBPoT3Qk1z3kMtOsQqXVYupdaihTd7AdHLyEB7YwFEwAzxtgAMSoJ4FZbGmIQgxTnlF48ndl4iLBUPo2FDPAyOCiLSxbW5GcdLNm6v15mG0g+jUB0TfdSGYOqMDkpm1cOcd3xll7UOH9qBZimkPs/MpTHOfdLYVsabfGc51LnVkuOIHdCdpYBTuwpKwEZIVdsZZJqoo7hEInOkRbtWioXqwKfcBU5vYwSaHkhkcNJT02CfysJvbY0YMzDrJ//a/N7n1YEUhx9PCrX6KwQGkFVyre61lvIs4x5u2UBmw2LTsnp2Jj6aFggCALOgJ6fzzNkDPz1KYUSfQnbGsAiRd8yLk0Y6UhRgpLgW+VLciPb2m/ZoMMvv0RQKcgbtKVBkro0tWreSqplJkY3KJ5YhaICh3Shb8R6x+twPcYCagMglMsF+tSEHL2Yl6lz8Pj9ZZU17eJ3REruz/6mEdDQDLpoW0GG+fjPTWnVNz2GHyUetF3WmPILdPyogRrHtTa9p5Ve8bUpi7nz1slplej51ACGv2goC2zFynhL9zbHQNyhSzClP+mLsuGLdiJsVBUgCrCTB6yzIcfdHKUSIDjn+0/9+OSWa0cPX4CXowqgnJchRzSbsfdxIU5B5ohmaBy4pAcGyKUMzZMxUVBw95GHp/Mdyv3rsX3OqlT8T0nw3OSe0z9U2Swmveazg3SR0ySPrm1KAdeOC8q4XsgoRcnMK/QoRT6vLU/y/CGVJS2Y3lizEAaqc7KF9l6dUreb5nlVCDD151iWdn2i0absDrKdhKR57c43yQJ5I/gOE3hrVC4IgXzIpzTsf7r4aqPeqGdpfY8aoL1SLokqlGiGaFziXzzxd3Mj2uLE68t32Gsfm8wIoZZuIHFxyVJYTrqAnHDZSbNYNvqq/p5Ba+xh0/q8Xl6opfyeKOrYYZPJCaf8w7uNg/qaHWMFiWMsG3CtWbQT/XfPXP5Wo0bD1XJP9mO2PrYX9yodxfY0syKo/LeJ89FfuEeCjnypof3lo1z/eLw1z5RsH/vsyqUq6cegZIbG28mu6eb3tgM7mYwBR5O1eWdBQg/HT42yPSbVQdp00T/y3QbojucbK2XfqSb8eqqiCK5d7PoudOG/R+WQu6oMP45FsbzU9gNju/yjtNQoe9bCPcJjKltuOQZlvqV9TbTwpFUFKbZ2OpyKW8rBGhDDmVGn+/LOvRaI1ntkReuQnfr5w22FVLa+7VWK1FR5EmKlwGyj/7H4oAABpZtty9qb+Bb43SmW/y4Gf0gwIHttt+rJaF5qXlYUuYnoN8txpRgZe8to2bM2bw919NDmd+fxxfHLALjlEjXSL7EIpZFZoVdjwVmdE1O9qwZV1rfvwVyD94n/MuQE7+Upfy8AOvjzp4/1o/cBN7dBGeWiP\",\n  \"exportedAt\": \"2026-10-24T00:00:00Z\",\n  \"iterations\": 2,\n  \"kdf\": \"Argon2id\",\n  \"keyLength\": 32,\n  \"kind\": \"encrypted-account-export\",\n  \"memoryKiB\": 65536,\n  \"nonce\": \"uDwyhh8YLDKUCcD9\",\n  \"parallelism\": 1,\n  \"salt\": \"AdojFxWlgbwMPm94DxB4Lh8ZmMBQH5V1TBL5zdM2ugo=\",\n  \"version\": 2\n}",
+    "password": "kakey-export-pw"
+  },
+  "vault": {
+    "accountIDs": [
+      "0B9A6F2E-5D41-4C7B-8E3A-1F2D3C4B5A60",
+      "1C8B7E3F-6E52-4D8C-9F4B-2E3D4C5B6A71",
+      "2D7C8F40-7F63-4E9D-A05C-3F4E5D6C7B82"
+    ],
+    "categories": [
+      {
+        "accountIDs": [
+          "1C8B7E3F-6E52-4D8C-9F4B-2E3D4C5B6A71",
+          "0B9A6F2E-5D41-4C7B-8E3A-1F2D3C4B5A60"
+        ],
+        "id": "A1B2C3D4-0000-4000-8000-000000000001",
+        "name": "工作"
+      },
+      {
+        "accountIDs": [
+          "2D7C8F40-7F63-4E9D-A05C-3F4E5D6C7B82",
+          "0B9A6F2E-5D41-4C7B-8E3A-1F2D3C4B5A60"
+        ],
+        "id": "A1B2C3D4-0000-4000-8000-000000000002",
+        "name": "Crypto"
+      },
+      {
+        "accountIDs": [],
+        "id": "A1B2C3D4-0000-4000-8000-000000000003",
+        "name": "空分类"
+      }
+    ],
+    "file": "{\n  \"cipher\": \"AES-256-GCM\",\n  \"ciphertext\": \"a15LMNckcAmNab23GGMwP4ht2txJFASVJo7IAY19UAx582r++Ku8Sy7gjRxJqfNNKH0x9ufrUXOJ3e+3U+X8shHeFSGnxeSy0x/D2AEOZCf1+Nspao+2gcBoGORYNEL2OFge9cG8r1sw6B/6qVGuw94VS2iTSJoW3hMu3L0vLKX2YdJEU4RLjELqX3RYhOg55i06frjW8NENPT/Ln71HQvyf72L0Wzn8a9oQU4u1wqOMmmLXOIvna+TkEJO5K+skXb9Wx5wDC5GqieFX501xJtUUZsKcq5jYf473tu+CNELPURddB9Op+CF7FiRiMlupiHUpIRO6MiNK5TI0FNTqzXxXnd2wTx5KlZ8fVRBh5eoLQNI0UcB4TVAxbVPImYw5Ds/NtlwHKJbwyDTgWiiIok/o8qDPXRfg6g1+y8ZGKcmrFWROxyNes7+5kTl3aI52TURST6QX8Hp1gmVmTLOaRRmWo+sU2YqmtrUY3fRe8Pr27D9kAe10zSgc5Qv76GYD0NppwA2vYlkakpEAJc0fN1I+QJyHAu8s/DmL0rpUaEWuf2eAjh8KuneWDsbQYL63WXrgePD12OXahmhpM+35bqlMfM5UH5vzCnkcoaXtLt5f85Q8mrLZ8B35ddAhCQ0TwClWSV0qGo2OGKKSYjrfcr6eKn6QMnqd7yJHev2bnnApO0FAmQQOOiuP/PkMHzsTgc60armBenEvAsHjfAmzo/Dwk5AdtO19EhDGwSSQ/IPH5y1Ate8Tz8MQlXj0+HIgsHk+MMqsmbZUsRMNIDkyUYXIvLZGtjmZLu8u3y34pevdJo+PWqmWxeP520HCsogeVX/4d/SqWN3K3WpqfWx0vCDmw8b687S3KNIwhXCqJWJBTny8VcMGZiBqd/Sz2IA9EDR6mX0Y4XLZf9wcDODPzBGHcfgHUAPzB/hT9axSbXrBuOVyCmbUeXH4oAsOTzRDocVEyot/HDoLs26egi4wJm9bN+kuxefTmCSlJCOkY3WuRotVPkjvXSUFC5n8ZeuQJ9cwzJ3rf1sh0smRh060BJMkimpfx8sjWHK5Ow83ePWhcZsrRjnJ/ncaRO5Ts4SqYLnOfMDfEzK/FUNgc+QEjrP3lYJ3rCUCJvCj7UkWCjxm5TtHiej6Z5wbRldIthrFoAqnp5GNQt5im9OyT79cSWh0WixTo0U8GomoZ+5kitBx9mD2M+VBs6ffOQXWV0aQARBCiKcR2alECQUmiObg60t4zGOMshvPuqYsRItLt/NjfwcLWnPN/N6QE+AkTntCFYxUhnRChYMNRvQx02lGvmeBsGWAlFhBa7t98OxOrCuUEpACoHtHhfejqEBbDfDpO5n6LszBEGjqSe7bisKa9yN6z2vfX7nFwKJ00KVSiWoUFnGEO/MgPzuQZIKmzgA4OOs81+5El7Dn99qDvQs1tS99ENctwmdvAZsK7gWGOEhaCHC0Jhy7l937miXfeM1Qy/Eg8l8BURFwSJphfcyD4KOqWedAl37pX9yKTU9KhH1hqElORVIZn98p7M6ZbXrMaAfGeKJF4vaqyyBv1/3tOTWhg3ERbM2TOKrMRs6YxPATJb+hkgFm0X5SaDFgCmKiQ5czBrSlFBshu8gxpYxZxPwqpMXRBEDy9Nwdw05BT1BKEsRdF2aFT/KifURdaeyvNwahjCHbEkOaf515DQNbYX8vPhmSbOjiGK1wCEDZ7iJW7r2xIx5bfSjsQjkIbzdEUpRl/qfWVeZPcYu3ZK8z5OoQaj++YK4ft04d4e9ct2OM29ZCw4qG9EJdBE2Yx9Dz++L408PuJVjARXg1LkTnYDRN0MFSNgBDEd+JvnTLW6q/iERahY1gm//Evzsj/j4v4PfkAUTEuD54xPO/iT3M8V0pjpSLM2vSsk5yVZ2ZE0nP7g/jApKr7P7rRDSMXxbn/qHufYYSEysd9C8rLpzRy/voc228Nm2inuc4YmxkxWWQ+xudzwHjv7lRoAxDvNTmV8KpOv5Ei/6bWtcBmQmqkq7n32WqvYODuLwK04GeG+DQgXoq9Rutbo1XTE67Z01uMVzVvbi11LsJUjP+7QCIgMAT9M8/FoKYa8QgphknRxMi+npDUgHsjc6ohN525kS49LdveT8MT/cyGuksw7zn1l6/ukvTj6u4Kd/CM11Y5ZpwRPA1V7Makn0=\",\n  \"createdAt\": \"2026-10-24T00:00:00Z\",\n  \"iterations\": 2,\n  \"kdf\": \"Argon2id\",\n  \"keyLength\": 32,\n  \"memoryKiB\": 65536,\n  \"nonce\": \"a15LMNckcAmNab23\",\n  \"parallelism\": 1,\n  \"salt\": \"amGOKN92Qgfok5OoyKnsds2r7M/J4llqUGI/X4NMkYU=\",\n  \"updatedAt\": \"2026-10-24T00:00:00Z\",\n  \"version\": 2\n}",
+    "password": "kakey-golden-pw"
+  }
+}

@@ -1,0 +1,40 @@
+[package]
+name = "kakey-core"
+description = "Kakey platform-independent core: account model, TOTP, otpauth parsing, vault encryption, import and export"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+cloudset = { path = "../cloudset" }
+# Enable zeroize on all crypto dependencies: Argon2 working memory, AES key schedules, and HMAC / GHASH state are wiped after use.
+aes = { version = "0.9.3", features = ["zeroize"] }
+aes-gcm = { version = "0.11.1", features = ["zeroize"] }
+argon2 = { version = "0.6.0", features = ["zeroize"] }
+base64 = "0.23.1"
+caseless = "0.2.2"
+cbc = { version = "0.2.1", features = ["alloc", "zeroize"] }
+data-encoding = "2.11.1"
+getrandom = "0.4.3"
+hmac = { version = "0.13.0", features = ["zeroize"] }
+md-5 = "0.11.0"
+percent-encoding = "2.3.2"
+prost = "0.14.4"
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.151"
+sha1 = "0.11.0"
+sha2 = "0.11.0"
+thiserror = "2.0.21"
+time = { version = "0.3.55", features = ["formatting", "parsing"] }
+unicode-normalization = "0.1.25"
+url = "2.5.8"
+uuid = { version = "1.26.1", features = ["v4"] }
+# Single source of truth for password strength scoring (common passwords, words, keyboard patterns, sequences, dates, repeats);
+# the default builder feature is off.
+zxcvbn = { version = "3.1.1", default-features = false }
+zeroize = "1.9.0"
+
+[dev-dependencies]
+cloudset = { path = "../cloudset", features = ["testing"] }

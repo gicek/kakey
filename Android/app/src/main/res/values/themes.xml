@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- All UI is drawn by the Compose Material 3 theme; this only provides the window background and splash screen -->
+    <style name="Theme.Kakey" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <style name="Theme.Kakey.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/icon_background</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher_foreground</item>
+        <item name="postSplashScreenTheme">@style/Theme.Kakey</item>
+    </style>
+</resources>

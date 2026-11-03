@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>Kakey</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIconName</key>
+	<string>AppIcon</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
+		<string>zh-Hans</string>
+		<string>zh-Hant</string>
+	</array>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>$(MARKETING_VERSION)</string>
+	<!-- Only launches the app with an account id (kakey://reveal?id=); never carries secrets or passwords. -->
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>kakey</string>
+			</array>
+		</dict>
+	</array>
+	<key>CFBundleVersion</key>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<!-- iCloud backup container (see docs/SECURITY.md). Filled in by the signing configuration; empty when no development team is
+	     configured, in which case the iCloud option is disabled. -->
+	<key>KakeyICloudContainer</key>
+	<string>$(KAKEY_ICLOUD_CONTAINER)</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>$(MACOSX_DEPLOYMENT_TARGET)</string>
+	<key>LSMultipleInstancesProhibited</key>
+	<true/>
+	<!-- Cloud storage backups may use plain HTTP for self-hosted WebDAV / Nextcloud servers the user has confirmed (hosts are user
+	     input, so they cannot be declared per domain). The real constraints live in the core cloudset crate: OAuth providers are
+	     HTTPS-only, requests go only to the configured origin, and HTTPS -> HTTP downgrades are refused (see docs/SECURITY.md). -->
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>NSAppleScriptEnabled</key>
+	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Kakey uses the camera to scan 2FA QR codes. Images are processed on this device only.</string>
+	<key>NSPrincipalClass</key>
+	<string>NSApplication</string>
+	<!-- Lets local automation (such as the Alfred workflow) query verification codes; see Kakey.sdef. Only responds while unlocked. -->
+	<key>OSAScriptingDefinition</key>
+	<string>Kakey.sdef</string>
+</dict>
+</plist>

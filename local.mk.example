@@ -1,0 +1,25 @@
+# Copy to local.mk (not committed). Only machine-private settings go here; keep key files outside the repo.
+
+# Developer ID signing certificate name (used by make mac-release; when unset, the build stays ad-hoc signed and only
+# runs on this machine)
+# CODE_SIGN_IDENTITY := Developer ID Application: <Name> (<TEAMID>)
+# Keychain profile saved by `xcrun notarytool store-credentials` (when set, the release is notarized and stapled
+# automatically; requires CODE_SIGN_IDENTITY)
+# NOTARY_PROFILE := kakey
+
+# Team ID for signing iOS device and TestFlight builds (used by make ios-device; also enables iCloud backup and push)
+# DEVELOPMENT_TEAM := ABCDE12345
+
+# Mac signing Team ID: when set, make mac signs with a development certificate and automatic provisioning and enables
+# iCloud backup and push; with CODE_SIGN_IDENTITY also set, make mac-release exports with Developer ID
+# (see docs/DEVELOPMENT.md)
+# MAC_DEVELOPMENT_TEAM := ABCDE12345
+
+# Android release signing (used by make android-release). Set all four; otherwise the build is signed with the debug
+# keystore and can only be installed locally.
+# Keep the keystore outside the repo. Generate one with:
+# keytool -genkeypair -v -keystore ~/keys/kakey-release.jks -alias kakey -keyalg RSA -keysize 4096 -validity 10000
+# ANDROID_KEYSTORE := /Users/<you>/keys/kakey-release.jks
+# ANDROID_KEYSTORE_PASSWORD := <keystore password>
+# ANDROID_KEY_ALIAS := kakey
+# ANDROID_KEY_PASSWORD := <key password>

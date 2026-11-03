@@ -1,0 +1,60 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+*.swp
+*~
+
+# Single build directory for all derived output (see Makefile)
+/Build/
+# Old build output directory; make clean deletes it as a fallback
+/build/
+/dist/
+
+# Local developer configuration and keys
+local.mk
+# Developer keys for cloud backup (template: cloud-keys.example.toml)
+cloud-keys.toml
+.env
+.env.*
+!.env.example
+*.p8
+*.p12
+*.cer
+*.mobileprovision
+# Android signing keystores (keep outside the repo; set the path in local.mk)
+*.jks
+*.keystore
+
+# Rust (output goes to Build/Core/target; this is a fallback)
+Core/target/
+
+# Swift / Xcode (the app project's Package.resolved is committed with the xcodeproj to lock versions)
+.build/
+.swiftpm/
+DerivedData/
+xcuserdata/
+*.xcuserstate
+*.xcarchive
+*.app
+*.ipa
+*.dSYM
+*.dSYM.zip
+
+# Alfred workflow generated at build time (Apple/Mac/scripts/build-alfred-workflow.py regenerates it deterministically
+# from committed scripts and icons; see the alfred-workflow target in the Makefile)
+Apple/Mac/Resources/Kakey.alfredworkflow
+
+# Local toolchain
+.venv/
+__pycache__/
+*.pyc
+
+# Android (output goes to Build/Android/Gradle; fallback for running ./gradlew directly)
+Android/.gradle/
+Android/.kotlin/
+Android/build/
+Android/app/build/
+Android/local.properties
+*.apk
+*.aab

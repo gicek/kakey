@@ -1,0 +1,58 @@
+{
+  "export" : {
+    "accounts" : [
+      {
+        "addedBy" : "import",
+        "algorithm" : "SHA512",
+        "createdAt" : 1759219200,
+        "digits" : 8,
+        "id" : "7C9E6679-7425-40DE-944B-E07FC1F90AE7",
+        "issuer" : "Rust Core",
+        "period" : 30,
+        "secret" : "JBSWY3DPEHPK3PXP",
+        "username" : "Rust Core:writer@example.com"
+      },
+      {
+        "addedBy" : "manual",
+        "algorithm" : "SHA1",
+        "createdAt" : 0,
+        "digits" : 6,
+        "id" : "16FD2706-8BAF-433B-82EB-8C7FADA847DA",
+        "issuer" : "日本語 / \"quoted\"",
+        "period" : 60,
+        "secret" : "MZXW6YTBOI",
+        "username" : ""
+      }
+    ],
+    "file" : "{\n  \"accountCount\": 2,\n  \"app\": \"kakey\",\n  \"cipher\": \"AES-256-GCM\",\n  \"ciphertext\": \"1UaLlfHR0hTkDNlde6/bBna03dCZBShyZpE9wYpzMHAzvDCtS8vBIVky9vFDeN2s7IVddUh+l4FG4+yMzKyQX7KAlSKisDgPCK0i7NODH0wotobhx0rvyHH7dVXl8yefIZMK39cbw0Yxa/3cBl2O6Bp1iq34ERHYsO6Ps12EaAZeW9SgWOvqVlwEybraV2T7aY1BXc/FYz7pdm0LrwdReDo6544zbjWOwI5DN/Spr8xMj29PF0aX/qdoJiFvwo3T8kLIFcNifMjeOH5IGsP0QkWguDBDoueskaVQwn9Trs4lixYGu1gFRHXdKRTAhpP3IP1oNElEgRY8GKV1drVzL9ll7R2fDajt+XjLFrhS/Ctd6Zvld4U2wUa4RCQyk1TO1uMatJTk9XfUavn9oQ9mO0ynqFCb0luHJD//nDSk1/Y+QONuzfy6DWklV0Lg7Wpvc4woU6rtJrpDwoooWWOW1MvRN6cc+l4TnVVFL/AOZw5A56ATKby/0PflTdfVgebhiDo3xR+xUCuU097h+bQYm/iKBbYcSaaNZNujEKe8Mo/dHq7FbG3sp2PGOsFt4G4N9WQqBTQMDHTzyeKxX7wIvAOauEY9fyFTgDw0m6pJKi+f7Tl/dR7CkHd6u8wJdNVrBdXF+/NoTrI0pDEBQmkzm1QHFvyECmEaKQUnKV792v5oOECcSbr2aRElRvFFAIElape0PkADrkJ0xlTcw5iG0OQ6r4+TlwNTTvnZ28bhSY3J1QV51rNNsUpSt7oW8OzrojgN8kCLsGbzNi0QU8AijQicJPr+NS+FzVr8PWtcZb28rSmGZHBCOqNir/oIrfwTYnPd6HaY6raGNtK7/3xH0lIm+iEM7p4oVAKBbCkHxIfpHHXzow6VGtoPgWcqzXDZRL2nDLL1GcTOxrRMLwT6fCTTOhKXnQO51h97NU9jMUUf/otH/JT7pQZDTXOxsxa6O76fRcO7WldIvmS0esH3d+ikaTnImRILNeUzm0pPIqBR\",\n  \"exportedAt\": \"2026-09-30T08:56:12Z\",\n  \"iterations\": 2,\n  \"kdf\": \"Argon2id\",\n  \"keyLength\": 32,\n  \"kind\": \"encrypted-account-export\",\n  \"memoryKiB\": 65536,\n  \"nonce\": \"1UaLlfHR0hTkDNld\",\n  \"parallelism\": 1,\n  \"salt\": \"BXJ9XqnCHkCdApQT+CkAhxEb/iBIxSYb3hkLBAPLYqA=\",\n  \"version\": 2\n}",
+    "password" : "rust-export"
+  },
+  "vault" : {
+    "accounts" : [
+      {
+        "addedBy" : "import",
+        "algorithm" : "SHA512",
+        "createdAt" : 1759219200,
+        "digits" : 8,
+        "id" : "7C9E6679-7425-40DE-944B-E07FC1F90AE7",
+        "issuer" : "Rust Core",
+        "period" : 30,
+        "secret" : "JBSWY3DPEHPK3PXP",
+        "username" : "Rust Core:writer@example.com"
+      },
+      {
+        "addedBy" : "manual",
+        "algorithm" : "SHA1",
+        "createdAt" : 0,
+        "digits" : 6,
+        "id" : "16FD2706-8BAF-433B-82EB-8C7FADA847DA",
+        "issuer" : "日本語 / \"quoted\"",
+        "period" : 60,
+        "secret" : "MZXW6YTBOI",
+        "username" : ""
+      }
+    ],
+    "file" : "{\n  \"cipher\": \"AES-256-GCM\",\n  \"ciphertext\": \"1kfIUdfo565dCSnbq6pmd3w8/9BH6JVYfleZEv0f5wrclANde6TTHFx/fqWKbFJlnm92ueTQHbsbVcfh0IVu5+U4SFVtPRUCqhPTO2DtT8GDzP/M3QUkB2AynCPMPt462M391wyIl0oqItqz7f9155EanIdsk/enyjXYoXJL7SrSHonweVXpgK5/hm0dmRzk8JDATaHJ4wJwBmWqnpuL3p8o8O/Z10QSyxZrmaiIwSObvYDjvqju4imufA9dhgq+wqil9BIEKCYnmvPVHTxUut1OyUUMUo+0aOGc1cbyuvEgTyEj7MBDUrHvak9OeDhtiSPgyDmOId2yEAva58XhqlOEpdXtH7SXcmhthQRlQBkHsI4Jeeb1df6gZ5Hjji3qg/tbMXwkHh8KV475S61v5JMyinKwfXriQaOTY62EahA+6fa+vME/0Df/kljgfySTI1H/jZ9CoTJsnP3TgYsabdW4IhKWhCTQKUGAaZIJs9cp1uh5cpa0JeB9+uBbAnLGeFTRa6NyqIbmlxjzwT39lsNn+e28FgUNkw1JAB6dE3fsaQ6I6/qQnTHeo1pDGxZF1BSKyYE96eKzDfxoMCw6zKFA3UhTXQsH5ZX26B/638Go/5d//GHsN6VVQdQsjKTnujhI7bW1iDDp+mITcsP0zwIvUEKXmIm7mejMlD99CNNLehekQpERc9ZcCF+QBXEzfjGzXTvUOEBOknOO+zMsD+cYQKDA3ouWyYFnadkL5wnI6eFlFq0AQLjGBm23kFk2bTjXMzNn2l/oPeL0FZePdHtarvVjrZo4+NmUxalCGr7sfHSVbsFGBo7ebdtFgEQe13x4pfN8nO7DqFnSjALT+eBrCUB0C9x4vF/dYop6jCJ9iNvFNtKYGbWYOL9MalkcZciEpAUBKnvNIFhWCJi6haO1f+Jx4+WRKb8wmHyjCv7pfT7IRKcNgze2/hP0UaBEDkqCT+FBQSTd1lmbm8GzkN5hD8o7y2H81WtHciK3klBt38WHcSDcAiRlE8PBLxX8Eg054SKqmvbhTnHG3FxbDz3hAjbsA7SUyW+tFEC+6Z7YhIKh+3JlykQHh2ppQz2nlt/etB//EppE\",\n  \"createdAt\": \"2026-09-30T08:56:11Z\",\n  \"iterations\": 2,\n  \"kdf\": \"Argon2id\",\n  \"keyLength\": 32,\n  \"memoryKiB\": 65536,\n  \"nonce\": \"1kfIUdfo565dCSnb\",\n  \"parallelism\": 1,\n  \"salt\": \"0hBlLviDXAL3KGgCzQldBagciCiBcArw07nMaEqo+EI=\",\n  \"updatedAt\": \"2026-09-30T08:56:11Z\",\n  \"version\": 2\n}",
+    "password" : "rust-written password"
+  }
+}

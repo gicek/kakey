@@ -1,0 +1,18 @@
+# Developer keys for cloud backup (see docs/DEVELOPMENT.md). Copy to cloud-keys.toml at the repo root (gitignored, never
+# committed).
+# These are all public client IDs, not secrets: only PKCE is used, with no client secret.
+# Leaving a section empty hides that provider in the UI on all platforms; leaving full_* empty or false offers only the
+# Kakey app folder.
+# After editing, run make cloud-config to validate the format and list the callback URLs to register in each console.
+
+[google]
+client_id = ""            # Google Cloud Console client of type "iOS" (Bundle ID com.gicek.kakey), used by Mac, iOS and Android
+full_access = false       # true also requests the drive scope (a restricted scope; see docs/DEVELOPMENT.md)
+
+[dropbox]
+app_key = ""              # App Console, permission type App folder, app name Kakey
+full_app_key = ""         # A separate app of type Full Dropbox (Dropbox sets the permission type per app)
+
+[microsoft]
+client_id = ""            # Entra app registration, "Mobile and desktop applications"; audience: personal + work/school accounts
+full_access = false       # true allows choosing any folder (requests Files.ReadWrite)

@@ -1,0 +1,29 @@
+[package]
+name = "kakey-ffi"
+description = "The only public boundary of the Kakey core: UniFFI interface that generates the Swift / Kotlin bindings"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish.workspace = true
+rust-version.workspace = true
+
+[lib]
+name = "kakey_ffi"
+crate-type = ["lib", "staticlib", "cdylib"]
+
+[dependencies]
+cloudset = { path = "../cloudset" }
+getrandom = "0.4.3"
+kakey-core = { path = "../kakey-core" }
+thiserror = "2.0.21"
+uniffi = "0.32.2"
+uuid = "1.26.1"
+zeroize = "1.9.0"
+
+# Reads cloud-keys.toml at build time (build.rs); nothing from it ships in build output.
+[build-dependencies]
+serde = { version = "1.0.229", features = ["derive"] }
+toml = "1.1.6"
+
+[dev-dependencies]
+cloudset = { path = "../cloudset", features = ["testing"] }

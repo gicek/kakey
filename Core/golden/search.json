@@ -1,0 +1,222 @@
+{
+  "mask" : [
+    {
+      "input" : "alex@example.com",
+      "output" : "al***@example.com"
+    },
+    {
+      "input" : "k@x.io",
+      "output" : "k***@x.io"
+    },
+    {
+      "input" : "@x.io",
+      "output" : "***@x.io"
+    },
+    {
+      "input" : "13800138000",
+      "output" : "138****00"
+    },
+    {
+      "input" : "123456",
+      "output" : "12***"
+    },
+    {
+      "input" : "alex",
+      "output" : "al***"
+    },
+    {
+      "input" : "ka",
+      "output" : "ka"
+    },
+    {
+      "input" : "k",
+      "output" : "k"
+    },
+    {
+      "input" : "",
+      "output" : ""
+    },
+    {
+      "input" : "日本語",
+      "output" : "日本***"
+    },
+    {
+      "input" : "a@b@c",
+      "output" : "a***@b@c"
+    }
+  ],
+  "matches" : [
+    {
+      "expected" : true,
+      "issuer" : "Café Übersicht",
+      "query" : "cafe",
+      "username" : ""
+    },
+    {
+      "expected" : true,
+      "issuer" : "ＧｉｔＨｕｂ",
+      "query" : "github",
+      "username" : ""
+    },
+    {
+      "expected" : true,
+      "issuer" : "GitHub",
+      "query" : "ALEX EXAMPLE",
+      "username" : "alex@example.com"
+    },
+    {
+      "expected" : true,
+      "issuer" : "Google",
+      "query" : "ggl",
+      "username" : ""
+    },
+    {
+      "expected" : false,
+      "issuer" : "Google",
+      "query" : "lgg",
+      "username" : ""
+    },
+    {
+      "expected" : true,
+      "issuer" : "x",
+      "query" : " ",
+      "username" : "y"
+    },
+    {
+      "expected" : true,
+      "issuer" : "x",
+      "query" : "",
+      "username" : "y"
+    },
+    {
+      "expected" : true,
+      "issuer" : "微软",
+      "query" : "微",
+      "username" : ""
+    },
+    {
+      "expected" : true,
+      "issuer" : "Amazon Web Services",
+      "query" : "aws",
+      "username" : ""
+    },
+    {
+      "expected" : true,
+      "issuer" : "GitHub",
+      "query" : "hub",
+      "username" : ""
+    },
+    {
+      "expected" : false,
+      "issuer" : "GitHub",
+      "query" : "bug",
+      "username" : ""
+    },
+    {
+      "expected" : true,
+      "issuer" : "Ｃｏｉｎｂａｓｅ",
+      "query" : "coin",
+      "username" : ""
+    },
+    {
+      "expected" : true,
+      "issuer" : "naïve",
+      "query" : "NAIVE",
+      "username" : ""
+    },
+    {
+      "expected" : true,
+      "issuer" : "Straße",
+      "query" : "strasse",
+      "username" : ""
+    },
+    {
+      "expected" : true,
+      "issuer" : "ÅNGSTRÖM",
+      "query" : "angstrom",
+      "username" : ""
+    },
+    {
+      "expected" : true,
+      "issuer" : "x",
+      "query" : "user01",
+      "username" : "user_01"
+    }
+  ],
+  "monogram" : [
+    {
+      "input" : "Google Cloud Platform",
+      "output" : "GC"
+    },
+    {
+      "input" : "github",
+      "output" : "GIT"
+    },
+    {
+      "input" : "X",
+      "output" : "X"
+    },
+    {
+      "input" : "",
+      "output" : ""
+    },
+    {
+      "input" : "  spaced   out ",
+      "output" : "SO"
+    },
+    {
+      "input" : "日本 語",
+      "output" : "日語"
+    },
+    {
+      "input" : "ab",
+      "output" : "AB"
+    },
+    {
+      "input" : "Amazon Web",
+      "output" : "AW"
+    }
+  ],
+  "palette" : [
+    {
+      "index" : 2,
+      "issuer" : "GitHub"
+    },
+    {
+      "index" : 6,
+      "issuer" : "Google"
+    },
+    {
+      "index" : 5,
+      "issuer" : ""
+    },
+    {
+      "index" : 1,
+      "issuer" : "日本"
+    },
+    {
+      "index" : 5,
+      "issuer" : "Amazon Web Services"
+    },
+    {
+      "index" : 4,
+      "issuer" : "a"
+    },
+    {
+      "index" : 5,
+      "issuer" : "b"
+    },
+    {
+      "index" : 2,
+      "issuer" : "c"
+    },
+    {
+      "index" : 7,
+      "issuer" : "Microsoft"
+    },
+    {
+      "index" : 7,
+      "issuer" : "Apple"
+    }
+  ]
+}
