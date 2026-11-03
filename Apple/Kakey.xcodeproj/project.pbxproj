@@ -110,7 +110,6 @@
 		6ABBC5855B864CC5182DD076 /* BiometricAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78D06C99462EAB88A49F7D4 /* BiometricAuthService.swift */; };
 		6AE0F0C01EAC393624358564 /* AccountQRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B23B887D7B6068E2EA3976 /* AccountQRCodeView.swift */; };
 		6B040706AFB643222582FC85 /* MemoryICloudVaultStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D430C12089282DB2E3F683C /* MemoryICloudVaultStore.swift */; };
-		6B2A1DA857F955CE3CE75BA4 /* KakeyCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5699F586870A154BC216C553 /* KakeyCore.swift */; };
 		6C184A81A2FF419480D628A4 /* MemoryICloudVaultStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D430C12089282DB2E3F683C /* MemoryICloudVaultStore.swift */; };
 		6D3175A2645D98E91E3B3E16 /* RomanInputOnly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B8AF290838196254AF624A /* RomanInputOnly.swift */; };
 		6ED5816D6EB532A1E1DC3A1B /* CommonComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9087B52C2409C0C4E18ABF /* CommonComponents.swift */; };
@@ -168,7 +167,6 @@
 		B0D57B23C574126E462513DD /* JSONCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C08FFEB192E61C7FC985E1 /* JSONCoding.swift */; };
 		B139E28AD834F3D3C4A912AC /* FolderSyncBackend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70377642642C915A0C964E46 /* FolderSyncBackend.swift */; };
 		B33B579FF39317298B21EA18 /* VaultModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508FDB892C23B350E2B1E6EB /* VaultModels.swift */; };
-		B3BC9E6A8DACFFA0FB2DD4D8 /* KakeyCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5699F586870A154BC216C553 /* KakeyCore.swift */; };
 		B3C8C8BAED778C584CD876C1 /* UnlockLockout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAF4AE6B8BBA68CBDB7288B /* UnlockLockout.swift */; };
 		B63537CE79A92D76CB8B54A3 /* ScreenCapturePermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20A9D3AFCC0BBA213C73E33 /* ScreenCapturePermissionView.swift */; };
 		B6D5CEBADE5B01FCED95BE55 /* AppResourceBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BF13DF9377DBAEBA15A873 /* AppResourceBundle.swift */; };
@@ -182,6 +180,7 @@
 		C1A93D967EF129FBDEA19E5D /* MobileVaultStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BDFF9F950D85E1124FA1FA /* MobileVaultStore.swift */; };
 		C3360FF8A86F097AA45D94B5 /* SyncLocationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4ADD5B45151B4755529759 /* SyncLocationPicker.swift */; };
 		C3AED9FE5E5CD9AAD32C7438 /* SerialTaskQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933F018CB83883D6B79BA462 /* SerialTaskQueue.swift */; };
+		C555A33866848AFE394F4B42 /* KakeyCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB76F6F02FB25AA110CDCC2 /* KakeyCore.swift */; };
 		C62C3B3A09599233A2C1C06B /* VaultStore+Accounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0305D82D25470237506078C0 /* VaultStore+Accounts.swift */; };
 		C6E036DA40B3F9B043174184 /* UnlockFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9790CE5EB17173D55A0F6B90 /* UnlockFeedback.swift */; };
 		C7CA30FA79C9B12EF4833B26 /* ExternalFileLimits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8FC5A50E74D6CA24BB1BC6 /* ExternalFileLimits.swift */; };
@@ -231,6 +230,7 @@
 		FA8864811E77628295B64F85 /* MenuBarStatusItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5989B2318202CB3CCCE3285 /* MenuBarStatusItemController.swift */; };
 		FAB99539AA4F33A108C874C4 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 9A45EEF58A9731C040AD3AA3 /* Localizable.xcstrings */; };
 		FB1FD298E48B7827E51A8604 /* TOTPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F35B19CB2491077E935C624 /* TOTPService.swift */; };
+		FB24E911902864CEC959CCB9 /* KakeyCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB76F6F02FB25AA110CDCC2 /* KakeyCore.swift */; };
 		FB640D6189589AADDCC33729 /* MobileVaultStore+Sync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8109F77B48FD0A1CA902B469 /* MobileVaultStore+Sync.swift */; };
 		FB93E858A5697A6C1D31ECE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01AFDBA473FD50FB428B0E4D /* Assets.xcassets */; };
 		FCDC9CF09E76C1E8CB3EA2AE /* SyncFolderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADA40F2D2AE35531C0F7E01 /* SyncFolderService.swift */; };
@@ -311,7 +311,6 @@
 		508FDB892C23B350E2B1E6EB /* VaultModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultModels.swift; sourceTree = "<group>"; };
 		5219DFA553BF8C8C608179FC /* AtkinsonHyperlegibleMono-OFL.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "AtkinsonHyperlegibleMono-OFL.txt"; sourceTree = "<group>"; };
 		56233B6C60A63D0B259EFF09 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
-		5699F586870A154BC216C553 /* KakeyCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakeyCore.swift; sourceTree = "<group>"; };
 		5784652AF286D341BB7D687D /* AccountDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailView.swift; sourceTree = "<group>"; };
 		59206AF9039E1E43EDC2AC2A /* BiometricAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuth.swift; sourceTree = "<group>"; };
 		5A74FE9932FC5737A066C889 /* Locked.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locked.swift; sourceTree = "<group>"; };
@@ -418,6 +417,7 @@
 		D321FAD7A1DD8FC890391BA8 /* HTTPExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPExecutor.swift; sourceTree = "<group>"; };
 		D47B1D59FA315781D984C4FD /* ConflictReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConflictReview.swift; sourceTree = "<group>"; };
 		D7D2775683C8CB93DD94CD61 /* MobileVaultStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileVaultStoreTests.swift; sourceTree = "<group>"; };
+		DDB76F6F02FB25AA110CDCC2 /* KakeyCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KakeyCore.swift; path = ../Build/Core/apple/KakeyCore.swift; sourceTree = "<group>"; };
 		DDDA1FC547ED7963FCDDFAE1 /* L10n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
 		DEE51D87CC3405D2FA2FF97C /* UnlockForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockForm.swift; sourceTree = "<group>"; };
 		E01A1DEC0B5CA829D42D80D4 /* CategorySidebarSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySidebarSection.swift; sourceTree = "<group>"; };
@@ -548,14 +548,6 @@
 			path = Store;
 			sourceTree = "<group>";
 		};
-		1E7FB0B7E532F1E20C772B3D /* Build */ = {
-			isa = PBXGroup;
-			children = (
-				473BB7B09396FC20B638C113 /* Core */,
-			);
-			path = Build;
-			sourceTree = "<group>";
-		};
 		2AE637205132316F8D6F9ECA /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -604,14 +596,6 @@
 				2A168B953FE668663970196A /* WindowEventsView.swift */,
 			);
 			path = Components;
-			sourceTree = "<group>";
-		};
-		473BB7B09396FC20B638C113 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				70D50A42FC47AA2D62E913F9 /* apple */,
-			);
-			path = Core;
 			sourceTree = "<group>";
 		};
 		54C30E1872285444E2B63129 /* Tests */ = {
@@ -694,14 +678,6 @@
 				7B412990B326D69BEB690F2C /* Utilities */,
 			);
 			path = Shared;
-			sourceTree = "<group>";
-		};
-		70D50A42FC47AA2D62E913F9 /* apple */ = {
-			isa = PBXGroup;
-			children = (
-				5699F586870A154BC216C553 /* KakeyCore.swift */,
-			);
-			path = apple;
 			sourceTree = "<group>";
 		};
 		70DFC8E807FB9A6B7DC43683 /* Onboarding */ = {
@@ -844,13 +820,12 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		ACD337FC4D111D3907D2ED05 /* Kakey */ = {
+		C5CB1495090F0FF44CDAF688 /* Generated */ = {
 			isa = PBXGroup;
 			children = (
-				1E7FB0B7E532F1E20C772B3D /* Build */,
+				DDB76F6F02FB25AA110CDCC2 /* KakeyCore.swift */,
 			);
-			name = Kakey;
-			path = ..;
+			name = Generated;
 			sourceTree = "<group>";
 		};
 		C717411624531A0AB4C35BC3 /* Views */ = {
@@ -884,8 +859,8 @@
 		C92BB5FC86BBA7C93C3FE8A3 = {
 			isa = PBXGroup;
 			children = (
+				C5CB1495090F0FF44CDAF688 /* Generated */,
 				0986EBD4BC5C6001AA5389EF /* iOS */,
-				ACD337FC4D111D3907D2ED05 /* Kakey */,
 				87FF51C6B5755208667022B5 /* Mac */,
 				708BC5A4D6CF2CBF403CBB3F /* Shared */,
 				98DE5A38A267B73A7E185718 /* Frameworks */,
@@ -1200,7 +1175,7 @@
 				D98850EFB181FA570B3180FA /* ICloudSyncBackend.swift in Sources */,
 				B0D57B23C574126E462513DD /* JSONCoding.swift in Sources */,
 				42D379389CF9027E4266B8AE /* KakeyApp.swift in Sources */,
-				6B2A1DA857F955CE3CE75BA4 /* KakeyCore.swift in Sources */,
+				FB24E911902864CEC959CCB9 /* KakeyCore.swift in Sources */,
 				22921C5D86EBAC31EB163515 /* KakeyStyle.swift in Sources */,
 				7CAA2EA30F23060050F2EE0E /* L10n.swift in Sources */,
 				BF26F374EC6CBAB13E05B543 /* LabeledSecureField.swift in Sources */,
@@ -1311,7 +1286,7 @@
 				F6A80CA3DB4DF260C7C21583 /* HTTPExecutor.swift in Sources */,
 				003468BEA4E59185921BF695 /* ICloudSyncBackend.swift in Sources */,
 				00100DF576A1307D7BAD8FBB /* JSONCoding.swift in Sources */,
-				B3BC9E6A8DACFFA0FB2DD4D8 /* KakeyCore.swift in Sources */,
+				C555A33866848AFE394F4B42 /* KakeyCore.swift in Sources */,
 				BC021684D8D173DDBB65CD3D /* KakeyMobileApp.swift in Sources */,
 				3B845E3260507D223186E363 /* KeychainCloudConnectionStore.swift in Sources */,
 				451B6C9ED03D2704DED99ADE /* L10n.swift in Sources */,

@@ -82,7 +82,8 @@ jobs:
           java-version: "21"
       - name: Install Android SDK packages and cargo-ndk
         run: |
-          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --install "platforms;android-37" "build-tools;36.0.0" "ndk;29.0.14206865" >/dev/null
+          # The step runs with pipefail, and yes exits with SIGPIPE once sdkmanager is done, so ignore its status
+          (yes || true) | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --install "platforms;android-37" "build-tools;36.0.0" "ndk;29.0.14206865" >/dev/null
           cargo install cargo-ndk --locked --version "$CARGO_NDK_VERSION"
       - name: Test
         run: make test-android

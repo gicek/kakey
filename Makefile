@@ -157,8 +157,12 @@ clean: ## Delete Build/ and stray build output in the source tree
 		"$(CURDIR)/Android/.gradle" "$(CURDIR)/Android/.kotlin" "$(CURDIR)/Android/app/build" "$(CURDIR)/Android/build"
 	find scripts Apple Android Core -name __pycache__ -type d -prune -exec rm -rf {} +
 
+# XcodeGen's output depends on whether the generated Alfred workflow and core bindings exist, so make sure both do (an
+# empty bindings placeholder is enough; make core-apple replaces it). A clean checkout then generates the same project.
 project: ## Generate the Xcode project from Apple/project.yml (needs xcodegen)
 	@command -v xcodegen >/dev/null || { echo "XcodeGen missing: brew install xcodegen"; exit 1; }
+	@test -e "$(MAC_APP_DIR)/Resources/$(PRODUCT).alfredworkflow" || $(MAKE) --no-print-directory alfred-workflow
+	@mkdir -p "$(CORE_BUILD_ROOT)/apple" && { test -e "$(CORE_BUILD_ROOT)/apple/KakeyCore.swift" || : > "$(CORE_BUILD_ROOT)/apple/KakeyCore.swift"; }
 	cd Apple && xcodegen generate --quiet
 
 # Increment CFBundleVersion before every distribution. The build number is defined only in project.yml, so regenerate
